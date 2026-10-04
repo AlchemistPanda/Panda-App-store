@@ -1,4 +1,27 @@
 {
   "schema": 1,
-  "apps": []
+  "apps": [
+    {
+      "packageName": "com.pandacollection.pandagarage",
+      "releases": [
+        {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "tag": "com.pandacollection.pandagarage-v1.0.6-b7",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.6-b7/PandaGarage-v1.0.6-2026-10-02.apk",
+          "size": 176745929,
+          "sha256": "549c38250e9717989e9c1de1062263a64a4b8561f8edcea5a4b60cba1a6c0dd8",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T08:19:02Z",
+          "notes": "First release in Panda App Store."
+        }
+      ],
+      "name": "Panda Garage",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
+      "updatedAt": "2026-10-04T08:19:02Z"
+    }
+  ],
+  "updatedAt": "2026-10-04T08:19:02Z"
 }
