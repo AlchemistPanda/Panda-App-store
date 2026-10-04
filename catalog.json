@@ -2,6 +2,27 @@
   "schema": 1,
   "apps": [
     {
+      "packageName": "com.pandaapps.appstore",
+      "releases": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "tag": "com.pandaapps.appstore-v1.0.0-b1",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.0-b1/PandaAppStore-v1.0.0-b1-2026-10-04.apk",
+          "size": 12907241,
+          "sha256": "6d2ecc6a0958353b26ea14b5cb2be641fa9a40d520d5402812955d14e3fecce2",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-04T09:17:58Z",
+          "notes": "First release of Panda App Store: browse your apps, install and update them, background update checks, deep links from ntfy notifications."
+        }
+      ],
+      "name": "Panda App Store",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png",
+      "updatedAt": "2026-10-04T09:17:58Z"
+    },
+    {
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
@@ -23,5 +44,5 @@
       "updatedAt": "2026-10-04T08:19:02Z"
     }
   ],
-  "updatedAt": "2026-10-04T08:19:02Z"
+  "updatedAt": "2026-10-04T09:17:58Z"
 }
