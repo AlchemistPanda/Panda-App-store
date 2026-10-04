@@ -47,6 +47,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.13",
+          "versionCode": 14,
+          "tag": "com.pandacollection.pandagarage-v1.0.13-b14",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.13-b14/PandaGarage-v1.0.13-b14-2026-10-05.apk",
+          "size": 176856213,
+          "sha256": "83cd8c2c0376216d49483eb8434c1368c783f3ef7ced615dc643f6f6b1ed3262",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T20:06:21Z",
+          "notes": "New Name mode in the scanner: type the car's name or point the camera at just the name, and pick the brand first. Scanned cards are now checked against the online catalogs so you can pick the right car, then choose its colour from photos. You can now add a car you own in a new colour."
+        },
+        {
           "versionName": "1.0.12",
           "versionCode": 13,
           "tag": "com.pandacollection.pandagarage-v1.0.12-b13",
@@ -58,25 +71,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-04T19:20:02Z",
           "notes": "Ownership-first design improvements: on-device color detection for accurate vehicle identification. Enhanced vehicle scanning shows identification source (AI Vision or optical reader). Faster, smarter collection management."
-        },
-        {
-          "versionName": "1.0.10",
-          "versionCode": 11,
-          "tag": "com.pandacollection.pandagarage-v1.0.10-b11",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.10-b11/PandaGarage-v1.0.10-b11-2026-10-05.apk",
-          "size": 176804161,
-          "sha256": "e1869dd5d40a43d5646a4f65eae9086a98189cdd743a9fbe1bc6ac0527e4ed16",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-04T18:35:48Z",
-          "notes": "Tap + to go straight to the camera. With AI Vision on, scanning a card or a loose car now also picks up its colour, maker and series, and warns you when you own the casting only in a different colour."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-04T19:20:02Z"
+      "updatedAt": "2026-10-04T20:06:21Z"
     }
   ],
-  "updatedAt": "2026-10-04T19:20:02Z"
+  "updatedAt": "2026-10-04T20:06:21Z"
 }
