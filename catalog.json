@@ -23,6 +23,27 @@
       "updatedAt": "2026-10-04T09:17:58Z"
     },
     {
+      "packageName": "com.casiohunt",
+      "releases": [
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "tag": "com.casiohunt-v1.0.3-b4",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.3-b4/CasioHunt-v1.0.3-b4-2026-10-05.apk",
+          "size": 16700188,
+          "sha256": "d3f6f881c6e07775223452fb87727553d010b08a28db4d97dfd4aa31e23568b0",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T18:52:45Z",
+          "notes": "Smarter model-number matching across stores, so short models like F-91W and GA-2100 are found more reliably. 'Limited stock' now counts as available for Buy and cheapest-price. Clearer alerts when a watch hits your target price, plus visual polish."
+        }
+      ],
+      "name": "Panda Casio Hunt",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png",
+      "updatedAt": "2026-10-04T18:52:45Z"
+    },
+    {
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
@@ -57,5 +78,5 @@
       "updatedAt": "2026-10-04T18:35:48Z"
     }
   ],
-  "updatedAt": "2026-10-04T18:35:48Z"
+  "updatedAt": "2026-10-04T18:52:45Z"
 }
