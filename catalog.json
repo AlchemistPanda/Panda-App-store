@@ -47,6 +47,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.14",
+          "versionCode": 15,
+          "tag": "com.pandacollection.pandagarage-v1.0.14-b15",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.14-b15/PandaGarage-v1.0.14-b15-2026-10-05.apk",
+          "size": 176856325,
+          "sha256": "12672a03c998f1d635f13d64a05340f65a775d57a22cccf341bbf20c4de7a54d",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T20:22:01Z",
+          "notes": "Fixes the scanner layout broken in 1.0.13: the card frame, shutter and + add flow are back in place, and switching between Card and Name mode lines up again. Name mode now has a Find button for typed names."
+        },
+        {
           "versionName": "1.0.13",
           "versionCode": 14,
           "tag": "com.pandacollection.pandagarage-v1.0.13-b14",
@@ -58,25 +71,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-04T20:06:21Z",
           "notes": "New Name mode in the scanner: type the car's name or point the camera at just the name, and pick the brand first. Scanned cards are now checked against the online catalogs so you can pick the right car, then choose its colour from photos. You can now add a car you own in a new colour."
-        },
-        {
-          "versionName": "1.0.12",
-          "versionCode": 13,
-          "tag": "com.pandacollection.pandagarage-v1.0.12-b13",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.12-b13/PandaGarage-v1.0.12-b13-2026-10-05.apk",
-          "size": 176840021,
-          "sha256": "5bd957283978757a944f83de7b4fe4b337f1ad88cc88d9b383c86b6fe1f7f23a",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-04T19:20:02Z",
-          "notes": "Ownership-first design improvements: on-device color detection for accurate vehicle identification. Enhanced vehicle scanning shows identification source (AI Vision or optical reader). Faster, smarter collection management."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-04T20:06:21Z"
+      "updatedAt": "2026-10-04T20:22:01Z"
     }
   ],
-  "updatedAt": "2026-10-04T20:06:21Z"
+  "updatedAt": "2026-10-04T20:22:01Z"
 }
