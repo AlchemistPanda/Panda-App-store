@@ -26,6 +26,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.7",
+          "versionCode": 8,
+          "tag": "com.pandacollection.pandagarage-v1.0.7-b8",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.7-b8/PandaGarage-v1.0.7-b8-2026-10-04.apk",
+          "size": 176754557,
+          "sha256": "7ced2951c15df24e91a8b3d9a8087e3ebf46ff71509e67cabae41c5bd6080fdf",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T11:15:19Z",
+          "notes": "Find in stores: each car in a case now shows which shops have it in stock and at what price, with a filter for cars you can buy now. Deal scores compare prices across shops. Fixes to picking shops for hunt automation."
+        },
+        {
           "versionName": "1.0.6",
           "versionCode": 7,
           "tag": "com.pandacollection.pandagarage-v1.0.6-b7",
@@ -41,8 +54,8 @@
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-04T08:19:02Z"
+      "updatedAt": "2026-10-04T11:15:19Z"
     }
   ],
-  "updatedAt": "2026-10-04T09:17:58Z"
+  "updatedAt": "2026-10-04T11:15:19Z"
 }
