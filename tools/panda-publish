@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+"""Publish an APK to Panda App Store.
+
+Usage: panda-publish <app.apk> [--notes "what changed"] [--dry-run]
+                                [--allow-new-signer] [--no-notify]
+
+Reads package/version/build number/label/icon/signer straight from the APK,
+uploads it as a GitHub release, updates catalog.json on the catalog branch,
+deletes that app's releases beyond the newest `keepReleases`, and sends an
+ntfy push so the phone knows there is an update.
+
+Config: ~/.config/panda-store/config.json (kept out of the public repo because
+it holds the ntfy topic).
+"""
+
+import argparse
+import base64
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import zipfile
+from datetime import datetime, timezone
+from pathlib import Path
+
+CONFIG_PATH = Path.home() / ".config/panda-store/config.json"
+SDK = Path(os.environ.get("ANDROID_HOME", Path.home() / "Library/Android/sdk"))
+DENSITY_ORDER = ["xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi", "ldpi"]
+
+
+def die(msg, code=1):
+    print(f"panda-publish: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def run(cmd, **kw):
+    res = subprocess.run(cmd, capture_output=True, text=True, **kw)
+    if res.returncode != 0:
+        die(f"command failed: {' '.join(map(str, cmd))}\n{res.stderr.strip()}")
+    return res.stdout
+
+
+def build_tool(name):
+    tools_dir = SDK / "build-tools"
+    if not tools_dir.is_dir():
+        die(f"Android build-tools not found under {SDK}")
+    versions = sorted(
+        (d for d in tools_dir.iterdir() if (d / name).exists()),
+        key=lambda d: [int(x) if x.isdigit() else 0 for x in re.split(r"[.-]", d.name)],
+    )
+    if not versions:
+        die(f"{name} not found in {tools_dir}")
+    return str(versions[-1] / name)
+
+
+# ---------- APK inspection ----------
+
+def read_apk(apk):
+    badging = run([build_tool("aapt2"), "dump", "badging", str(apk)])
+    pkg = re.search(r"^package: name='([^']+)' versionCode='(\d+)' versionName='([^']*)'", badging, re.M)
+    if not pkg:
+        die("could not read package info from the APK")
+    label = re.search(r"^application-label:'([^']*)'", badging, re.M)
+    icon = re.search(r"^application: label='[^']*' icon='([^']+)'", badging, re.M)
+    min_sdk = re.search(r"^(?:minSdkVersion|sdkVersion):'(\d+)'", badging, re.M)
+    target_sdk = re.search(r"^targetSdkVersion:'(\d+)'", badging, re.M)
+
+    certs = run([build_tool("apksigner"), "verify", "--print-certs", str(apk)])
+    signer = re.search(r"certificate SHA-256 digest: ([0-9a-f]+)", certs)
+    if not signer:
+        die("APK is not signed (apksigner found no certificate)")
+
+    sha = hashlib.sha256()
+    with open(apk, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            sha.update(chunk)
+
+    return {
+        "packageName": pkg.group(1),
+        "versionCode": int(pkg.group(2)),
+        "versionName": pkg.group(3),
+        "name": label.group(1) if label else pkg.group(1),
+        "iconPath": icon.group(1) if icon else None,
+        "minSdk": int(min_sdk.group(1)) if min_sdk else None,
+        "targetSdk": int(target_sdk.group(1)) if target_sdk else None,
+        "signerSha256": signer.group(1),
+        "sha256": sha.hexdigest(),
+        "size": apk.stat().st_size,
+    }
+
+
+def extract_icon(apk, icon_path):
+    """Return (bytes, ext) of the best bitmap launcher icon, or None.
+
+    Adaptive icons are XML, so look up the resource that points at the icon
+    path and take its highest-density png/webp variant instead.
+    """
+    if not icon_path:
+        return None
+    candidate = icon_path
+    if icon_path.endswith(".xml"):
+        dump = run([build_tool("aapt2"), "dump", "resources", str(apk)])
+        blocks = re.split(r"^\s*resource 0x", dump, flags=re.M)
+        block = next((b for b in blocks if f"(file) {icon_path}" in b), None)
+        if not block:
+            return None
+        files = dict(re.findall(r"\(([^)]*)\) \(file\) (\S+\.(?:png|webp))", block))
+        candidate = None
+        for density in DENSITY_ORDER:
+            match = next((p for cfg, p in files.items() if density in cfg.split("-")), None)
+            if match:
+                candidate = match
+                break
+        if not candidate and files:
+            candidate = next(iter(files.values()))
+        if not candidate:
+            return None
+    with zipfile.ZipFile(apk) as z:
+        try:
+            data = z.read(candidate)
+        except KeyError:
+            return None
+    return data, candidate.rsplit(".", 1)[-1]
+
+
+# ---------- GitHub ----------
+
+def gh(*args, input_data=None):
+    res = subprocess.run(["gh", *args], capture_output=True, text=True, input=input_data)
+    return res
+
+
+def get_file(repo, branch, path):
+    """Return (bytes, blob_sha) or (None, None) if the file does not exist."""
+    res = gh("api", f"repos/{repo}/contents/{path}?ref={branch}")
+    if res.returncode != 0:
+        if "Not Found" in res.stderr or "404" in res.stderr:
+            return None, None
+        die(f"could not read {path} from {repo}@{branch}\n{res.stderr.strip()}")
+    meta = json.loads(res.stdout)
+    if meta.get("encoding") == "base64" and meta.get("content"):
+        return base64.b64decode(meta["content"]), meta["sha"]
+    raw = gh("api", "-H", "Accept: application/vnd.github.raw", f"repos/{repo}/contents/{path}?ref={branch}")
+    return raw.stdout.encode(), meta["sha"]
+
+
+def put_file(repo, branch, path, data, message, sha=None):
+    body = {"message": message, "content": base64.b64encode(data).decode(), "branch": branch}
+    if sha:
+        body["sha"] = sha
+    res = gh("api", "-X", "PUT", f"repos/{repo}/contents/{path}", "--input", "-", input_data=json.dumps(body))
+    if res.returncode != 0:
+        die(f"could not write {path} to {repo}@{branch}\n{res.stderr.strip()}")
+
+
+def git_blob_sha(data):
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+
+
+# ---------- main ----------
+
+def main():
+    ap = argparse.ArgumentParser(description="Publish an APK to Panda App Store")
+    ap.add_argument("apk", type=Path)
+    ap.add_argument("--notes", default=None, help="what changed in this build")
+    ap.add_argument("--dry-run", action="store_true", help="inspect and validate only")
+    ap.add_argument("--allow-new-signer", action="store_true",
+                    help="publish even though the signing key changed (phone must uninstall first)")
+    ap.add_argument("--no-notify", action="store_true", help="skip the ntfy push")
+    args = ap.parse_args()
+
+    if not CONFIG_PATH.exists():
+        die(f"missing config {CONFIG_PATH}")
+    cfg = json.loads(CONFIG_PATH.read_text())
+    repo, branch = cfg["repo"], cfg.get("catalogBranch", "store")
+    keep = int(cfg.get("keepReleases", 2))
+
+    apk = args.apk.expanduser().resolve()
+    if not apk.is_file() or apk.suffix != ".apk":
+        die(f"not an APK: {apk}")
+    if not shutil.which("gh"):
+        die("GitHub CLI (gh) not installed")
+    if gh("auth", "status").returncode != 0:
+        die("gh is not logged in — run: gh auth login")
+
+    info = read_apk(apk)
+    pkg, code, name = info["packageName"], info["versionCode"], info["versionName"]
+    print(f"{info['name']}  {pkg}  v{name}  build {code}  {info['size'] / 1e6:.1f} MB")
+
+    # Validate against the catalog.
+    raw, catalog_sha = get_file(repo, branch, "catalog.json")
+    catalog = json.loads(raw) if raw else {"schema": 1, "apps": []}
+    app = next((a for a in catalog["apps"] if a["packageName"] == pkg), None)
+    if app and app.get("releases"):
+        latest = app["releases"][0]
+        if code <= latest["versionCode"]:
+            die(f"build number {code} is not higher than the published build "
+                f"{latest['versionCode']} (v{latest['versionName']}). Bump versionCode and rebuild.", 2)
+        if latest["signerSha256"] != info["signerSha256"] and not args.allow_new_signer:
+            die("this APK is signed with a different key than the published build, so it cannot "
+                "update the installed app. Sign it with the original keystore, or pass "
+                "--allow-new-signer (the phone will have to uninstall the old app first).", 3)
+
+    if args.dry_run:
+        print("dry run: validation passed, nothing published")
+        return
+
+    tag = f"{pkg}-v{name}-b{code}"
+    notes = args.notes or f"Version {name} (build {code})"
+    released_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+    with tempfile.TemporaryDirectory(prefix="panda-publish-") as tmp:
+        # Upload the APK as a release.
+        notes_file = Path(tmp) / "notes.md"
+        notes_file.write_text(notes)
+        print(f"uploading release {tag} …")
+        res = gh("release", "create", tag, str(apk), "--repo", repo,
+                 "--title", f"{info['name']} {name} (build {code})", "--notes-file", str(notes_file))
+        if res.returncode != 0:
+            die(f"release upload failed\n{res.stderr.strip()}")
+        apk_url = f"https://github.com/{repo}/releases/download/{tag}/{apk.name.replace(' ', '.')}"
+
+        # Icon (only rewritten when it changed).
+        icon_url = app.get("iconUrl") if app else None
+        icon = extract_icon(apk, info["iconPath"])
+        if icon:
+            data, ext = icon
+            icon_path = f"icons/{pkg}.{ext}"
+            _, existing_sha = get_file(repo, branch, icon_path)
+            if existing_sha != git_blob_sha(data):
+                put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
+            icon_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}"
+
+    # Update the catalog: newest release first, keep only `keep`.
+    release = {
+        "versionName": name, "versionCode": code, "tag": tag,
+        "apkUrl": apk_url, "size": info["size"], "sha256": info["sha256"],
+        "signerSha256": info["signerSha256"], "minSdk": info["minSdk"],
+        "targetSdk": info["targetSdk"], "releasedAt": released_at, "notes": notes,
+    }
+    if not app:
+        app = {"packageName": pkg, "releases": []}
+        catalog["apps"].append(app)
+    app["name"] = info["name"]
+    app["iconUrl"] = icon_url
+    app["updatedAt"] = released_at
+    app["releases"] = [release] + app["releases"]
+    dropped = app["releases"][keep:]
+    app["releases"] = app["releases"][:keep]
+    catalog["apps"].sort(key=lambda a: a["name"].lower())
+    catalog["updatedAt"] = released_at
+    put_file(repo, branch, "catalog.json",
+             (json.dumps(catalog, indent=2) + "\n").encode(),
+             f"{info['name']} {name} (build {code})", catalog_sha)
+    print("catalog updated")
+
+    # Delete this app's releases beyond the newest `keep`.
+    res = gh("release", "list", "--repo", repo, "--limit", "1000", "--json", "tagName,createdAt")
+    if res.returncode == 0:
+        mine = [r for r in json.loads(res.stdout) if r["tagName"].startswith(f"{pkg}-v")]
+        mine.sort(key=lambda r: r["createdAt"], reverse=True)
+        kept_tags = {r["tag"] for r in app["releases"]}
+        for r in mine[keep:]:
+            if r["tagName"] in kept_tags:
+                continue
+            if gh("release", "delete", r["tagName"], "--repo", repo, "--yes", "--cleanup-tag").returncode == 0:
+                print(f"deleted old release {r['tagName']}")
+    elif dropped:
+        print("warning: could not list releases to clean up", file=sys.stderr)
+
+    # Push notification.
+    topic = cfg.get("ntfyTopic")
+    if topic and not args.no_notify:
+        server = cfg.get("ntfyServer", "https://ntfy.sh").rstrip("/")
+        body = f"{info['name']} {name} (build {code}) is ready to install.\n{notes}"
+        res = subprocess.run(
+            ["curl", "-sS", "-f", "-o", "/dev/null",
+             "-H", f"Title: {info['name']} update available",
+             "-H", "Tags: panda_face,arrow_up",
+             "-H", f"Click: pandastore://app/{pkg}",
+             "-d", body, f"{server}/{topic}"],
+            capture_output=True, text=True)
+        print("phone notified" if res.returncode == 0 else f"warning: ntfy push failed: {res.stderr.strip()}")
+
+    print(f"published {info['name']} v{name} (build {code})")
+
+
+if __name__ == "__main__":
+    main()
