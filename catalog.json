@@ -26,6 +26,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.9",
+          "versionCode": 10,
+          "tag": "com.pandacollection.pandagarage-v1.0.9-b10",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.9-b10/PandaGarage-v1.0.9-b10-2026-10-04.apk",
+          "size": 176800029,
+          "sha256": "883ad641a1bb6c0c0e50f9ca8c0a7b2bc5fa5ac9fb51a74b602bb25abc59bf0b",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-04T17:41:33Z",
+          "notes": "Continued improvements and refinements"
+        },
+        {
           "versionName": "1.0.8",
           "versionCode": 9,
           "tag": "com.pandacollection.pandagarage-v1.0.8-b9",
@@ -37,25 +50,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-04T15:18:13Z",
           "notes": "Ownership-first UI redesign: improved layout and card presentation for your collection.\nAdded vision-powered image detection for better photo capture.\nEnhanced shop data and catalog improvements."
-        },
-        {
-          "versionName": "1.0.7",
-          "versionCode": 8,
-          "tag": "com.pandacollection.pandagarage-v1.0.7-b8",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.7-b8/PandaGarage-v1.0.7-b8-2026-10-04.apk",
-          "size": 176754557,
-          "sha256": "7ced2951c15df24e91a8b3d9a8087e3ebf46ff71509e67cabae41c5bd6080fdf",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-04T11:15:19Z",
-          "notes": "Find in stores: each car in a case now shows which shops have it in stock and at what price, with a filter for cars you can buy now. Deal scores compare prices across shops. Fixes to picking shops for hunt automation."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-04T15:18:13Z"
+      "updatedAt": "2026-10-04T17:41:33Z"
     }
   ],
-  "updatedAt": "2026-10-04T15:18:13Z"
+  "updatedAt": "2026-10-04T17:41:33Z"
 }
