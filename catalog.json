@@ -47,6 +47,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.15",
+          "versionCode": 16,
+          "tag": "com.pandacollection.pandagarage-v1.0.15-b16",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.15-b16/PandaGarage-v1.0.15-b16-2026-10-06.apk",
+          "size": 176873093,
+          "sha256": "ef553d63d5f63b0f67c2151e0d13ad81d2ac427f45461d7fa02a4b3893c8bde4",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-05T19:29:49Z",
+          "notes": "Enhanced card and car scanner: chassis generation codes (R32 vs R34) and vintage years ('67 vs '69) now prevent false duplicate matches. Added iconic racing livery variant detection (Gulf, Advan, Falken), multi-signal catalog triangulation, and automatic Treasure Hunt / Super Treasure Hunt identification with improved blister paint color detection."
+        },
+        {
           "versionName": "1.0.14",
           "versionCode": 15,
           "tag": "com.pandacollection.pandagarage-v1.0.14-b15",
@@ -58,25 +71,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-04T20:22:01Z",
           "notes": "Fixes the scanner layout broken in 1.0.13: the card frame, shutter and + add flow are back in place, and switching between Card and Name mode lines up again. Name mode now has a Find button for typed names."
-        },
-        {
-          "versionName": "1.0.13",
-          "versionCode": 14,
-          "tag": "com.pandacollection.pandagarage-v1.0.13-b14",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.13-b14/PandaGarage-v1.0.13-b14-2026-10-05.apk",
-          "size": 176856213,
-          "sha256": "83cd8c2c0376216d49483eb8434c1368c783f3ef7ced615dc643f6f6b1ed3262",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-04T20:06:21Z",
-          "notes": "New Name mode in the scanner: type the car's name or point the camera at just the name, and pick the brand first. Scanned cards are now checked against the online catalogs so you can pick the right car, then choose its colour from photos. You can now add a car you own in a new colour."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-04T20:22:01Z"
+      "updatedAt": "2026-10-05T19:29:49Z"
     }
   ],
-  "updatedAt": "2026-10-04T20:22:01Z"
+  "updatedAt": "2026-10-05T19:29:49Z"
 }
