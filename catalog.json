@@ -39,6 +39,19 @@
       "packageName": "com.casiohunt",
       "releases": [
         {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.casiohunt-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.4-b5/CasioHunt-v1.0.4-b5-2026-10-06.apk",
+          "size": 16765724,
+          "sha256": "a9b56f5e63847c4e9ff1a4620cbacdf6ab2e316da0039487ccb04108efb3599d",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-06T17:26:39Z",
+          "notes": "Added Stock History & Hot Sellers tracking: view a live chronological feed of watches restocked and sold out on each price refresh, see stock velocity metrics (duration in stock), discover hot sellers, and jump straight to watch details to buy when in stock."
+        },
+        {
           "versionName": "1.0.3",
           "versionCode": 4,
           "tag": "com.casiohunt-v1.0.3-b4",
@@ -54,7 +67,7 @@
       ],
       "name": "Panda Casio Hunt",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png",
-      "updatedAt": "2026-10-04T18:52:45Z"
+      "updatedAt": "2026-10-06T17:26:39Z"
     },
     {
       "packageName": "com.pandacollection.pandagarage",
@@ -91,5 +104,5 @@
       "updatedAt": "2026-10-06T15:08:46Z"
     }
   ],
-  "updatedAt": "2026-10-06T15:08:46Z"
+  "updatedAt": "2026-10-06T17:26:39Z"
 }
