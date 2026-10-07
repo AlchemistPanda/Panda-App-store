@@ -46,6 +46,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.TouchApp
 import androidx.compose.material.icons.filled.Upgrade
 import androidx.compose.material.icons.outlined.Block
@@ -169,6 +170,24 @@ fun AppDetailScreen(packageName: String, viewModel: StoreViewModel, onBack: () -
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
+                actions = {
+                    if (app != null) {
+                        val progress = state.sharing[app.packageName]
+                        if (progress != null) {
+                            Box(Modifier.size(48.dp), contentAlignment = Alignment.Center) {
+                                if (progress >= 0f) {
+                                    CircularProgressIndicator(progress = { progress }, modifier = Modifier.size(22.dp), strokeWidth = 2.dp)
+                                } else {
+                                    CircularProgressIndicator(modifier = Modifier.size(22.dp), strokeWidth = 2.dp)
+                                }
+                            }
+                        } else {
+                            IconButton(onClick = { viewModel.share(app.packageName) }) {
+                                Icon(Icons.Filled.Share, contentDescription = "Share APK")
+                            }
+                        }
                     }
                 },
             )

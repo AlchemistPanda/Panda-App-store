@@ -68,6 +68,8 @@ data class StoreUiState(
     val isOffline: Boolean = false,
     val lastChecked: Long? = null,
     val settings: Settings = Settings(),
+    /** Package -> share download progress (0..1, or -1 while unknown) for apps being prepared for sharing. */
+    val sharing: Map<String, Float> = emptyMap(),
     val canInstallPackages: Boolean = true,
     val notificationsAllowed: Boolean = true,
 ) {
@@ -95,6 +97,9 @@ sealed interface StoreEvent {
 
     /** A short message for a snackbar. */
     data class Message(val text: String) : StoreEvent
+
+    /** An APK is ready to hand to the system share sheet. */
+    data class ShareApk(val file: java.io.File, val appName: String, val versionName: String) : StoreEvent
 }
 
 /**
@@ -127,6 +132,9 @@ class StoreViewModel(
     /** The user left for the "Install unknown apps" page from the dialog and hasn't come back yet. */
     private var awaitingPermissionReturn = false
 
+    private val sharing = MutableStateFlow<Map<String, Float>>(emptyMap())
+    private var shareJob: kotlinx.coroutines.Job? = null
+
     private val _events = Channel<StoreEvent>(Channel.BUFFERED)
     val events: Flow<StoreEvent> = _events.receiveAsFlow()
 
@@ -143,8 +151,17 @@ class StoreViewModel(
         installManager.states,
         settingsRepository.settings,
         permissions,
-    ) { catalogState, apps, installStates, settings, perms ->
-        toUiState(catalogState, apps, installStates, settings, perms)
+        sharing,
+    ) { values ->
+        @Suppress("UNCHECKED_CAST")
+        toUiState(
+            values[0] as CatalogState,
+            values[1] as AppsSnapshot,
+            values[2] as Map<String, InstallState>,
+            values[3] as Settings,
+            values[4] as Permissions,
+            values[5] as Map<String, Float>,
+        )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS), StoreUiState())
 
     init {
@@ -212,6 +229,30 @@ class StoreViewModel(
     }
 
     fun cancel(packageName: String) = installManager.cancel(packageName)
+
+    /** Downloads the latest APK of [packageName] and emits [StoreEvent.ShareApk] for the share sheet. */
+    fun share(packageName: String) {
+        if (packageName in sharing.value) return
+        val app = catalogRepository.findApp(packageName)
+        val release = app?.latest ?: return message("Nothing to share yet")
+        shareJob = viewModelScope.launch {
+            sharing.value = sharing.value + (packageName to -1f)
+            try {
+                val file = installManager.downloadForShare(app, release) { bytes, total ->
+                    val progress = if (total > 0) (bytes.toFloat() / total).coerceIn(0f, 1f) else -1f
+                    sharing.value = sharing.value + (packageName to progress)
+                }
+                _events.trySend(StoreEvent.ShareApk(file, app.name, release.versionName))
+            } catch (e: kotlinx.coroutines.CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                appLog.w(TAG, "Could not prepare ${app.name} for sharing", e)
+                message("Couldn't download the APK to share")
+            } finally {
+                sharing.value = sharing.value - packageName
+            }
+        }
+    }
 
     /** Opens the system uninstall dialog. */
     fun uninstall(packageName: String) = installManager.uninstall(packageName)
@@ -385,6 +426,7 @@ class StoreViewModel(
         installStates: Map<String, InstallState>,
         settings: Settings,
         perms: Permissions,
+        sharing: Map<String, Float>,
     ): StoreUiState {
         val hasCatalog = catalogState.catalog != null
         return StoreUiState(
@@ -398,6 +440,7 @@ class StoreViewModel(
             isOffline = catalogState.isOffline,
             lastChecked = catalogState.lastUpdated,
             settings = settings,
+            sharing = sharing,
             canInstallPackages = perms.canInstallPackages,
             notificationsAllowed = perms.notificationsAllowed,
         )

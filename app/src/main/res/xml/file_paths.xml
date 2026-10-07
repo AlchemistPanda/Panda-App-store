@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- APK copies handed to the share sheet (WhatsApp, Gmail, Telegram, ...). -->
+    <cache-path name="shared_apks" path="share/" />
+</paths>

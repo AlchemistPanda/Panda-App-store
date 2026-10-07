@@ -274,6 +274,32 @@ class InstallManager(
 
     fun downloadsCacheSize(): Long = downloader.cacheSize()
 
+    /**
+     * Downloads [release] (reusing a cached copy) and copies it to `cacheDir/share/<name>-v<version>.apk`
+     * so the share sheet shows a readable file name. Earlier shared copies are removed first.
+     */
+    suspend fun downloadForShare(
+        app: CatalogApp,
+        release: CatalogRelease,
+        onProgress: (bytes: Long, total: Long) -> Unit,
+    ): File {
+        val apk = downloader.download(release.apkUrl, app.packageName, release.versionCode, release.size, onProgress)
+        return withContext(Dispatchers.IO) {
+            val dir = File(appContext.cacheDir, SHARE_DIR)
+            dir.listFiles()?.forEach { it.delete() }
+            dir.mkdirs()
+            val safeName = app.name.replace(Regex("[^A-Za-z0-9._-]+"), "")
+            val target = File(dir, "$safeName-v${release.versionName}.apk")
+            apk.copyTo(target, overwrite = true)
+            target
+        }
+    }
+
+    /** Deletes the copies made for the share sheet. */
+    fun clearSharedCopies() {
+        File(appContext.cacheDir, SHARE_DIR).listFiles()?.forEach { it.delete() }
+    }
+
     /** Deletes cached APKs (skipped while an install is running). Returns bytes freed. */
     fun clearDownloads(): Long {
         if (_states.value.values.any { it.isBusy }) return 0L
@@ -470,6 +496,7 @@ class InstallManager(
         private const val TAG = "Install"
         private const val NO_SESSION = -1
         private const val APK_DIR = "apks"
+        private const val SHARE_DIR = "share"
         private val APK_NAME = Regex("^(.+)-(\\d+)\\.apk$")
         private const val ONE_DAY_MILLIS = 24 * 60 * 60 * 1000L
         private const val SUCCESS_STATE_MILLIS = 4_000L

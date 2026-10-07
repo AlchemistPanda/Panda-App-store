@@ -3,6 +3,11 @@
 
 Usage: panda-publish <app.apk> [--notes "what changed"] [--dry-run]
                                 [--allow-new-signer] [--no-notify]
+                                [--icon FILE.png] [--icon-only]
+
+--icon      use this image as the store icon instead of reading one from the APK
+--icon-only refresh just the store icon (and catalog entry) for the app already
+            published from this APK's package; no release, no push
 
 Reads package/version/build number/label/icon/signer straight from the APK,
 uploads it as a GitHub release, updates catalog.json on the catalog branch,
@@ -109,6 +114,9 @@ def extract_icon(apk, icon_path):
         if not block:
             return None
         files = dict(re.findall(r"\(([^)]*)\) \(file\) (\S+\.(?:png|webp))", block))
+        if not files:
+            drawn = render_adaptive_icon(apk, icon_path)
+            return (drawn, "png") if drawn else None
         candidate = None
         for density in DENSITY_ORDER:
             match = next((p for cfg, p in files.items() if density in cfg.split("-")), None)
@@ -126,6 +134,252 @@ def extract_icon(apk, icon_path):
             return None
     return data, candidate.rsplit(".", 1)[-1]
 
+
+# ---------- vector launcher icons ----------
+#
+# Many apps declare an adaptive icon whose foreground is a VectorDrawable, so
+# there is no bitmap anywhere in the APK to pull out. Render it ourselves:
+# background colour/bitmap + foreground vector, cropped to the visible area and
+# rounded. Supports the path commands M L H V C S Q T A Z with fill and stroke,
+# which covers hand-drawn launcher vectors. Anything fancier (groups, clip
+# paths, gradients) returns None and the publisher then says so loudly.
+
+def _parse_color(value):
+    m = re.fullmatch(r"#([0-9a-fA-F]{8}|[0-9a-fA-F]{6})", value.strip())
+    if not m:
+        return None
+    h = m.group(1)
+    if len(h) == 6:
+        h = "ff" + h
+    a, r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4, 6))
+    return (r, g, b, a)
+
+
+def _arc_points(x1, y1, rx, ry, phi, fa, fs, x2, y2, steps=32):
+    import math
+    if rx == 0 or ry == 0 or (x1 == x2 and y1 == y2):
+        return [(x2, y2)]
+    rx, ry = abs(rx), abs(ry)
+    cp, sp = math.cos(math.radians(phi)), math.sin(math.radians(phi))
+    dx, dy = (x1 - x2) / 2, (y1 - y2) / 2
+    x1p, y1p = cp * dx + sp * dy, -sp * dx + cp * dy
+    lam = x1p ** 2 / rx ** 2 + y1p ** 2 / ry ** 2
+    if lam > 1:
+        rx, ry = rx * math.sqrt(lam), ry * math.sqrt(lam)
+    num = rx ** 2 * ry ** 2 - rx ** 2 * y1p ** 2 - ry ** 2 * x1p ** 2
+    den = rx ** 2 * y1p ** 2 + ry ** 2 * x1p ** 2
+    co = math.sqrt(max(0, num / den)) * (-1 if fa == fs else 1)
+    cxp, cyp = co * rx * y1p / ry, -co * ry * x1p / rx
+    cx = cp * cxp - sp * cyp + (x1 + x2) / 2
+    cy = sp * cxp + cp * cyp + (y1 + y2) / 2
+
+    def ang(ux, uy, vx, vy):
+        a = math.atan2(ux * vy - uy * vx, ux * vx + uy * vy)
+        return a
+    th1 = ang(1, 0, (x1p - cxp) / rx, (y1p - cyp) / ry)
+    dth = ang((x1p - cxp) / rx, (y1p - cyp) / ry, (-x1p - cxp) / rx, (-y1p - cyp) / ry)
+    if not fs and dth > 0:
+        dth -= 2 * math.pi
+    elif fs and dth < 0:
+        dth += 2 * math.pi
+    pts = []
+    for i in range(1, steps + 1):
+        t = th1 + dth * i / steps
+        x, y = rx * math.cos(t), ry * math.sin(t)
+        pts.append((cp * x - sp * y + cx, sp * x + cp * y + cy))
+    return pts
+
+
+def _flatten_path(d):
+    """Path data -> list of (points, closed) subpaths in viewport units."""
+    toks = re.findall(r"[MmLlHhVvCcSsQqTtAaZz]|[-+]?(?:\d+\.?\d*|\.\d+)(?:[eE][-+]?\d+)?", d)
+    subs, cur, closed = [], [], False
+    i, cmd = 0, None
+    x = y = sx = sy = 0.0
+    lastc = None  # last control point, for S / T
+
+    def num():
+        nonlocal i
+        v = float(toks[i]); i += 1
+        return v
+
+    def bez(p0, c1, c2, p3, n=24):
+        out = []
+        for k in range(1, n + 1):
+            t = k / n; u = 1 - t
+            out.append((u**3 * p0[0] + 3*u*u*t * c1[0] + 3*u*t*t * c2[0] + t**3 * p3[0],
+                        u**3 * p0[1] + 3*u*u*t * c1[1] + 3*u*t*t * c2[1] + t**3 * p3[1]))
+        return out
+
+    while i < len(toks):
+        if re.fullmatch(r"[A-Za-z]", toks[i]):
+            cmd = toks[i]; i += 1
+            if cmd in "Zz":
+                if cur:
+                    subs.append((cur, True))
+                cur, x, y = [], sx, sy
+                continue
+        rel = cmd.islower()
+        c = cmd.upper()
+        if c == "M":
+            nx, ny = num(), num()
+            if rel: nx, ny = x + nx, y + ny
+            if cur: subs.append((cur, False))
+            x, y, sx, sy = nx, ny, nx, ny
+            cur = [(x, y)]
+            cmd = "l" if rel else "L"
+            lastc = None
+        elif c == "L":
+            nx, ny = num(), num()
+            if rel: nx, ny = x + nx, y + ny
+            x, y = nx, ny; cur.append((x, y)); lastc = None
+        elif c == "H":
+            nx = num(); x = x + nx if rel else nx; cur.append((x, y)); lastc = None
+        elif c == "V":
+            ny = num(); y = y + ny if rel else ny; cur.append((x, y)); lastc = None
+        elif c in "CS":
+            if c == "C":
+                c1 = (num(), num())
+                if rel: c1 = (x + c1[0], y + c1[1])
+            else:
+                c1 = (2 * x - lastc[0], 2 * y - lastc[1]) if lastc else (x, y)
+            c2 = (num(), num()); p = (num(), num())
+            if rel:
+                c2 = (x + c2[0], y + c2[1]); p = (x + p[0], y + p[1])
+            cur += bez((x, y), c1, c2, p); lastc = c2; x, y = p
+        elif c in "QT":
+            if c == "Q":
+                q = (num(), num())
+                if rel: q = (x + q[0], y + q[1])
+            else:
+                q = (2 * x - lastc[0], 2 * y - lastc[1]) if lastc else (x, y)
+            p = (num(), num())
+            if rel: p = (x + p[0], y + p[1])
+            cur += bez((x, y), (x + 2*(q[0]-x)/3, y + 2*(q[1]-y)/3),
+                       (p[0] + 2*(q[0]-p[0])/3, p[1] + 2*(q[1]-p[1])/3), p)
+            lastc = q; x, y = p
+        elif c == "A":
+            rx, ry, phi, fa, fs = num(), num(), num(), int(num()), int(num())
+            p = (num(), num())
+            if rel: p = (x + p[0], y + p[1])
+            cur += _arc_points(x, y, rx, ry, phi, fa, fs, p[0], p[1]); x, y = p; lastc = None
+        else:
+            raise ValueError(f"unsupported path command {cmd}")
+    if cur:
+        subs.append((cur, False))
+    return subs
+
+
+def _res_table(apk):
+    """resource id -> list of (config, value) from `aapt2 dump resources`."""
+    table = {}
+    dump = run([build_tool("aapt2"), "dump", "resources", str(apk)])
+    for block in re.split(r"^\s*resource (?=0x)", dump, flags=re.M)[1:]:
+        lines = block.splitlines()
+        rid = lines[0].split()[0]
+        vals = []
+        for ln in lines[1:]:
+            m = re.match(r"\s*\(([^)]*)\)\s+(.*)", ln)
+            if m:
+                vals.append((m.group(1), m.group(2).strip()))
+        table[rid] = vals
+    return table
+
+
+def _layer_image(apk, table, ref, size):
+    """RGBA image of one adaptive-icon layer, or None if it can't be drawn."""
+    from PIL import Image, ImageDraw
+    import io
+    vals = table.get(ref)
+    if not vals:
+        return None
+    value = vals[-1][1]
+    color = _parse_color(value)
+    if color:
+        return Image.new("RGBA", (size, size), color)
+    m = re.match(r"\(file\) (\S+)", value)
+    if not m:
+        return None
+    path = m.group(1)
+    if path.endswith((".png", ".webp")):
+        with zipfile.ZipFile(apk) as z:
+            return Image.open(io.BytesIO(z.read(path))).convert("RGBA").resize((size, size))
+    if not path.endswith(".xml"):
+        return None
+    xml = run([build_tool("aapt2"), "dump", "xmltree", "--file", path, str(apk)])
+    if re.search(r"E: (group|clip-path)", xml) or "gradient" in xml:
+        return None
+    vw = re.search(r"viewportWidth\(0x[0-9a-f]+\)=([\d.]+)", xml)
+    vh = re.search(r"viewportHeight\(0x[0-9a-f]+\)=([\d.]+)", xml)
+    if not vw or not vh or "E: vector" not in xml:
+        return None
+    sx, sy = size / float(vw.group(1)), size / float(vh.group(1))
+    img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img, "RGBA")
+    for chunk in re.split(r"^\s*E: path.*$", xml, flags=re.M)[1:]:
+        attr = {k: v for k, v in re.findall(r"android:(\w+)\(0x[0-9a-f]+\)=(\"[^\"]*\"|\S+)", chunk.split("\n      E:")[0])}
+        d = attr.get("pathData", "").split("\" (Raw")[0].strip('"')
+        if not d:
+            continue
+        fill = _parse_color(attr.get("fillColor", ""))
+        stroke = _parse_color(attr.get("strokeColor", ""))
+        sw = float(attr.get("strokeWidth", "0") or 0)
+        for pts, is_closed in _flatten_path(d):
+            px = [(a * sx, b * sy) for a, b in pts]
+            if fill and len(px) > 2:
+                draw.polygon(px, fill=fill)
+            if stroke and sw > 0 and len(px) > 1:
+                draw.line(px + ([px[0]] if is_closed else []), fill=stroke,
+                          width=max(1, round(sw * sx)), joint="curve")
+    return img
+
+
+def render_adaptive_icon(apk, icon_path, out=192):
+    """Draw an adaptive-icon XML (background + foreground) to PNG bytes, or None."""
+    try:
+        from PIL import Image, ImageDraw
+        import io
+        xml = run([build_tool("aapt2"), "dump", "xmltree", "--file", icon_path, str(apk)])
+        refs, layer = {}, None
+        for ln in xml.splitlines():
+            m = re.match(r"\s*E: ([\w-]+)", ln)
+            if m:
+                layer = m.group(1)
+            m = re.search(r"drawable\(0x[0-9a-f]+\)=@(0x[0-9a-f]+)", ln)
+            if m and layer in ("background", "foreground"):
+                refs[layer] = m.group(1)
+        if "foreground" not in refs:
+            return None
+        big = out * 4  # supersample, then shrink for smooth edges
+        table = _res_table(apk)
+        fg = _layer_image(apk, table, refs["foreground"], big)
+        if fg is None:
+            return None
+        bg = _layer_image(apk, table, refs["background"], big) if "background" in refs else None
+        canvas = bg or Image.new("RGBA", (big, big), (255, 255, 255, 255))
+        canvas.alpha_composite(fg)
+        lo, hi = round(big * 18 / 108), round(big * 90 / 108)  # the 72dp visible window
+        canvas = canvas.crop((lo, lo, hi, hi)).resize((out, out), Image.LANCZOS)
+        mask = Image.new("L", (out * 4, out * 4), 0)
+        ImageDraw.Draw(mask).rounded_rectangle((0, 0, out * 4 - 1, out * 4 - 1), radius=out * 4 * 0.22, fill=255)
+        canvas.putalpha(mask.resize((out, out), Image.LANCZOS))
+        buf = io.BytesIO()
+        canvas.save(buf, "PNG")
+        return buf.getvalue()
+    except Exception as e:  # never let icon drawing break a publish
+        print(f"warning: could not draw the vector icon: {e}", file=sys.stderr)
+        return None
+
+
+
+def resolve_icon(apk, info, override=None):
+    """(bytes, ext) for the store icon: the --icon file if given, else read from the APK."""
+    if override:
+        f = Path(override).expanduser()
+        if not f.is_file() or f.suffix.lower() not in (".png", ".webp", ".jpg", ".jpeg"):
+            die(f"--icon must be a png/webp/jpg file: {f}")
+        return f.read_bytes(), f.suffix.lower().lstrip(".").replace("jpeg", "jpg")
+    return extract_icon(apk, info["iconPath"])
 
 # ---------- GitHub ----------
 
@@ -171,6 +425,9 @@ def main():
     ap.add_argument("--allow-new-signer", action="store_true",
                     help="publish even though the signing key changed (phone must uninstall first)")
     ap.add_argument("--no-notify", action="store_true", help="skip the ntfy push")
+    ap.add_argument("--icon", type=Path, default=None, help="image to use as the store icon")
+    ap.add_argument("--icon-only", action="store_true",
+                    help="update only the store icon for the already-published app")
     args = ap.parse_args()
 
     if not CONFIG_PATH.exists():
@@ -195,6 +452,25 @@ def main():
     raw, catalog_sha = get_file(repo, branch, "catalog.json")
     catalog = json.loads(raw) if raw else {"schema": 1, "apps": []}
     app = next((a for a in catalog["apps"] if a["packageName"] == pkg), None)
+
+    if args.icon_only:
+        if not app:
+            die(f"{pkg} is not in the catalog yet; publish it first")
+        icon = resolve_icon(apk, info, args.icon)
+        if not icon:
+            die("no icon could be read from the APK; pass --icon FILE.png")
+        data, ext = icon
+        icon_path = f"icons/{pkg}.{ext}"
+        _, existing_sha = get_file(repo, branch, icon_path)
+        if existing_sha != git_blob_sha(data):
+            put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
+        new_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}"
+        if app.get("iconUrl") != new_url:
+            app["iconUrl"] = new_url
+            put_file(repo, branch, "catalog.json", (json.dumps(catalog, indent=2) + "\n").encode(),
+                     f"Icon for {info['name']}", catalog_sha)
+        print(f"icon updated for {info['name']}: {new_url}")
+        return
     if app and app.get("releases"):
         latest = app["releases"][0]
         if code <= latest["versionCode"]:
@@ -226,7 +502,10 @@ def main():
 
         # Icon (only rewritten when it changed).
         icon_url = app.get("iconUrl") if app else None
-        icon = extract_icon(apk, info["iconPath"])
+        icon = resolve_icon(apk, info, args.icon)
+        if not icon:
+            print("WARNING: no store icon could be read from this APK, so the store will show "
+                  "none. Re-run with --icon FILE.png (or --icon-only) to set one.", file=sys.stderr)
         if icon:
             data, ext = icon
             icon_path = f"icons/{pkg}.{ext}"

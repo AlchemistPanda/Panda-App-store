@@ -82,6 +82,7 @@ fun PandaNavGraph(
             when (event) {
                 StoreEvent.NeedInstallPermission -> showInstallPermissionDialog = true
                 is StoreEvent.Message -> snackbarHostState.showSnackbar(event.text)
+                is StoreEvent.ShareApk -> shareApk(context, event)
             }
         }
     }
@@ -220,3 +221,28 @@ private fun AnimatedContentTransitionScope<NavBackStackEntry>.backExit(): ExitTr
         animationSpec = tween(NAV_DURATION, easing = navEasing),
         targetOffset = { it / 4 },
     ) + fadeOut(tween(NAV_DURATION / 2)) + scaleOut(targetScale = 0.98f)
+
+/** Hands a downloaded APK to the system share sheet (WhatsApp, Gmail, Telegram, Bluetooth, ...). */
+private fun shareApk(context: android.content.Context, event: StoreEvent.ShareApk) {
+    val uri = androidx.core.content.FileProvider.getUriForFile(
+        context,
+        "${context.packageName}.fileprovider",
+        event.file,
+    )
+    val send = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
+        type = "application/vnd.android.package-archive"
+        putExtra(android.content.Intent.EXTRA_STREAM, uri)
+        putExtra(android.content.Intent.EXTRA_SUBJECT, "${event.appName} ${event.versionName}")
+        putExtra(android.content.Intent.EXTRA_TEXT, "${event.appName} ${event.versionName} (Android APK)")
+        addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    }
+    val chooser = android.content.Intent.createChooser(send, "Share ${event.appName}").apply {
+        clipData = android.content.ClipData.newRawUri("", uri)
+        addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    }
+    try {
+        context.startActivity(chooser)
+    } catch (_: ActivityNotFoundException) {
+        // No app can take a file share; nothing useful to do.
+    }
+}
