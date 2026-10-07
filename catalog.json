@@ -73,6 +73,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.18",
+          "versionCode": 19,
+          "tag": "com.pandacollection.pandagarage-v1.0.18-b19",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.18-b19/PandaGarage-v1.0.18-b19-2026-10-07.apk",
+          "size": 177112749,
+          "sha256": "2e32ab634436ae7d1780e882ebcb32dcda70f484f9de944d69f94b9b5e771dcb",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-07T10:08:09Z",
+          "notes": "Big collecting update: Hunt mode in the scanner tells you if you own a car or should buy it, custom and smart collections, bulk edit, display view, duplicate cleanup, recently added strip, series checklists, Treasure Hunt case log, friend trade matching, spending charts, per-car value history and achievement badges."
+        },
+        {
           "versionName": "1.0.17",
           "versionCode": 18,
           "tag": "com.pandacollection.pandagarage-v1.0.17-b18",
@@ -84,25 +97,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-06T15:08:46Z",
           "notes": "Added Modern Toys (moderntoys.in) as a built-in die-cast store with real-time stock and pricing for Hot Wheels, CCA, and diecast models. Includes automatic shipping calculation, store trust metadata, non-car filter protection, and series title cleanup."
-        },
-        {
-          "versionName": "1.0.16",
-          "versionCode": 17,
-          "tag": "com.pandacollection.pandagarage-v1.0.16-b17",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.16-b17/PandaGarage-v1.0.16-b17-2026-10-06.apk",
-          "size": 176928249,
-          "sha256": "2cd54cb549376c5ed034bd3e5df3f4243cf7cad6f8b477505a0d3059c9f505ea",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-06T11:49:54Z",
-          "notes": "Hot Wheels Case search & filtering in Store: browse by mainline case letters (A-Q) with release year selector, live TH/ previews, active case banner, and new store scrapers (Toy Collectors India, Wheels Culture, Zepto)."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-06T15:08:46Z"
+      "updatedAt": "2026-10-07T10:08:09Z"
     }
   ],
-  "updatedAt": "2026-10-06T17:26:39Z"
+  "updatedAt": "2026-10-07T10:08:09Z"
 }
