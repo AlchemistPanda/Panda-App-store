@@ -26,5 +26,7 @@ class InstallResultReceiver : BroadcastReceiver() {
         const val EXTRA_VERSION_CODE = "com.pandaapps.appstore.extra.VERSION_CODE"
         const val EXTRA_BACKGROUND = "com.pandaapps.appstore.extra.BACKGROUND"
         const val EXTRA_APK_PATH = "com.pandaapps.appstore.extra.APK_PATH"
+        /** Whether an older version was installed when the session was committed (update vs first install). */
+        const val EXTRA_WAS_UPDATE = "com.pandaapps.appstore.extra.WAS_UPDATE"
     }
 }

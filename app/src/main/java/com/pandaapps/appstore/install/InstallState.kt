@@ -31,6 +31,14 @@ val InstallState.isBusy: Boolean
         InstallState.Idle, InstallState.Success, is InstallState.Failed -> false
     }
 
+/**
+ * True while the app itself is working (queued, downloading, verifying, installing). Unlike
+ * [isBusy], excludes [InstallState.PendingUserAction]: nothing runs while the system waits for the
+ * user, and the "tap to finish" notification already covers that wait.
+ */
+val InstallState.isActivelyWorking: Boolean
+    get() = isBusy && this != InstallState.PendingUserAction
+
 /** True for states that end a pipeline run. */
 val InstallState.isTerminal: Boolean
     get() = this == InstallState.Idle || this == InstallState.Success || this is InstallState.Failed

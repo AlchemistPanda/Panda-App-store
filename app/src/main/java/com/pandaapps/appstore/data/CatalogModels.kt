@@ -23,6 +23,11 @@ data class CatalogApp(
     val updatedAt: String? = null,
     /** Newest first (the publisher keeps at most two). */
     val releases: List<CatalogRelease> = emptyList(),
+    /**
+     * Release notes of past versions, newest first, kept after their APKs are pruned (the publisher
+     * caps the list). May overlap [releases]. Absent in catalogs written before it existed.
+     */
+    val history: List<CatalogNote> = emptyList(),
 ) {
     /** Highest versionCode, independent of list order. */
     val latest: CatalogRelease? get() = releases.maxByOrNull { it.versionCode }
@@ -48,6 +53,15 @@ data class CatalogRelease(
     val signerSha256: String? = null,
     val minSdk: Int? = null,
     val targetSdk: Int? = null,
+    val releasedAt: String? = null,
+    val notes: String? = null,
+)
+
+/** Notes of one published version; outlives the APK (see [CatalogApp.history]). */
+@Serializable
+data class CatalogNote(
+    val versionName: String,
+    val versionCode: Long,
     val releasedAt: String? = null,
     val notes: String? = null,
 )

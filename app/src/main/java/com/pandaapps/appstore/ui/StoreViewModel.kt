@@ -88,6 +88,9 @@ data class StoreUiState(
     fun canOpen(packageName: String): Boolean = packageName in launchable
 
     fun canSilentlyUpdate(packageName: String): Boolean = packageName in silentUpdatable
+
+    /** Background auto-update is paused for [packageName] (see [Settings.autoUpdatePaused]). */
+    fun isAutoUpdatePaused(packageName: String): Boolean = packageName in settings.autoUpdatePaused
 }
 
 /** One-shot UI events (collected once, by the nav graph). */
@@ -344,6 +347,14 @@ class StoreViewModel(
 
     /** Saves the Wi-Fi-only toggle and reschedules the update worker. */
     fun setWifiOnly(enabled: Boolean) = updateSettings("Wi-Fi only = $enabled") { it.setWifiOnly(enabled) }
+
+    /** Pauses or resumes background auto-update of one app. The worker schedule doesn't change. */
+    fun setAutoUpdatePaused(packageName: String, paused: Boolean) {
+        container.appScope.launch {
+            settingsMutex.withLock { settingsRepository.setAutoUpdatePaused(packageName, paused) }
+            appLog.i(TAG, "Settings: auto-update ${if (paused) "paused" else "resumed"} for $packageName")
+        }
+    }
 
     /**
      * Writes a setting, then re-enqueues the periodic update check from the stored values.

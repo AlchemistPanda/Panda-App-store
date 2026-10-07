@@ -1,6 +1,8 @@
 package com.pandaapps.appstore.ui.detail
 
 import com.pandaapps.appstore.data.AppStatus
+import com.pandaapps.appstore.data.CatalogApp
+import com.pandaapps.appstore.data.CatalogNote
 import com.pandaapps.appstore.data.CatalogRelease
 import com.pandaapps.appstore.data.StoreApp
 
@@ -110,4 +112,24 @@ fun statusExplanation(app: StoreApp, deviceSdk: Int, silent: Boolean): StatusExp
 fun releaseIncompatibility(release: CatalogRelease, deviceSdk: Int): String? {
     val min = release.minSdk ?: return null
     return if (deviceSdk < min) "Needs ${androidLabel(min)} or newer." else null
+}
+
+/** History entries of versions no longer in [CatalogApp.releases] (APK gone, notes only), newest first. */
+fun olderVersions(app: CatalogApp): List<CatalogNote> {
+    val current = app.releases.mapTo(HashSet()) { it.versionCode }
+    return app.history
+        .filter { it.versionCode !in current }
+        .distinctBy { it.versionCode }
+        .sortedByDescending { it.versionCode }
+}
+
+/**
+ * "Auto-update" switch subtitle on the detail screen.
+ *
+ * @param globalOn auto-update is on in Settings. @param paused it is paused for this app.
+ */
+fun autoUpdateRowSubtitle(globalOn: Boolean, paused: Boolean): String = when {
+    !globalOn -> "Auto-update is off in Settings"
+    paused -> "Paused: updates are announced but not installed automatically"
+    else -> "Updates install in the background"
 }

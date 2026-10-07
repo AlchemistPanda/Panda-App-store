@@ -253,6 +253,33 @@ class CatalogModelsTest {
     }
 
     @Test
+    fun history_isEmptyWhenAbsent() {
+        assertTrue(parse(liveSample).apps.single().history.isEmpty())
+    }
+
+    @Test
+    fun history_parsesNewestFirst() {
+        val json = """
+            {"apps":[{"packageName":"p.q","name":"Q",
+              "releases":[{"versionName":"1.0.6","versionCode":7,"apkUrl":"u"}],
+              "history":[
+                {"versionName":"1.0.6","versionCode":7,"releasedAt":"2026-10-04T08:19:02Z","notes":"Seven"},
+                {"versionName":"1.0.5","versionCode":6,"notes":null,"future":"ignored"},
+                {"versionName":"1.0.4","versionCode":5}
+              ]}]}
+        """.trimIndent()
+        val history = parse(json).apps.single().history
+        assertEquals(
+            listOf(
+                CatalogNote("1.0.6", 7, "2026-10-04T08:19:02Z", "Seven"),
+                CatalogNote("1.0.5", 6),
+                CatalogNote("1.0.4", 5),
+            ),
+            history,
+        )
+    }
+
+    @Test
     fun encodeThenDecode_roundTrips() {
         val original = parse(liveSample)
         val encoded = CatalogJson.encodeToString(Catalog.serializer(), original)

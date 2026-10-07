@@ -37,6 +37,7 @@ import java.io.IOException
  *    Silent-eligible apps finish without a prompt; the others reach the receiver's
  *    PendingUserAction path ("Tap to finish installing") — once per version, never every period.
  *    Panda App Store itself goes last because a successful self-update kills the process.
+ *    Apps whose auto-update the user paused are skipped here but still announced in step 4.
  * 4. Post one summary notification for updates the install pipeline did not report on itself,
  *    but only when at least one of them is a version not yet in `notifiedVersions`; then record
  *    them. This also runs when WorkManager stops the worker mid-download.
@@ -137,7 +138,13 @@ class UpdateCheckWorker(
 
             val silent = installManager.canSilentlyUpdate(pkg)
             val busy = installManager.stateOf(pkg).isBusy
-            val skip = AutoUpdatePolicy.skipReason(key, silent, settings.notifiedVersions, settings.deferredVersions)
+            val skip = AutoUpdatePolicy.skipReason(
+                key,
+                silent,
+                settings.notifiedVersions,
+                settings.deferredVersions,
+                settings.autoUpdatePaused,
+            )
                 ?: when {
                     busy || installManager.hasInstallAwaitingResult(pkg) -> AutoUpdateSkip.InProgress
                     !AutoUpdatePolicy.canFinishInTime(release.size, bytesPerSecond, remaining) ->

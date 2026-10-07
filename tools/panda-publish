@@ -10,7 +10,8 @@ Usage: panda-publish <app.apk> [--notes "what changed"] [--dry-run]
             published from this APK's package; no release, no push
 
 Reads package/version/build number/label/icon/signer straight from the APK,
-uploads it as a GitHub release, updates catalog.json on the catalog branch,
+uploads it as a GitHub release, updates catalog.json on the catalog branch
+(including the app's notes "history", which outlives pruned releases),
 deletes that app's releases beyond the newest `keepReleases`, and sends an
 ntfy push so the phone knows there is an update.
 
@@ -35,6 +36,8 @@ from pathlib import Path
 CONFIG_PATH = Path.home() / ".config/panda-store/config.json"
 SDK = Path(os.environ.get("ANDROID_HOME", Path.home() / "Library/Android/sdk"))
 DENSITY_ORDER = ["xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi", "ldpi"]
+# Release notes kept per app in catalog.json "history" after their APKs are pruned.
+HISTORY_LIMIT = 20
 
 
 def die(msg, code=1):
@@ -415,6 +418,26 @@ def git_blob_sha(data):
     return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
 
 
+# ---------- catalog ----------
+
+def merged_history(app, release):
+    """Notes of every version of `app`, newest first, capped at HISTORY_LIMIT.
+
+    Merges the new `release`, the existing history and the current releases
+    (which seeds it on the first run, so no notes already published are lost).
+    Old store apps ignore the extra key.
+    """
+    seen, out = set(), []
+    candidates = [release] + app.get("history", []) + app.get("releases", [])
+    for r in sorted(candidates, key=lambda r: r["versionCode"], reverse=True):
+        if r["versionCode"] in seen:
+            continue
+        seen.add(r["versionCode"])
+        entry = {k: r.get(k) for k in ("versionName", "versionCode", "releasedAt", "notes")}
+        out.append({k: v for k, v in entry.items() if v is not None})
+    return out[:HISTORY_LIMIT]
+
+
 # ---------- main ----------
 
 def main():
@@ -480,6 +503,16 @@ def main():
             die("this APK is signed with a different key than the published build, so it cannot "
                 "update the installed app. Sign it with the original keystore, or pass "
                 "--allow-new-signer (the phone will have to uninstall the old app first).", 3)
+    # The phone pins signers in ApkVerifier.TRUSTED_SIGNERS; read that set so the two never drift.
+    verifier = Path(__file__).resolve().parent.parent / \
+        "app/src/main/java/com/pandaapps/appstore/install/ApkVerifier.kt"
+    block = re.search(r"TRUSTED_SIGNERS: Set<String> = setOf\((.*?)\n\s*\)", verifier.read_text(), re.S)
+    trusted = set(re.findall(r'"([0-9a-f]{64})"', block.group(1))) if block else set()
+    if not trusted:
+        die(f"could not read TRUSTED_SIGNERS from {verifier}", 4)
+    if info["signerSha256"] not in trusted:
+        die(f"signer {info['signerSha256']} is not in ApkVerifier.TRUSTED_SIGNERS, so the phone "
+            "would refuse to install it. Add it there and ship a store build first.", 4)
 
     if args.dry_run:
         print("dry run: validation passed, nothing published")
@@ -527,6 +560,7 @@ def main():
     app["name"] = info["name"]
     app["iconUrl"] = icon_url
     app["updatedAt"] = released_at
+    app["history"] = merged_history(app, release)
     app["releases"] = [release] + app["releases"]
     dropped = app["releases"][keep:]
     app["releases"] = app["releases"][:keep]

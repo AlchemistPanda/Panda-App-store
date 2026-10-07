@@ -26,7 +26,8 @@ import kotlinx.coroutines.launch
  * or throttled by Android when the app is in the background.
  *
  * Runs with foregroundServiceType="dataSync". Displays an ongoing notification with current
- * download progress / installing state, and stops itself once no installs remain busy.
+ * download progress / installing state, and stops itself once no install is actively working
+ * (an install waiting only for the user's confirmation doesn't keep it running).
  */
 class InstallService : Service() {
 
@@ -68,7 +69,7 @@ class InstallService : Service() {
         observeJob?.cancel()
         observeJob = container.appScope.launch {
             container.installManager.states.collectLatest { statesMap ->
-                val busy = statesMap.filter { it.value.isBusy }
+                val busy = statesMap.filter { it.value.isActivelyWorking }
                 if (busy.isEmpty()) {
                     stopForeground(STOP_FOREGROUND_REMOVE)
                     stopSelf()
@@ -156,11 +157,13 @@ class InstallService : Service() {
             }
             InstallState.Installing -> {
                 builder.setContentTitle("Installing $appName")
-                    .setContentText("Android is updating the app…")
+                    .setContentText("Android is installing the app…")
                     .setProgress(0, 0, true)
             }
+            // Queued: the only other state isActivelyWorking lets through.
             else -> {
-                builder.setContentTitle("Installing $appName")
+                builder.setContentTitle("Waiting to install $appName")
+                    .setContentText("Another install is in progress…")
                     .setProgress(0, 0, true)
             }
         }

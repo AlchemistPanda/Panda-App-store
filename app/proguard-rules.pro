@@ -1,23 +1,14 @@
-# Minification is disabled for release builds (see app/build.gradle.kts).
-# These rules keep kotlinx.serialization working if it is ever turned on.
-
--keepattributes *Annotation*, InnerClasses
--dontnote kotlinx.serialization.AnnotationsKt
-
--keepclassmembers class kotlinx.serialization.json.** {
-    *** Companion;
-}
--keepclasseswithmembers class kotlinx.serialization.json.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
-
--keep,includedescriptorclasses class com.pandaapps.appstore.**$$serializer { *; }
--keepclassmembers class com.pandaapps.appstore.** {
-    *** Companion;
-}
--keepclasseswithmembers class com.pandaapps.appstore.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
+# R8 (minify + resource shrinking) is on for release builds (see app/build.gradle.kts).
+#
+# Nothing app-specific needs keeping today; the reflection-dependent parts are covered by
+# consumer rules the libraries ship, or by AAPT:
+# - kotlinx.serialization: the catalog is parsed via the explicit Catalog.serializer(), and
+#   kotlinx-serialization-core ships rules keeping Companion/serializer() of @Serializable classes.
+# - WorkManager (UpdateCheckWorker): work-runtime keeps ListenableWorker subclasses and their
+#   (Context, WorkerParameters) constructors.
+# - DataStore, OkHttp, Coil: ship their own consumer rules.
+# - Activity, Service, BroadcastReceiver, FileProvider: kept by AAPT from the manifest.
+# Add a rule here only for new reflection (e.g. Class.forName, enum names persisted to disk).
 
 # OkHttp platform probes
 -dontwarn okhttp3.internal.platform.**

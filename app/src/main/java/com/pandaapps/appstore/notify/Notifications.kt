@@ -112,12 +112,12 @@ object Notifications {
         post(context, installTag(packageName), ID_INSTALL, builder)
     }
 
-    /** "<name> updated to v<version>" (or "installed" for a first install). Opens the app's detail screen. */
-    fun showInstallSuccess(context: Context, packageName: String, appName: String, versionName: String, wasUpdate: Boolean = true) {
-        val verb = if (wasUpdate) "updated to" else "installed:"
+    /** "<name> updated to v<version>", or "<name> v<version> installed" for a first install. Opens the app's detail screen. */
+    fun showInstallSuccess(context: Context, packageName: String, appName: String, versionName: String, wasUpdate: Boolean) {
+        val title = if (wasUpdate) "$appName updated to v$versionName" else "$appName v$versionName installed"
         val builder = baseBuilder(context, CHANNEL_INSTALLS)
-            .setContentTitle("$appName $verb v$versionName")
-            .setContentText("Tap to see what's new.")
+            .setContentTitle(title)
+            .setContentText(if (wasUpdate) "Tap to see what's new." else "Tap to see details.")
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setContentIntent(deepLinkPendingIntent(context, DeepLinks.appUri(packageName)))
         post(context, installTag(packageName), ID_INSTALL, builder)

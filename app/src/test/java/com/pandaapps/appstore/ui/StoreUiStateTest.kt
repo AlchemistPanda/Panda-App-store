@@ -3,6 +3,7 @@ package com.pandaapps.appstore.ui
 import com.pandaapps.appstore.data.AppStatus
 import com.pandaapps.appstore.data.CatalogApp
 import com.pandaapps.appstore.data.CatalogRelease
+import com.pandaapps.appstore.data.Settings
 import com.pandaapps.appstore.data.StoreApp
 import com.pandaapps.appstore.install.InstallState
 import org.junit.Assert.assertEquals
@@ -81,5 +82,13 @@ class StoreUiStateTest {
         assertFalse(s.canOpen("com.example.b"))
         assertTrue(s.canSilentlyUpdate("com.example.b"))
         assertFalse(s.canSilentlyUpdate("com.example.a"))
+    }
+
+    @Test
+    fun isAutoUpdatePaused_readsTheSettingsSet() {
+        val s = StoreUiState(apps = apps, settings = Settings(autoUpdatePaused = setOf("com.example.a")))
+        assertTrue(s.isAutoUpdatePaused("com.example.a"))
+        assertFalse(s.isAutoUpdatePaused("com.example.b"))
+        assertFalse(StoreUiState().isAutoUpdatePaused("com.example.a"))
     }
 }

@@ -29,6 +29,11 @@ data class Settings(
      * are announced instead, and the user installs them from the app.
      */
     val deferredVersions: Set<String> = emptySet(),
+    /**
+     * Package names the update worker must not auto-install (e.g. a broken build being fixed).
+     * Their updates are still announced; installing by hand still works.
+     */
+    val autoUpdatePaused: Set<String> = emptySet(),
 )
 
 private val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -56,6 +61,14 @@ class SettingsRepository(context: Context) {
 
     suspend fun setWifiOnly(enabled: Boolean) {
         dataStore.edit { it[Keys.WIFI_ONLY] = enabled }
+    }
+
+    /** Pauses or resumes background auto-update of [packageName] (see [Settings.autoUpdatePaused]). */
+    suspend fun setAutoUpdatePaused(packageName: String, paused: Boolean) {
+        dataStore.edit {
+            val current = it[Keys.PAUSED].orEmpty()
+            it[Keys.PAUSED] = if (paused) current + packageName else current - packageName
+        }
     }
 
     /** Records `pkg:code` keys (see [notifiedKey]) as announced. */
@@ -91,6 +104,7 @@ class SettingsRepository(context: Context) {
         wifiOnly = this[Keys.WIFI_ONLY] ?: true,
         notifiedVersions = this[Keys.NOTIFIED].orEmpty(),
         deferredVersions = this[Keys.DEFERRED].orEmpty(),
+        autoUpdatePaused = this[Keys.PAUSED].orEmpty(),
     )
 
     private object Keys {
@@ -99,6 +113,7 @@ class SettingsRepository(context: Context) {
         val WIFI_ONLY = booleanPreferencesKey("wifi_only")
         val NOTIFIED = stringSetPreferencesKey("notified_versions")
         val DEFERRED = stringSetPreferencesKey("deferred_versions")
+        val PAUSED = stringSetPreferencesKey("auto_update_paused")
     }
 
     companion object {

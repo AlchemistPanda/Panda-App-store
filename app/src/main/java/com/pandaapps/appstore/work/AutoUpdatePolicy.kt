@@ -2,6 +2,9 @@ package com.pandaapps.appstore.work
 
 /** Why the update worker leaves an available update alone on this run. */
 enum class AutoUpdateSkip(val description: String) {
+    /** The user paused auto-update for this app; it is still announced. */
+    Paused("auto-update is paused for this app"),
+
     /** An earlier background download of this version could not finish within the worker's time limit. */
     Deferred("its download is too slow to finish in the background; install it from the app"),
 
@@ -36,10 +39,17 @@ object AutoUpdatePolicy {
     /**
      * Updates the worker must not start on its own, from persisted state alone.
      * Silent-eligible updates are retried every run (no prompt involved); updates that need a tap
-     * are offered once per version.
+     * are offered once per version. Packages in [paused] are never started.
      */
-    fun skipReason(key: String, silent: Boolean, notified: Set<String>, deferred: Set<String>): AutoUpdateSkip? =
+    fun skipReason(
+        key: String,
+        silent: Boolean,
+        notified: Set<String>,
+        deferred: Set<String>,
+        paused: Set<String> = emptySet(),
+    ): AutoUpdateSkip? =
         when {
+            key.substringBeforeLast(':') in paused -> AutoUpdateSkip.Paused
             key in deferred -> AutoUpdateSkip.Deferred
             !silent && key in notified -> AutoUpdateSkip.AlreadyOffered
             else -> null

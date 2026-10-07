@@ -75,6 +75,51 @@ class FormattersTest {
         assertEquals("0%", Formatters.percent(-0.3f))
     }
 
+    // ---- speed / timeLeft ----
+
+    @Test
+    fun speed_reusesBytesFormat() {
+        assertEquals("4.2 MB/s", Formatters.speed(4_200_000.0))
+        assertEquals("850 KB/s", Formatters.speed(850_000.0))
+        assertEquals("1 B/s", Formatters.speed(1.0))
+    }
+
+    @Test
+    fun speed_unknownOrZero_isNull() {
+        assertNull(Formatters.speed(0.0))
+        assertNull(Formatters.speed(0.4))
+        assertNull(Formatters.speed(-5.0))
+        assertNull(Formatters.speed(Double.NaN))
+        assertNull(Formatters.speed(Double.POSITIVE_INFINITY))
+    }
+
+    @Test
+    fun timeLeft_seconds() {
+        assertEquals("12 s left", Formatters.timeLeft(0, 12_000_000, 1_000_000.0))
+        // Partial seconds round up so it never reads "0 s left" before the end.
+        assertEquals("1 s left", Formatters.timeLeft(99, 100, 1_000.0))
+        assertEquals("59 s left", Formatters.timeLeft(0, 59_000_000, 1_000_000.0))
+    }
+
+    @Test
+    fun timeLeft_minutesAndHours() {
+        assertEquals("about 1 min left", Formatters.timeLeft(0, 60_000_000, 1_000_000.0))
+        // 177 MB at 1.5 MB/s = 118 s.
+        assertEquals("about 2 min left", Formatters.timeLeft(0, 177_000_000, 1_500_000.0))
+        assertEquals("about 89 min left", Formatters.timeLeft(0, 89 * 60_000L, 1_000.0))
+        assertEquals("about 2 h left", Formatters.timeLeft(0, 2 * 3_600_000L, 1_000.0))
+    }
+
+    @Test
+    fun timeLeft_hiddenWhenUnknownOrDone() {
+        assertNull(Formatters.timeLeft(5_000_000, 0, 1_000_000.0))
+        assertNull(Formatters.timeLeft(5_000_000, -1, 1_000_000.0))
+        assertNull(Formatters.timeLeft(0, 177_000_000, 0.0))
+        assertNull(Formatters.timeLeft(0, 177_000_000, Double.NaN))
+        assertNull(Formatters.timeLeft(177_000_000, 177_000_000, 1_000_000.0))
+        assertNull(Formatters.timeLeft(180_000_000, 177_000_000, 1_000_000.0))
+    }
+
     // ---- versionLine ----
 
     @Test

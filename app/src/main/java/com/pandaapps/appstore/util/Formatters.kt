@@ -5,6 +5,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import java.util.Locale
+import kotlin.math.ceil
 import kotlin.math.roundToLong
 
 /** Pure, JVM-testable formatting helpers. Sizes use SI units (1 MB = 1,000,000 bytes) like the catalog tool. */
@@ -35,6 +36,25 @@ object Formatters {
 
     /** Whole percent 0..100 for a 0..1 fraction. */
     fun percent(fraction: Float): String = "${(fraction.coerceIn(0f, 1f) * 100).toInt()}%"
+
+    /** `4.2 MB/s`, or null when the speed is unknown or about zero (< 1 B/s, NaN, infinite). */
+    fun speed(bytesPerSecond: Double): String? =
+        if (usableSpeed(bytesPerSecond)) "${bytes(bytesPerSecond.toLong())}/s" else null
+
+    /**
+     * `12 s left`, `about 2 min left`, `about 2 h left` for the bytes still to download at
+     * [bytesPerSecond]. Null when the total is unknown (≤ 0), nothing is left, or the speed is
+     * unknown / about zero — callers just hide it.
+     */
+    fun timeLeft(done: Long, total: Long, bytesPerSecond: Double): String? {
+        if (total <= 0 || done >= total || !usableSpeed(bytesPerSecond)) return null
+        val seconds = ceil((total - done) / bytesPerSecond).toLong()
+        return when {
+            seconds < 60 -> "$seconds s left"
+            seconds < 90 * 60 -> "about ${(seconds / 60.0).roundToLong()} min left"
+            else -> "about ${(seconds / 3600.0).roundToLong()} h left"
+        }
+    }
 
     /** `v1.0.6 · build 7 · 177 MB` (size omitted when unknown). */
     fun versionLine(versionName: String, versionCode: Long, sizeBytes: Long?): String = buildString {
@@ -75,6 +95,9 @@ object Formatters {
             null
         }
     }
+
+    private fun usableSpeed(bytesPerSecond: Double): Boolean =
+        bytesPerSecond.isFinite() && bytesPerSecond >= 1.0
 
     /** One decimal below 100, none at or above (`12.3`, `177`). */
     private fun scaled(value: Double): String =

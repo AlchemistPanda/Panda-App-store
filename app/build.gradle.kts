@@ -13,8 +13,8 @@ android {
         applicationId = "com.pandaapps.appstore"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -22,8 +22,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             // Same key (~/.android/debug.keystore) as the owner's other native apps.
             signingConfig = signingConfigs.getByName("debug")
             proguardFiles(

@@ -35,6 +35,21 @@ class InstallStateTest {
     }
 
     @Test
+    fun isActivelyWorking_isBusyMinusPendingUserAction() {
+        assertEquals(
+            listOf(
+                InstallState.Queued,
+                InstallState.Downloading(0.5f, 50, 100),
+                InstallState.Verifying,
+                InstallState.Installing,
+            ),
+            all.filter { it.isActivelyWorking },
+        )
+        assertTrue(InstallState.PendingUserAction.isBusy)
+        assertFalse(InstallState.PendingUserAction.isActivelyWorking)
+    }
+
+    @Test
     fun isTerminal_forIdleSuccessAndFailed() {
         assertEquals(
             listOf(InstallState.Idle, InstallState.Success, InstallState.Failed("boom")),

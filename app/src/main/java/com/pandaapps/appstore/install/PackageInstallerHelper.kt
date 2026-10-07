@@ -139,6 +139,7 @@ class PackageInstallerHelper(context: Context) {
             putExtra(InstallResultReceiver.EXTRA_VERSION_CODE, request.versionCode)
             putExtra(InstallResultReceiver.EXTRA_BACKGROUND, request.background)
             putExtra(InstallResultReceiver.EXTRA_APK_PATH, request.apk.absolutePath)
+            putExtra(InstallResultReceiver.EXTRA_WAS_UPDATE, request.isAlreadyInstalled)
         }
         // The system fills in EXTRA_STATUS etc., so the PendingIntent must be mutable on API 31+.
         val flags = PendingIntent.FLAG_UPDATE_CURRENT or

@@ -18,7 +18,8 @@ sealed interface VerifyResult {
 
 /**
  * Checks a downloaded APK against the catalog before it is handed to PackageInstaller:
- * size, sha256, package name, versionCode, signer vs catalog, signer vs the installed app.
+ * size, sha256, package name, versionCode, signer vs the pinned [TRUSTED_SIGNERS], signer vs
+ * catalog, signer vs the installed app.
  */
 class ApkVerifier(
     private val installedApps: InstalledAppsRepository,
@@ -85,6 +86,19 @@ class ApkVerifier(
 
         const val UNREADABLE_SIGNER_MESSAGE = "Could not read the APK's signature. Not installing it."
         const val CATALOG_SIGNER_MESSAGE = "This APK is not signed with the key the catalog expects. Not installing it."
+        const val UNTRUSTED_SIGNER_MESSAGE = "This APK is signed with a key Panda App Store doesn't trust. Not installing it."
+
+        /**
+         * SHA-256 digests (lowercase hex) of the owner's signing certs. Pinned in the app so a
+         * compromised catalog can't get a fresh install signed by some other key past [signerProblem].
+         * A new signing key means adding it here and shipping a store build first.
+         */
+        val TRUSTED_SIGNERS: Set<String> = setOf(
+            // ~/.android/debug.keystore: the store, Casio Hunt, Panda Grab.
+            "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+            // Panda Garage (and its friends edition) own keystore.
+            "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+        )
 
         /**
          * The signer checks of SPEC #4, as a pure function. Returns the rejection message, or null
@@ -94,14 +108,18 @@ class ApkVerifier(
          * @param archiveSigners lowercase hex SHA-256 of the APK's signing certs.
          * @param catalogSigner the release's `signerSha256` (any case; blank = not published).
          * @param installedSigners signers of the installed app, or null when it isn't installed.
+         * @param trustedSigners at least one archive signer must be in here (lowercase hex).
          */
         fun signerProblem(
             appName: String,
             archiveSigners: Set<String>,
             catalogSigner: String?,
             installedSigners: Set<String>?,
+            // ponytail: no user-facing override for untrusted keys; add a setting if a third-party signer is ever wanted.
+            trustedSigners: Set<String> = TRUSTED_SIGNERS,
         ): String? {
             if (archiveSigners.isEmpty()) return UNREADABLE_SIGNER_MESSAGE
+            if (archiveSigners.none { it in trustedSigners }) return UNTRUSTED_SIGNER_MESSAGE
             val expected = catalogSigner?.trim()?.lowercase()?.takeIf { it.isNotEmpty() }
             if (expected != null && expected !in archiveSigners) return CATALOG_SIGNER_MESSAGE
             if (!installedSigners.isNullOrEmpty() && archiveSigners.none { it in installedSigners }) {

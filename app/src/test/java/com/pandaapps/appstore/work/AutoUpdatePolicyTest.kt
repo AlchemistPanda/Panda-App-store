@@ -49,6 +49,29 @@ class AutoUpdatePolicyTest {
     }
 
     @Test
+    fun skipReason_pausedApp_isNeverAutoInstalled() {
+        val paused = setOf("com.example.app")
+        assertEquals(
+            AutoUpdateSkip.Paused,
+            AutoUpdatePolicy.skipReason(key, silent = true, notified = emptySet(), deferred = emptySet(), paused = paused),
+        )
+        assertEquals(
+            AutoUpdateSkip.Paused,
+            AutoUpdatePolicy.skipReason(key, silent = false, notified = setOf(key), deferred = setOf(key), paused = paused),
+        )
+        // Only an exact package match pauses.
+        assertNull(
+            AutoUpdatePolicy.skipReason(
+                key,
+                silent = true,
+                notified = emptySet(),
+                deferred = emptySet(),
+                paused = setOf("com.example"),
+            ),
+        )
+    }
+
+    @Test
     fun throughput_needsAMeaningfulSample() {
         assertNull(AutoUpdatePolicy.throughput(bytes = 0, elapsedMillis = 10_000))
         assertNull(AutoUpdatePolicy.throughput(bytes = 1_000_000, elapsedMillis = 500)) // cached / too short

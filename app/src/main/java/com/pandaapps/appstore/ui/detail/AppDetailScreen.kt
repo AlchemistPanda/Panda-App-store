@@ -114,14 +114,15 @@ import com.pandaapps.appstore.ui.components.StatusChip
 import com.pandaapps.appstore.ui.components.color
 import com.pandaapps.appstore.ui.components.installActionFor
 import com.pandaapps.appstore.ui.components.rememberArmedClick
+import com.pandaapps.appstore.ui.settings.SwitchRow
 import com.pandaapps.appstore.ui.theme.MonoTextStyle
 import com.pandaapps.appstore.ui.theme.statusColors
 import com.pandaapps.appstore.util.Formatters
 
 /**
  * Details of one catalog app: hero header, status explanation with the primary action,
- * install progress, version facts and every catalog release (with the rollback flow for the
- * previous one). Also handles a deep link to a package the catalog doesn't contain.
+ * install progress, version facts, the per-app auto-update switch, every catalog release (with the
+ * rollback flow for the previous one) and the notes of older versions whose APKs are gone. Also handles a deep link to a package the catalog doesn't contain.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -211,6 +212,7 @@ fun AppDetailScreen(packageName: String, viewModel: StoreViewModel, onBack: () -
                     onUninstall = { confirmUninstall = true },
                     onRollback = { confirmRollback = true },
                     onDismissError = { viewModel.dismissInstallResult(app.packageName) },
+                    onAutoUpdateChange = { on -> viewModel.setAutoUpdatePaused(app.packageName, paused = !on) },
                 ),
             )
 
@@ -265,6 +267,8 @@ private class DetailActions(
     val onUninstall: () -> Unit,
     val onRollback: () -> Unit,
     val onDismissError: () -> Unit,
+    /** The per-app "Auto-update" switch was flipped (true = auto-update on, i.e. not paused). */
+    val onAutoUpdateChange: (Boolean) -> Unit,
 )
 
 @Composable
@@ -283,6 +287,19 @@ private fun DetailContent(
     val deviceSdk = Build.VERSION.SDK_INT
     val releases = remember(app.app) { (listOf(app.latest) + app.app.previous).distinctBy { it.versionCode } }
     val rollbackTarget = app.app.previous.firstOrNull()
+    // Notes only: their APKs were pruned, so they render as plain release cards without actions.
+    // ponytail: dummy apkUrl to reuse ReleaseCard; give it a notes-only overload if cards diverge.
+    val older = remember(app.app) {
+        olderVersions(app.app).map {
+            CatalogRelease(
+                versionName = it.versionName,
+                versionCode = it.versionCode,
+                apkUrl = "",
+                releasedAt = it.releasedAt,
+                notes = it.notes,
+            )
+        }
+    }
     val layoutDirection = LocalLayoutDirection.current
 
     LazyColumn(
@@ -319,6 +336,27 @@ private fun DetailContent(
                 modifier = Modifier.padding(horizontal = 16.dp),
             )
         }
+        if (app.installed != null) {
+            item(key = "autoUpdate") {
+                val globalOn = state.settings.autoUpdate
+                val paused = state.isAutoUpdatePaused(app.packageName)
+                PandaCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    contentPadding = PaddingValues(0.dp),
+                ) {
+                    SwitchRow(
+                        icon = Icons.Filled.Bolt,
+                        title = "Auto-update",
+                        subtitle = autoUpdateRowSubtitle(globalOn, paused),
+                        checked = globalOn && !paused,
+                        onCheckedChange = actions.onAutoUpdateChange,
+                        enabled = globalOn,
+                    )
+                }
+            }
+        }
         item(key = "releasesHeader") {
             SectionHeader(title = "Releases", count = releases.size)
         }
@@ -351,6 +389,27 @@ private fun DetailContent(
                 onInstall = { actions.onInstallRelease(release.versionCode) },
                 modifier = Modifier.padding(horizontal = 16.dp),
             )
+        }
+        if (older.isNotEmpty()) {
+            item(key = "olderHeader") {
+                SectionHeader(title = "Older versions", count = older.size)
+            }
+            items(older, key = { "older-${it.versionCode}" }) { release ->
+                ReleaseCard(
+                    appName = app.name,
+                    release = release,
+                    isLatest = false,
+                    isPrevious = false,
+                    isInstalled = app.installed?.versionCode == release.versionCode,
+                    offerRollback = false,
+                    rollbackBlockedReason = null,
+                    onRollback = {},
+                    offerInstall = false,
+                    installBlockedReason = null,
+                    onInstall = {},
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
+            }
         }
     }
 }

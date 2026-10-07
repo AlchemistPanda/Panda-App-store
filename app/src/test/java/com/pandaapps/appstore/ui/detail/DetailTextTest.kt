@@ -2,6 +2,7 @@ package com.pandaapps.appstore.ui.detail
 
 import com.pandaapps.appstore.data.AppStatus
 import com.pandaapps.appstore.data.CatalogApp
+import com.pandaapps.appstore.data.CatalogNote
 import com.pandaapps.appstore.data.CatalogRelease
 import com.pandaapps.appstore.data.InstalledInfo
 import com.pandaapps.appstore.data.StoreApp
@@ -80,5 +81,34 @@ class DetailTextTest {
         assertNull(releaseIncompatibility(latest, 24))
         assertNull(releaseIncompatibility(latest.copy(minSdk = null), 21))
         assertEquals("Needs Android 7.0 (API 24) or newer.", releaseIncompatibility(latest, 23))
+    }
+
+    @Test
+    fun olderVersions_excludesCurrentReleasesAndSortsNewestFirst() {
+        val r7 = CatalogRelease(versionName = "1.0.6", versionCode = 7, apkUrl = "u7")
+        val r6 = CatalogRelease(versionName = "1.0.5", versionCode = 6, apkUrl = "u6")
+        val app = CatalogApp(
+            packageName = "p.q",
+            name = "Q",
+            releases = listOf(r7, r6),
+            history = listOf(
+                CatalogNote("1.0.6", 7, notes = "seven"),
+                CatalogNote("1.0.3", 4, notes = "four"),
+                CatalogNote("1.0.5", 6, notes = "six"),
+                CatalogNote("1.0.4", 5, notes = "five"),
+                CatalogNote("1.0.4", 5, notes = "dup"),
+            ),
+        )
+        assertEquals(listOf(5L, 4L), olderVersions(app).map { it.versionCode })
+        assertEquals("five", olderVersions(app).first().notes)
+        assertTrue(olderVersions(app.copy(history = emptyList())).isEmpty())
+    }
+
+    @Test
+    fun autoUpdateRowSubtitle_isHonestAboutTheGlobalSwitch() {
+        assertEquals("Auto-update is off in Settings", autoUpdateRowSubtitle(globalOn = false, paused = false))
+        assertEquals("Auto-update is off in Settings", autoUpdateRowSubtitle(globalOn = false, paused = true))
+        assertTrue(autoUpdateRowSubtitle(globalOn = true, paused = true).startsWith("Paused"))
+        assertEquals("Updates install in the background", autoUpdateRowSubtitle(globalOn = true, paused = false))
     }
 }

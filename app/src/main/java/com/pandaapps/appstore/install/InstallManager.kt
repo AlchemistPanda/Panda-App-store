@@ -288,8 +288,7 @@ class InstallManager(
             val dir = File(appContext.cacheDir, SHARE_DIR)
             dir.listFiles()?.forEach { it.delete() }
             dir.mkdirs()
-            val safeName = app.name.replace(Regex("[^A-Za-z0-9._-]+"), "")
-            val target = File(dir, "$safeName-v${release.versionName}.apk")
+            val target = File(dir, shareFileName(app.name, release.versionName))
             apk.copyTo(target, overwrite = true)
             target
         }
@@ -328,6 +327,8 @@ class InstallManager(
         val versionName = intent.getStringExtra(InstallResultReceiver.EXTRA_VERSION_NAME).orEmpty()
         val background = intent.getBooleanExtra(InstallResultReceiver.EXTRA_BACKGROUND, false)
         val apkPath = intent.getStringExtra(InstallResultReceiver.EXTRA_APK_PATH)
+        // Missing only on a session committed by an older build of this app; those were updates.
+        val wasUpdate = intent.getBooleanExtra(InstallResultReceiver.EXTRA_WAS_UPDATE, true)
         val status = intent.getIntExtra(PackageInstaller.EXTRA_STATUS, PackageInstaller.STATUS_FAILURE)
         val statusMessage = intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE)
         val sessionId = intent.getIntExtra(PackageInstaller.EXTRA_SESSION_ID, NO_SESSION)
@@ -367,7 +368,7 @@ class InstallManager(
                 setState(pkg, InstallState.Success)
                 installedApps.refresh()
                 if (background || !isAppInForeground()) {
-                    Notifications.showInstallSuccess(appContext, pkg, appName, versionName)
+                    Notifications.showInstallSuccess(appContext, pkg, appName, versionName, wasUpdate)
                 } else {
                     Notifications.cancelForPackage(appContext, pkg)
                 }
@@ -514,4 +515,10 @@ class InstallManager(
             else -> 33
         }
     }
+}
+
+/** File name shown in the share sheet: `<Name>-v<version>.apk`, with anything unsafe stripped from the name. */
+internal fun shareFileName(appName: String, versionName: String): String {
+    val safe = appName.replace(Regex("[^A-Za-z0-9._-]+"), "").ifEmpty { "app" }
+    return "$safe-v$versionName.apk"
 }
