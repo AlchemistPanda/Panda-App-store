@@ -73,6 +73,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.19",
+          "versionCode": 20,
+          "tag": "com.pandacollection.pandagarage-v1.0.19-b20",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.19-b20/PandaGarage-v1.0.19-b20-2026-10-07.apk",
+          "size": 177191521,
+          "sha256": "8bdce9d9ff5fd884237e6ccb3bf955aaeb8ff0c46046dcd1be72ba13d029d596",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-07T14:55:25Z",
+          "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) is now recognised as owned instead of a different colour. Treasure Hunt wording no longer hides an owned car. An imported friend order that is already on the way is shown as ordered, not a different colour."
+        },
+        {
           "versionName": "1.0.18",
           "versionCode": 19,
           "tag": "com.pandacollection.pandagarage-v1.0.18-b19",
@@ -84,24 +97,11 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T10:08:09Z",
           "notes": "Big collecting update: Hunt mode in the scanner tells you if you own a car or should buy it, custom and smart collections, bulk edit, display view, duplicate cleanup, recently added strip, series checklists, Treasure Hunt case log, friend trade matching, spending charts, per-car value history and achievement badges."
-        },
-        {
-          "versionName": "1.0.17",
-          "versionCode": 18,
-          "tag": "com.pandacollection.pandagarage-v1.0.17-b18",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.17-b18/PandaGarage-v1.0.17-b18-2026-10-06.apk",
-          "size": 176929745,
-          "sha256": "0e124428b1aac62d13054609b2fcdb6685cd7751fda2e357c041d53c20ededea",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-06T15:08:46Z",
-          "notes": "Added Modern Toys (moderntoys.in) as a built-in die-cast store with real-time stock and pricing for Hot Wheels, CCA, and diecast models. Includes automatic shipping calculation, store trust metadata, non-car filter protection, and series title cleanup."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-07T10:08:09Z"
+      "updatedAt": "2026-10-07T14:55:25Z"
     },
     {
       "packageName": "com.pandacollection.pandagarage.friends",
@@ -138,5 +138,5 @@
       "updatedAt": "2026-10-07T14:48:00Z"
     }
   ],
-  "updatedAt": "2026-10-07T14:48:00Z"
+  "updatedAt": "2026-10-07T14:55:25Z"
 }
