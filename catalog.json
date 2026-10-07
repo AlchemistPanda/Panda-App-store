@@ -73,6 +73,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.20",
+          "versionCode": 21,
+          "tag": "com.pandacollection.pandagarage-v1.0.20-b21",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.20-b21/PandaGarage-v1.0.20-b21-2026-10-07.apk",
+          "size": 174641437,
+          "sha256": "2ec9e9fac0cbe8b019137b35a8653a7898fa30e03061487b689c048f422708b6",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-07T16:23:09Z",
+          "notes": "The app now checks for updates when it opens and offers to install them through Panda App Store (switch it off in Profile). Added Hobby Estate to the shops."
+        },
+        {
           "versionName": "1.0.19",
           "versionCode": 20,
           "tag": "com.pandacollection.pandagarage-v1.0.19-b20",
@@ -84,24 +97,11 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T14:55:25Z",
           "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) is now recognised as owned instead of a different colour. Treasure Hunt wording no longer hides an owned car. An imported friend order that is already on the way is shown as ordered, not a different colour."
-        },
-        {
-          "versionName": "1.0.18",
-          "versionCode": 19,
-          "tag": "com.pandacollection.pandagarage-v1.0.18-b19",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.18-b19/PandaGarage-v1.0.18-b19-2026-10-07.apk",
-          "size": 177112749,
-          "sha256": "2e32ab634436ae7d1780e882ebcb32dcda70f484f9de944d69f94b9b5e771dcb",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T10:08:09Z",
-          "notes": "Big collecting update: Hunt mode in the scanner tells you if you own a car or should buy it, custom and smart collections, bulk edit, display view, duplicate cleanup, recently added strip, series checklists, Treasure Hunt case log, friend trade matching, spending charts, per-car value history and achievement badges."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-07T14:55:25Z"
+      "updatedAt": "2026-10-07T16:23:09Z"
     },
     {
       "packageName": "com.pandacollection.pandagarage.friends",
@@ -138,5 +138,5 @@
       "updatedAt": "2026-10-07T16:14:20Z"
     }
   ],
-  "updatedAt": "2026-10-07T16:14:20Z"
+  "updatedAt": "2026-10-07T16:23:09Z"
 }
