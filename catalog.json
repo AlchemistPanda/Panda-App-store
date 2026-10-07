@@ -107,6 +107,19 @@
       "packageName": "com.pandacollection.pandagarage.friends",
       "releases": [
         {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "tag": "com.pandacollection.pandagarage.friends-v1.0.3-b4",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage.friends-v1.0.3-b4/PandaGarageFriends-v1.0.3-b4-2026-10-07.apk",
+          "size": 177198197,
+          "sha256": "de8cb758ac2d76fa18aab0735bdf9fc044cb85a562fd1b1543b46c675b1ca89e",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-07T16:14:20Z",
+          "notes": "App update checking and Hobby Estate shop added. Checks for newer builds at startup and offers to install through Panda App Store."
+        },
+        {
           "versionName": "1.0.2",
           "versionCode": 3,
           "tag": "com.pandacollection.pandagarage.friends-v1.0.2-b3",
@@ -118,25 +131,12 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T14:48:00Z",
           "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) that the owner already has is now shown as owned, not a different colour. Treasure Hunt wording no longer hides an owned car. Scanning a barcode with no name now says to search by name instead of giving the all-clear. An order already on the way is no longer shown as a different colour."
-        },
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "tag": "com.pandacollection.pandagarage.friends-v1.0.1-b2",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage.friends-v1.0.1-b2/PandaGarageFriends-v1.0.1-b2-2026-10-07.apk",
-          "size": 177184813,
-          "sha256": "e8d007b398be5dce928fe6cf6ba906938d33587c55a645c65460e22ddfc9b44c",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T10:56:37Z",
-          "notes": "Friends-only edition: browse the owner's collection, check before you buy, and send cars you bought for them back as a shareable code."
         }
       ],
       "name": "Panda Garage Friends",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.friends.webp",
-      "updatedAt": "2026-10-07T14:48:00Z"
+      "updatedAt": "2026-10-07T16:14:20Z"
     }
   ],
-  "updatedAt": "2026-10-07T14:55:25Z"
+  "updatedAt": "2026-10-07T16:14:20Z"
 }
