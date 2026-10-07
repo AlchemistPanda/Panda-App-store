@@ -136,7 +136,28 @@
       "name": "Panda Garage Friends",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.friends.webp",
       "updatedAt": "2026-10-07T16:14:20Z"
+    },
+    {
+      "packageName": "com.pandagrab.app",
+      "releases": [
+        {
+          "versionName": "5.10.1",
+          "versionCode": 2,
+          "tag": "com.pandagrab.app-v5.10.1-b2",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandagrab.app-v5.10.1-b2/PandaGrab-v5.10.1-b2-2026-10-07.apk",
+          "size": 123586757,
+          "sha256": "4c1646274782b888849436530ceb171249d8fa72d3d1041d3464c81b7449aaa4",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-07T17:06:04Z",
+          "notes": "Improved Instagram and Facebook downloads, plus player, trimmer and settings updates."
+        }
+      ],
+      "name": "PandaGrab",
+      "iconUrl": null,
+      "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-07T16:23:09Z"
+  "updatedAt": "2026-10-07T17:06:04Z"
 }
