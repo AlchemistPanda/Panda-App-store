@@ -5,6 +5,19 @@
       "packageName": "com.pandaapps.appstore",
       "releases": [
         {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "tag": "com.pandaapps.appstore-v1.0.3-b4",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.3-b4/PandaAppStore-v1.0.3-b4-2026-10-08.apk",
+          "size": 2149363,
+          "sha256": "8efab499a820619c38df9d743ed6cfe742eda3affc06f89ae0f8bedc961ce17e",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-07T20:54:54Z",
+          "notes": "Only installs apps signed with your own keys. Shows download speed and time left. Pause auto-update for any app, see older release notes, and the app is 6\u00d7 smaller."
+        },
+        {
           "versionName": "1.0.2",
           "versionCode": 3,
           "tag": "com.pandaapps.appstore-v1.0.2-b3",
@@ -16,24 +29,31 @@
           "targetSdk": 35,
           "releasedAt": "2026-10-07T19:15:25Z",
           "notes": "New Share button on each app's page: send the APK to friends via WhatsApp, Telegram, Gmail and more."
-        },
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "tag": "com.pandaapps.appstore-v1.0.1-b2",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.1-b2/PandaAppStore-v1.0.1-b2-2026-10-06.apk",
-          "size": 12923705,
-          "sha256": "5aa2f8c803042baa4bbe806a8eeae66ac8dcc2035426b3d7d4020157b51ae2c0",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 35,
-          "releasedAt": "2026-10-06T12:38:54Z",
-          "notes": "Foreground service for active installs to prevent background throttling, resumable HTTP Range downloads, and fixes for background update installation and self-update."
         }
       ],
       "name": "Panda App Store",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png",
-      "updatedAt": "2026-10-07T19:15:25Z"
+      "updatedAt": "2026-10-07T20:54:54Z",
+      "history": [
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "releasedAt": "2026-10-07T20:54:54Z",
+          "notes": "Only installs apps signed with your own keys. Shows download speed and time left. Pause auto-update for any app, see older release notes, and the app is 6\u00d7 smaller."
+        },
+        {
+          "versionName": "1.0.2",
+          "versionCode": 3,
+          "releasedAt": "2026-10-07T19:15:25Z",
+          "notes": "New Share button on each app's page: send the APK to friends via WhatsApp, Telegram, Gmail and more."
+        },
+        {
+          "versionName": "1.0.1",
+          "versionCode": 2,
+          "releasedAt": "2026-10-06T12:38:54Z",
+          "notes": "Foreground service for active installs to prevent background throttling, resumable HTTP Range downloads, and fixes for background update installation and self-update."
+        }
+      ]
     },
     {
       "packageName": "com.casiohunt",
@@ -159,5 +179,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-07T19:15:25Z"
+  "updatedAt": "2026-10-07T20:54:54Z"
 }
