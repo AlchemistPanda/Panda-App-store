@@ -73,6 +73,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.21",
+          "versionCode": 22,
+          "tag": "com.pandacollection.pandagarage-v1.0.21-b22",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.21-b22/PandaGarage-v1.0.21-b22-2026-10-08.apk",
+          "size": 177198169,
+          "sha256": "3635e778c1800fc911b82fd4f90c6e7813daa348ea2587b37b5e7c518c8a1530",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-07T18:32:54Z",
+          "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
+        },
+        {
           "versionName": "1.0.20",
           "versionCode": 21,
           "tag": "com.pandacollection.pandagarage-v1.0.20-b21",
@@ -84,24 +97,11 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T16:23:09Z",
           "notes": "The app now checks for updates when it opens and offers to install them through Panda App Store (switch it off in Profile). Added Hobby Estate to the shops."
-        },
-        {
-          "versionName": "1.0.19",
-          "versionCode": 20,
-          "tag": "com.pandacollection.pandagarage-v1.0.19-b20",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.19-b20/PandaGarage-v1.0.19-b20-2026-10-07.apk",
-          "size": 177191521,
-          "sha256": "8bdce9d9ff5fd884237e6ccb3bf955aaeb8ff0c46046dcd1be72ba13d029d596",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T14:55:25Z",
-          "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) is now recognised as owned instead of a different colour. Treasure Hunt wording no longer hides an owned car. An imported friend order that is already on the way is shown as ordered, not a different colour."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-07T16:23:09Z"
+      "updatedAt": "2026-10-07T18:32:54Z"
     },
     {
       "packageName": "com.pandacollection.pandagarage.friends",
@@ -159,5 +159,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-07T17:06:04Z"
+  "updatedAt": "2026-10-07T18:32:54Z"
 }
