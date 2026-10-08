@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_description">Open gallery memories, search, and Panda Sweep</string>
+    <string name="app_name">Panda Gallery</string>
+
+    <!-- Shared -->
+    <string name="action_back">Back</string>
+
+    <!-- Panda Sweep (Cleanup) -->
+    <string name="cleanup_screen_title">Panda Sweep</string>
+    <string name="cleanup_empty_title">Find space you can safely reclaim</string>
+    <string name="cleanup_empty_body">Panda Sweep analyzes files on this device. Photos are not uploaded.</string>
+    <string name="cleanup_scan_action">Scan gallery</string>
+    <string name="cleanup_scanning_message">Checking duplicates and image quality…</string>
+    <string name="cleanup_failed_title">Scan could not finish</string>
+    <string name="cleanup_retry_action">Try again</string>
+    <string name="cleanup_category_exact_duplicates_title">Exact duplicates</string>
+    <string name="cleanup_category_exact_duplicates_desc">Byte-for-byte identical files</string>
+    <string name="cleanup_category_similar_title">Similar photos</string>
+    <string name="cleanup_category_similar_desc">Visually similar shots</string>
+    <string name="cleanup_category_bursts_title">Burst sequences</string>
+    <string name="cleanup_category_bursts_desc">Rapid-fire shots; keeps the sharpest</string>
+    <string name="cleanup_category_blurry_title">Possibly blurry</string>
+    <string name="cleanup_category_blurry_desc">Review before removing</string>
+    <string name="cleanup_category_screenshots_title">Screenshots</string>
+    <string name="cleanup_category_screenshots_desc">Old captures often safe to clear</string>
+    <string name="cleanup_category_documents_title">Documents</string>
+    <string name="cleanup_category_documents_desc">Scans, receipts, and invoices</string>
+    <string name="cleanup_category_large_files_title">Large files</string>
+    <string name="cleanup_category_large_files_desc">Files using at least 50 MB</string>
+    <string name="cleanup_category_compressed_backed_up_title">Compressed &amp; backed up</string>
+    <string name="cleanup_category_compressed_backed_up_desc">Originals already saved elsewhere — safe to remove</string>
+    <string name="cleanup_potential_savings_title">Potential savings</string>
+    <string name="cleanup_potential_savings_note">Nothing is removed until you review and move it to Trash.</string>
+    <string name="cleanup_scan_again_action">Scan again</string>
+    <plurals name="cleanup_item_count">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+
+    <!-- Editor -->
+    <string name="editor_discard_title">Discard edits?</string>
+    <string name="editor_discard_body">Closing now loses the changes you\'ve made to this photo.</string>
+    <string name="editor_discard_confirm">Discard</string>
+    <string name="editor_keep_editing">Keep editing</string>
+    <string name="editor_revert">Revert</string>
+    <string name="editor_save">Save</string>
+    <string name="editor_save_as_copy">Save as copy</string>
+    <string name="editor_save_overwrite">Save</string>
+    <string name="editor_compare_hold">Hold to compare</string>
+    <string name="editor_original_badge">Original</string>
+    <string name="editor_auto_enhance">Auto</string>
+    <string name="editor_tab_transform">Transform</string>
+    <string name="editor_tab_filters">Filters</string>
+    <string name="editor_tab_tone">Tone</string>
+    <string name="editor_tab_decorations">Decorations</string>
+    <string name="editor_tab_ai_tools">AI Tools</string>
+    <string name="editor_tone_brightness">Brightness</string>
+    <string name="editor_tone_exposure">Exposure</string>
+    <string name="editor_tone_contrast">Contrast</string>
+    <string name="editor_tone_highlights">Highlights</string>
+    <string name="editor_tone_shadows">Shadows</string>
+    <string name="editor_tone_saturation">Saturation</string>
+    <string name="editor_tone_tint">Tint</string>
+    <string name="editor_tone_temperature">Temperature</string>
+    <string name="editor_tone_sharpness">Sharpness</string>
+    <string name="editor_tone_definition">Definition</string>
+    <string name="editor_tone_vignette">Vignette</string>
+    <string name="editor_tone_hue">Hue</string>
+    <string name="editor_curve_label">Tone Curve</string>
+    <string name="editor_filter_intensity">Intensity</string>
+    <string name="editor_straighten">Straighten</string>
+    <string name="editor_rotate">Rotate</string>
+    <string name="editor_flip_h">Flip H</string>
+    <string name="editor_flip_v">Flip V</string>
+    <string name="editor_reset">Reset</string>
+    <string name="editor_pen_regular">Pen</string>
+    <string name="editor_pen_highlighter">Highlighter</string>
+    <string name="editor_pen_neon">Neon</string>
+    <string name="editor_pen_calligraphy">Calligraphy</string>
+    <string name="editor_pen_mosaic">Mosaic Blur</string>
+    <string name="editor_tool_draw">Draw</string>
+    <string name="editor_tool_text">Text</string>
+    <string name="editor_tool_stickers">Stickers</string>
+    <string name="editor_ai_eraser">Object Eraser</string>
+    <string name="editor_ai_portrait">Portrait Studio</string>
+    <string name="editor_ai_remaster">AI Remaster</string>
+
+    <!-- Compression Notification -->
+    <string name="compression_notification_channel_name">Media Compression</string>
+    <string name="compression_notification_channel_desc">Shows progress while compressing photos and videos in background</string>
+    <string name="compression_notification_title">Compressing Media</string>
+    <string name="compression_notification_processing">Processing media compression queue…</string>
+    <string name="compression_notification_progress">Compressing %1$d of %2$d (%3$s)</string>
+    <string name="compression_notification_progress_simple">Compressing %1$d of %2$d items</string>
+    <string name="compression_notification_view_queue">View Queue</string>
+</resources>

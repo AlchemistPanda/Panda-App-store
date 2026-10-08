@@ -1,0 +1,24 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/build
+/app/release
+*.apk
+*.aab
+*.jks
+*.keystore
+google-services.json
+
+# Face recognition model IS committed on purpose: people grouping is meant to work
+# straight from a clone. scripts/download_face_model.sh refreshes it.
+# See docs/LICENSING.md before shipping commercially.
+
+# Release signing credentials - never commit
+keystore.properties
