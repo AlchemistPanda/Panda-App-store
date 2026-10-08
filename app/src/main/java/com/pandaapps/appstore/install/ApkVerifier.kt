@@ -98,6 +98,8 @@ class ApkVerifier(
             "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
             // Panda Garage (and its friends edition) own keystore.
             "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+            // Panda Gallery's own release keystore (panda-gallery-release.jks).
+            "76005928c7be52235cdb6c4fa2ff16acfe782f40ea8e7d4a4345320550c427b9",
         )
 
         /**

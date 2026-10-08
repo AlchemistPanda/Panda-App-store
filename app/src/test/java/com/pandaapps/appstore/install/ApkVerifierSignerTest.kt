@@ -100,6 +100,7 @@ class ApkVerifierSignerTest {
         assertNull(ApkVerifier.signerProblem("Casio Hunt", setOf(debugKey), debugKey, null))
         assertNull(ApkVerifier.signerProblem("Panda Garage", setOf(garageKey), garageKey, null))
         assertEquals(UNTRUSTED_SIGNER_MESSAGE, ApkVerifier.signerProblem("Panda Garage", setOf(ours), ours, null))
-        assertEquals(setOf(debugKey, garageKey), TRUSTED_SIGNERS)
+        val galleryKey = "76005928c7be52235cdb6c4fa2ff16acfe782f40ea8e7d4a4345320550c427b9"
+        assertEquals(setOf(debugKey, garageKey, galleryKey), TRUSTED_SIGNERS)
     }
 }
