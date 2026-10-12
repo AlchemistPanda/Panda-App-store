@@ -162,6 +162,19 @@
       "packageName": "com.pandacollection.pandagarage.friends",
       "releases": [
         {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.pandacollection.pandagarage.friends-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage.friends-v1.0.4-b5/PandaGarageFriends-v1.0.4-b5-2026-10-12.apk",
+          "size": 177146953,
+          "sha256": "b53c3653be7ff1b357353768700e89eda91bf0e67d0a25d1b532765d961ae819",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-12T13:11:56Z",
+          "notes": "Friends edition is now the main app without the Stock tab. Hunt, Orders, Cases and stock alerts are included, as in the main app. The Garage and For owner tabs are gone."
+        },
+        {
           "versionName": "1.0.3",
           "versionCode": 4,
           "tag": "com.pandacollection.pandagarage.friends-v1.0.3-b4",
@@ -173,24 +186,31 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T16:14:20Z",
           "notes": "App update checking and Hobby Estate shop added. Checks for newer builds at startup and offers to install through Panda App Store."
-        },
-        {
-          "versionName": "1.0.2",
-          "versionCode": 3,
-          "tag": "com.pandacollection.pandagarage.friends-v1.0.2-b3",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage.friends-v1.0.2-b3/PandaGarageFriends-v1.0.2-b3-2026-10-07.apk",
-          "size": 177191389,
-          "sha256": "8c4b6171dd8591724657ee6d3f568d15dbe5102834e3e145343f936dcac1df5f",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T14:48:00Z",
-          "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) that the owner already has is now shown as owned, not a different colour. Treasure Hunt wording no longer hides an owned car. Scanning a barcode with no name now says to search by name instead of giving the all-clear. An order already on the way is no longer shown as a different colour."
         }
       ],
       "name": "Panda Garage Friends",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.friends.webp",
-      "updatedAt": "2026-10-07T16:14:20Z"
+      "updatedAt": "2026-10-12T13:11:56Z",
+      "history": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-10-12T13:11:56Z",
+          "notes": "Friends edition is now the main app without the Stock tab. Hunt, Orders, Cases and stock alerts are included, as in the main app. The Garage and For owner tabs are gone."
+        },
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "releasedAt": "2026-10-07T16:14:20Z",
+          "notes": "App update checking and Hobby Estate shop added. Checks for newer builds at startup and offers to install through Panda App Store."
+        },
+        {
+          "versionName": "1.0.2",
+          "versionCode": 3,
+          "releasedAt": "2026-10-07T14:48:00Z",
+          "notes": "Fixes: a car with a named livery (Gulf, Martini, HKS...) that the owner already has is now shown as owned, not a different colour. Treasure Hunt wording no longer hides an owned car. Scanning a barcode with no name now says to search by name instead of giving the all-clear. An order already on the way is no longer shown as a different colour."
+        }
+      ]
     },
     {
       "packageName": "com.pandagrab.app",
@@ -214,5 +234,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-08T13:26:46Z"
+  "updatedAt": "2026-10-12T13:11:56Z"
 }
