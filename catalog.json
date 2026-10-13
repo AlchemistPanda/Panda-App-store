@@ -128,6 +128,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.22",
+          "versionCode": 23,
+          "tag": "com.pandacollection.pandagarage-v1.0.22-b23",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.22-b23/PandaGarage-v1.0.22-b23-2026-10-13.apk",
+          "size": 177166601,
+          "sha256": "42a607ecd526704bb4e19b0298e55d00c3b5d1b763226fce6253b087e00bc43f",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-13T12:09:20Z",
+          "notes": "FirstCry is now in the Stock tab, read for your pincode. Hunt also looks up every car on your list on FirstCry by name, so one that is in stock there shows up."
+        },
+        {
           "versionName": "1.0.21",
           "versionCode": 22,
           "tag": "com.pandacollection.pandagarage-v1.0.21-b22",
@@ -139,24 +152,31 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-07T18:32:54Z",
           "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
-        },
-        {
-          "versionName": "1.0.20",
-          "versionCode": 21,
-          "tag": "com.pandacollection.pandagarage-v1.0.20-b21",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.20-b21/PandaGarage-v1.0.20-b21-2026-10-07.apk",
-          "size": 174641437,
-          "sha256": "2ec9e9fac0cbe8b019137b35a8653a7898fa30e03061487b689c048f422708b6",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T16:23:09Z",
-          "notes": "The app now checks for updates when it opens and offers to install them through Panda App Store (switch it off in Profile). Added Hobby Estate to the shops."
         }
       ],
       "name": "Panda Garage",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
-      "updatedAt": "2026-10-07T18:32:54Z"
+      "updatedAt": "2026-10-13T12:09:20Z",
+      "history": [
+        {
+          "versionName": "1.0.22",
+          "versionCode": 23,
+          "releasedAt": "2026-10-13T12:09:20Z",
+          "notes": "FirstCry is now in the Stock tab, read for your pincode. Hunt also looks up every car on your list on FirstCry by name, so one that is in stock there shows up."
+        },
+        {
+          "versionName": "1.0.21",
+          "versionCode": 22,
+          "releasedAt": "2026-10-07T18:32:54Z",
+          "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
+        },
+        {
+          "versionName": "1.0.20",
+          "versionCode": 21,
+          "releasedAt": "2026-10-07T16:23:09Z",
+          "notes": "The app now checks for updates when it opens and offers to install them through Panda App Store (switch it off in Profile). Added Hobby Estate to the shops."
+        }
+      ]
     },
     {
       "packageName": "com.pandacollection.pandagarage.friends",
@@ -263,5 +283,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-12T20:42:41Z"
+  "updatedAt": "2026-10-13T12:09:20Z"
 }
