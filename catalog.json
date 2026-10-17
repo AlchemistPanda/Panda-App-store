@@ -2,6 +2,35 @@
   "schema": 1,
   "apps": [
     {
+      "packageName": "com.firstcry.hotwheelstracker",
+      "releases": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.0-b1",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.0-b1/FirstCryHotwheelsTracker-v1.0.0-b1-2026-10-18.apk",
+          "size": 15120213,
+          "sha256": "19260594630ef8165ca3abd467ac8ee270019721475b79bc887edd8b5274ac44",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-17T21:38:01Z",
+          "notes": "Initial release: Real-time FirstCry Hot Wheels stock tracker, pincode 680601 availability check, offline sleep, anti-ban jitter & circuit breaker, wishlist alerts with direct checkout"
+        }
+      ],
+      "name": "FirstCry Hotwheels Tracker",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png",
+      "updatedAt": "2026-10-17T21:38:01Z",
+      "history": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "releasedAt": "2026-10-17T21:38:01Z",
+          "notes": "Initial release: Real-time FirstCry Hot Wheels stock tracker, pincode 680601 availability check, offline sleep, anti-ban jitter & circuit breaker, wishlist alerts with direct checkout"
+        }
+      ]
+    },
+    {
       "packageName": "com.pandaapps.appstore",
       "releases": [
         {
@@ -303,5 +332,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-17T20:39:36Z"
+  "updatedAt": "2026-10-17T21:38:01Z"
 }
