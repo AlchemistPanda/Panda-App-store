@@ -65,6 +65,19 @@
       "packageName": "com.casiohunt",
       "releases": [
         {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "tag": "com.casiohunt-v1.0.5-b6",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.5-b6/CasioHunt-v1.0.5-b6-2026-10-18.apk",
+          "size": 16798632,
+          "sha256": "c0f02e07e7c95c4599b6e1c289336e37e2242953bae62981e64f24a11e9fec20",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-17T20:39:36Z",
+          "notes": "Fixed price display on out-of-stock watches by ignoring EMI fees and preserving last recorded in-stock or Bhawar authorized reference prices. Added in-app startup update checks from Panda App Store."
+        },
+        {
           "versionName": "1.0.4",
           "versionCode": 5,
           "tag": "com.casiohunt-v1.0.4-b5",
@@ -76,24 +89,31 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-06T17:26:39Z",
           "notes": "Added Stock History & Hot Sellers tracking: view a live chronological feed of watches restocked and sold out on each price refresh, see stock velocity metrics (duration in stock), discover hot sellers, and jump straight to watch details to buy when in stock."
-        },
-        {
-          "versionName": "1.0.3",
-          "versionCode": 4,
-          "tag": "com.casiohunt-v1.0.3-b4",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.3-b4/CasioHunt-v1.0.3-b4-2026-10-05.apk",
-          "size": 16700188,
-          "sha256": "d3f6f881c6e07775223452fb87727553d010b08a28db4d97dfd4aa31e23568b0",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-04T18:52:45Z",
-          "notes": "Smarter model-number matching across stores, so short models like F-91W and GA-2100 are found more reliably. 'Limited stock' now counts as available for Buy and cheapest-price. Clearer alerts when a watch hits your target price, plus visual polish."
         }
       ],
       "name": "Panda Casio Hunt",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png",
-      "updatedAt": "2026-10-06T17:26:39Z"
+      "updatedAt": "2026-10-17T20:39:36Z",
+      "history": [
+        {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "releasedAt": "2026-10-17T20:39:36Z",
+          "notes": "Fixed price display on out-of-stock watches by ignoring EMI fees and preserving last recorded in-stock or Bhawar authorized reference prices. Added in-app startup update checks from Panda App Store."
+        },
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-10-06T17:26:39Z",
+          "notes": "Added Stock History & Hot Sellers tracking: view a live chronological feed of watches restocked and sold out on each price refresh, see stock velocity metrics (duration in stock), discover hot sellers, and jump straight to watch details to buy when in stock."
+        },
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "releasedAt": "2026-10-04T18:52:45Z",
+          "notes": "Smarter model-number matching across stores, so short models like F-91W and GA-2100 are found more reliably. 'Limited stock' now counts as available for Buy and cheapest-price. Clearer alerts when a watch hits your target price, plus visual polish."
+        }
+      ]
     },
     {
       "packageName": "com.pandagallery.app",
@@ -283,5 +303,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-13T12:09:20Z"
+  "updatedAt": "2026-10-17T20:39:36Z"
 }
