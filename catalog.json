@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.24",
+          "versionCode": 25,
+          "tag": "com.pandacollection.pandagarage-v1.0.24-b25",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.24-b25/PandaGarage-v1.0.24-b25-2026-10-19.apk",
+          "size": 177169309,
+          "sha256": "22ac5f83eb3d8ba5592a133572d9ff2abc0e68cb85af8e94887dfc84b3a7e2db",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T20:21:59Z",
+          "notes": "Allows editing misread car names directly on scan results with alternative text candidates and instant re-search. Fixes scrolling to bottom buttons when car matches are listed. Adds a setting to mute shutter sound and use haptic vibration."
+        },
+        {
           "versionName": "1.0.23",
           "versionCode": 24,
           "tag": "com.pandacollection.pandagarage-v1.0.23-b24",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T19:23:13Z",
           "notes": "Adds an option in settings and the scanner to mute the camera shutter sound and use vibration haptic feedback instead when taking photos."
-        },
-        {
-          "versionName": "1.0.22",
-          "versionCode": 23,
-          "tag": "com.pandacollection.pandagarage-v1.0.22-b23",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.22-b23/PandaGarage-v1.0.22-b23-2026-10-13.apk",
-          "size": 177166601,
-          "sha256": "42a607ecd526704bb4e19b0298e55d00c3b5d1b763226fce6253b087e00bc43f",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-13T12:09:20Z",
-          "notes": "FirstCry is now in the Stock tab, read for your pincode. Hunt also looks up every car on your list on FirstCry by name, so one that is in stock there shows up."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=24",
-      "updatedAt": "2026-10-18T19:23:13Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=25",
+      "updatedAt": "2026-10-18T20:21:59Z",
       "history": [
+        {
+          "versionName": "1.0.24",
+          "versionCode": 25,
+          "releasedAt": "2026-10-18T20:21:59Z",
+          "notes": "Allows editing misread car names directly on scan results with alternative text candidates and instant re-search. Fixes scrolling to bottom buttons when car matches are listed. Adds a setting to mute shutter sound and use haptic vibration."
+        },
         {
           "versionName": "1.0.23",
           "versionCode": 24,
@@ -387,5 +393,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T19:23:13Z"
+  "updatedAt": "2026-10-18T20:21:59Z"
 }
