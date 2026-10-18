@@ -104,7 +104,7 @@
         }
       ],
       "name": "Panda App Store",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png?v=5",
       "updatedAt": "2026-10-08T13:26:21Z",
       "history": [
         {
@@ -164,7 +164,7 @@
         }
       ],
       "name": "Panda Casio Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png?v=6",
       "updatedAt": "2026-10-17T20:39:36Z",
       "history": [
         {
@@ -205,7 +205,7 @@
         }
       ],
       "name": "Panda Gallery",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagallery.app.png",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagallery.app.png?v=23",
       "updatedAt": "2026-10-08T13:26:46Z",
       "history": [
         {
@@ -247,7 +247,7 @@
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=23",
       "updatedAt": "2026-10-13T12:09:20Z",
       "history": [
         {
@@ -301,7 +301,7 @@
         }
       ],
       "name": "Panda Garage Friends",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.friends.webp",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.friends.webp?v=5",
       "updatedAt": "2026-10-12T13:11:56Z",
       "history": [
         {
@@ -342,7 +342,7 @@
         }
       ],
       "name": "Panda Order Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandaordertracker.webp",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandaordertracker.webp?v=1",
       "updatedAt": "2026-10-12T20:42:41Z",
       "history": [
         {
@@ -371,7 +371,7 @@
         }
       ],
       "name": "PandaGrab",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagrab.app.png",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagrab.app.png?v=2",
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
