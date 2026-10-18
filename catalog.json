@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.5-b6",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.5-b6/FirstCryHotwheelsTracker-v1.0.5-b6-2026-10-18.apk",
+          "size": 15288713,
+          "sha256": "ef121ad1bd5a864304f10f1808a75ce5ce0a86c5725ee57c95a89510b79b24f9",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T12:26:15Z",
+          "notes": "New 3D Collector Die-Cast app icon with holographic scanner ring. Auto-sweep catalog paging and live restock surveillance."
+        },
+        {
           "versionName": "1.0.4",
           "versionCode": 5,
           "tag": "com.firstcry.hotwheelstracker-v1.0.4-b5",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T12:10:15Z",
           "notes": "Auto-sweep entire catalog with live progress bar and anti-ban paging. Automatically indexes 400+ cars into local database."
-        },
-        {
-          "versionName": "1.0.2",
-          "versionCode": 3,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.2-b3",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.2-b3/FirstCryHotwheelsTracker-v1.0.2-b3-2026-10-18.apk",
-          "size": 15277773,
-          "sha256": "acc54ca900f3890fcf00c235a08cc9cf93697a590ee9d65794471df7ae522a35",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-17T22:24:07Z",
-          "notes": "Custom Cyber Glass Hot Wheels flame & radar app icon, refreshed launcher assets, and store branding"
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png",
-      "updatedAt": "2026-10-18T12:10:15Z",
+      "updatedAt": "2026-10-18T12:26:15Z",
       "history": [
+        {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "releasedAt": "2026-10-18T12:26:15Z",
+          "notes": "New 3D Collector Die-Cast app icon with holographic scanner ring. Auto-sweep catalog paging and live restock surveillance."
+        },
         {
           "versionName": "1.0.4",
           "versionCode": 5,
@@ -363,5 +369,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T12:10:15Z"
+  "updatedAt": "2026-10-18T12:26:15Z"
 }
