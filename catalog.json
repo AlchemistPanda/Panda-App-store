@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.23",
+          "versionCode": 24,
+          "tag": "com.pandacollection.pandagarage-v1.0.23-b24",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.23-b24/PandaGarage-v1.0.23-b24-2026-10-19.apk",
+          "size": 177164425,
+          "sha256": "9607c76dc6e5267eab6d50569d4a67c745caf0ad3013a2d84ef6b899dda4e44f",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T19:23:13Z",
+          "notes": "Adds an option in settings and the scanner to mute the camera shutter sound and use vibration haptic feedback instead when taking photos."
+        },
+        {
           "versionName": "1.0.22",
           "versionCode": 23,
           "tag": "com.pandacollection.pandagarage-v1.0.22-b23",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-13T12:09:20Z",
           "notes": "FirstCry is now in the Stock tab, read for your pincode. Hunt also looks up every car on your list on FirstCry by name, so one that is in stock there shows up."
-        },
-        {
-          "versionName": "1.0.21",
-          "versionCode": 22,
-          "tag": "com.pandacollection.pandagarage-v1.0.21-b22",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.21-b22/PandaGarage-v1.0.21-b22-2026-10-08.apk",
-          "size": 177198169,
-          "sha256": "3635e778c1800fc911b82fd4f90c6e7813daa348ea2587b37b5e7c518c8a1530",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-07T18:32:54Z",
-          "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=23",
-      "updatedAt": "2026-10-13T12:09:20Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=24",
+      "updatedAt": "2026-10-18T19:23:13Z",
       "history": [
+        {
+          "versionName": "1.0.23",
+          "versionCode": 24,
+          "releasedAt": "2026-10-18T19:23:13Z",
+          "notes": "Adds an option in settings and the scanner to mute the camera shutter sound and use vibration haptic feedback instead when taking photos."
+        },
         {
           "versionName": "1.0.22",
           "versionCode": 23,
@@ -381,5 +387,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T17:35:43Z"
+  "updatedAt": "2026-10-18T19:23:13Z"
 }
