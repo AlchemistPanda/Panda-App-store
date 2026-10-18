@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.25",
+          "versionCode": 26,
+          "tag": "com.pandacollection.pandagarage-v1.0.25-b26",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.25-b26/PandaGarage-v1.0.25-b26-2026-10-19.apk",
+          "size": 177169309,
+          "sha256": "20e646721f1f2d99a578cc466ee8e92cdd30b23eb17733c207f6f1a2d94bf1eb",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T20:30:51Z",
+          "notes": "Adds inline name editing and quick candidate chips to scan results. Fixes scanner scrolling to bottom buttons when cars are listed. Mandates 30-second progress monitoring for builds."
+        },
+        {
           "versionName": "1.0.24",
           "versionCode": 25,
           "tag": "com.pandacollection.pandagarage-v1.0.24-b25",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T20:21:59Z",
           "notes": "Allows editing misread car names directly on scan results with alternative text candidates and instant re-search. Fixes scrolling to bottom buttons when car matches are listed. Adds a setting to mute shutter sound and use haptic vibration."
-        },
-        {
-          "versionName": "1.0.23",
-          "versionCode": 24,
-          "tag": "com.pandacollection.pandagarage-v1.0.23-b24",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.23-b24/PandaGarage-v1.0.23-b24-2026-10-19.apk",
-          "size": 177164425,
-          "sha256": "9607c76dc6e5267eab6d50569d4a67c745caf0ad3013a2d84ef6b899dda4e44f",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T19:23:13Z",
-          "notes": "Adds an option in settings and the scanner to mute the camera shutter sound and use vibration haptic feedback instead when taking photos."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=25",
-      "updatedAt": "2026-10-18T20:21:59Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=26",
+      "updatedAt": "2026-10-18T20:30:51Z",
       "history": [
+        {
+          "versionName": "1.0.25",
+          "versionCode": 26,
+          "releasedAt": "2026-10-18T20:30:51Z",
+          "notes": "Adds inline name editing and quick candidate chips to scan results. Fixes scanner scrolling to bottom buttons when cars are listed. Mandates 30-second progress monitoring for builds."
+        },
         {
           "versionName": "1.0.24",
           "versionCode": 25,
@@ -393,5 +399,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T20:21:59Z"
+  "updatedAt": "2026-10-18T20:30:51Z"
 }
