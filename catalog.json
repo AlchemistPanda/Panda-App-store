@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.26",
+          "versionCode": 27,
+          "tag": "com.pandacollection.pandagarage-v1.0.26-b27",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.26-b27/PandaGarage-v1.0.26-b27-2026-10-19.apk",
+          "size": 177169601,
+          "sha256": "7d7a38b4c24cb2566375a961955c634e9b8babbda92bace069fd16e390d9240d",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T21:19:07Z",
+          "notes": "Defaults collection thumbnails and detail view to the card photo with the starred display option enabled. Adds a duplicates filter in the collection to view cars with multiple copies."
+        },
+        {
           "versionName": "1.0.25",
           "versionCode": 26,
           "tag": "com.pandacollection.pandagarage-v1.0.25-b26",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T20:30:51Z",
           "notes": "Adds inline name editing and quick candidate chips to scan results. Fixes scanner scrolling to bottom buttons when cars are listed. Mandates 30-second progress monitoring for builds."
-        },
-        {
-          "versionName": "1.0.24",
-          "versionCode": 25,
-          "tag": "com.pandacollection.pandagarage-v1.0.24-b25",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.24-b25/PandaGarage-v1.0.24-b25-2026-10-19.apk",
-          "size": 177169309,
-          "sha256": "22ac5f83eb3d8ba5592a133572d9ff2abc0e68cb85af8e94887dfc84b3a7e2db",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T20:21:59Z",
-          "notes": "Allows editing misread car names directly on scan results with alternative text candidates and instant re-search. Fixes scrolling to bottom buttons when car matches are listed. Adds a setting to mute shutter sound and use haptic vibration."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=26",
-      "updatedAt": "2026-10-18T20:30:51Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=27",
+      "updatedAt": "2026-10-18T21:19:07Z",
       "history": [
+        {
+          "versionName": "1.0.26",
+          "versionCode": 27,
+          "releasedAt": "2026-10-18T21:19:07Z",
+          "notes": "Defaults collection thumbnails and detail view to the card photo with the starred display option enabled. Adds a duplicates filter in the collection to view cars with multiple copies."
+        },
         {
           "versionName": "1.0.25",
           "versionCode": 26,
@@ -399,5 +405,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T20:30:51Z"
+  "updatedAt": "2026-10-18T21:19:07Z"
 }
