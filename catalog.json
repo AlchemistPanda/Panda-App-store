@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.27",
+          "versionCode": 28,
+          "tag": "com.pandacollection.pandagarage-v1.0.27-b28",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.27-b28/PandaGarage-v1.0.27-b28-2026-10-19.apk",
+          "size": 177174237,
+          "sha256": "da185a8e4e6ca8cfe90a5a3a94dbc619d2eaeda62d5b8d1ea084dee0334f1831",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T21:47:13Z",
+          "notes": "Adds a 'Buy Again' option in your collection and car details to put favorite castings back on your hunt list. Adds direct 'Add to List' actions and shows a Buy Again badge on the hunt screen and store scanner."
+        },
+        {
           "versionName": "1.0.26",
           "versionCode": 27,
           "tag": "com.pandacollection.pandagarage-v1.0.26-b27",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T21:19:07Z",
           "notes": "Defaults collection thumbnails and detail view to the card photo with the starred display option enabled. Adds a duplicates filter in the collection to view cars with multiple copies."
-        },
-        {
-          "versionName": "1.0.25",
-          "versionCode": 26,
-          "tag": "com.pandacollection.pandagarage-v1.0.25-b26",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.25-b26/PandaGarage-v1.0.25-b26-2026-10-19.apk",
-          "size": 177169309,
-          "sha256": "20e646721f1f2d99a578cc466ee8e92cdd30b23eb17733c207f6f1a2d94bf1eb",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T20:30:51Z",
-          "notes": "Adds inline name editing and quick candidate chips to scan results. Fixes scanner scrolling to bottom buttons when cars are listed. Mandates 30-second progress monitoring for builds."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=27",
-      "updatedAt": "2026-10-18T21:19:07Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=28",
+      "updatedAt": "2026-10-18T21:47:13Z",
       "history": [
+        {
+          "versionName": "1.0.27",
+          "versionCode": 28,
+          "releasedAt": "2026-10-18T21:47:13Z",
+          "notes": "Adds a 'Buy Again' option in your collection and car details to put favorite castings back on your hunt list. Adds direct 'Add to List' actions and shows a Buy Again badge on the hunt screen and store scanner."
+        },
         {
           "versionName": "1.0.26",
           "versionCode": 27,
@@ -405,5 +411,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T21:19:07Z"
+  "updatedAt": "2026-10-18T21:47:13Z"
 }
