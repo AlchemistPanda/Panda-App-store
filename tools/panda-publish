@@ -487,7 +487,8 @@ def main():
         _, existing_sha = get_file(repo, branch, icon_path)
         if existing_sha != git_blob_sha(data):
             put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
-        new_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}"
+        version_suffix = app.get("releases", [{}])[0].get("versionCode", int(datetime.now(timezone.utc).timestamp()))
+        new_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}?v={version_suffix}"
         if app.get("iconUrl") != new_url:
             app["iconUrl"] = new_url
             put_file(repo, branch, "catalog.json", (json.dumps(catalog, indent=2) + "\n").encode(),
@@ -545,7 +546,7 @@ def main():
             _, existing_sha = get_file(repo, branch, icon_path)
             if existing_sha != git_blob_sha(data):
                 put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
-            icon_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}"
+            icon_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}?v={code}"
 
     # Update the catalog: newest release first, keep only `keep`.
     release = {
