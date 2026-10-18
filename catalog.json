@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.9",
+          "versionCode": 10,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.9-b10",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.9-b10/FirstCryHotwheelsTracker-v1.0.9-b10-2026-10-18.apk",
+          "size": 15337865,
+          "sha256": "02343a6da79d6b1da2d94882733620891dfb3aebd23bee35dfd9a9722004b10a",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T17:35:43Z",
+          "notes": "Added 'Out of Stock' catalog filter with live count chip to browse & wishlist sold-out cars for restock alerts, startup update notifications, and optimized surveillance queries."
+        },
+        {
           "versionName": "1.0.8",
           "versionCode": 9,
           "tag": "com.firstcry.hotwheelstracker-v1.0.8-b9",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T14:42:04Z",
           "notes": "Daily 2 PM auto-sweep for new arrivals & restocks, collector exclusions (trucks, tracks, custom keywords), 1-tap card ignore, and refreshed Cyber Glass store icon."
-        },
-        {
-          "versionName": "1.0.5",
-          "versionCode": 6,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.5-b6",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.5-b6/FirstCryHotwheelsTracker-v1.0.5-b6-2026-10-18.apk",
-          "size": 15288713,
-          "sha256": "ef121ad1bd5a864304f10f1808a75ce5ce0a86c5725ee57c95a89510b79b24f9",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T12:26:15Z",
-          "notes": "New 3D Collector Die-Cast app icon with holographic scanner ring. Auto-sweep catalog paging and live restock surveillance."
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=9",
-      "updatedAt": "2026-10-18T14:42:04Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=10",
+      "updatedAt": "2026-10-18T17:35:43Z",
       "history": [
+        {
+          "versionName": "1.0.9",
+          "versionCode": 10,
+          "releasedAt": "2026-10-18T17:35:43Z",
+          "notes": "Added 'Out of Stock' catalog filter with live count chip to browse & wishlist sold-out cars for restock alerts, startup update notifications, and optimized surveillance queries."
+        },
         {
           "versionName": "1.0.8",
           "versionCode": 9,
@@ -375,5 +381,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T14:42:04Z"
+  "updatedAt": "2026-10-18T17:35:43Z"
 }
