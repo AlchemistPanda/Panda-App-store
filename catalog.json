@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.4-b5/FirstCryHotwheelsTracker-v1.0.4-b5-2026-10-18.apk",
+          "size": 15294157,
+          "sha256": "899fc6cd284d2090062600bb9d23ed6decf979f634a3b2c7cdb6c9ddc9b9efb8",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T12:10:15Z",
+          "notes": "Auto-sweep entire catalog with live progress bar and anti-ban paging. Automatically indexes 400+ cars into local database."
+        },
+        {
           "versionName": "1.0.2",
           "versionCode": 3,
           "tag": "com.firstcry.hotwheelstracker-v1.0.2-b3",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-17T22:24:07Z",
           "notes": "Custom Cyber Glass Hot Wheels flame & radar app icon, refreshed launcher assets, and store branding"
-        },
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.1-b2",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.1-b2/FirstCryHotwheelsTracker-v1.0.1-b2-2026-10-18.apk",
-          "size": 15120217,
-          "sha256": "ccea57b67635ebafd0ce96998417d69fdd9ce32c0f1eb66f6f45a53bdd57a65e",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-17T22:20:15Z",
-          "notes": "Added instant in-stock alerts for newly discovered Hot Wheels cars (outside of wishlist), automatic catalog sweep for new releases, and auto-wishlist toggle in Settings"
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png",
-      "updatedAt": "2026-10-17T22:24:07Z",
+      "updatedAt": "2026-10-18T12:10:15Z",
       "history": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-10-18T12:10:15Z",
+          "notes": "Auto-sweep entire catalog with live progress bar and anti-ban paging. Automatically indexes 400+ cars into local database."
+        },
         {
           "versionName": "1.0.2",
           "versionCode": 3,
@@ -357,5 +363,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-17T22:24:07Z"
+  "updatedAt": "2026-10-18T12:10:15Z"
 }
