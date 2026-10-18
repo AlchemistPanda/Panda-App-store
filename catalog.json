@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.29",
+          "versionCode": 30,
+          "tag": "com.pandacollection.pandagarage-v1.0.29-b30",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.29-b30/PandaGarage-v1.0.29-b30-2026-10-19.apk",
+          "size": 177173953,
+          "sha256": "62d0d14f83826ff6995d369da78f8963c443868011e1ad1209604ab50b3a87df",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-18T22:11:01Z",
+          "notes": "Sets the Model photo as the default collection thumbnail across the app, keeping it pre-selected when adding a car even before a photo is uploaded. Defaults detail view to the model photo tab."
+        },
+        {
           "versionName": "1.0.28",
           "versionCode": 29,
           "tag": "com.pandacollection.pandagarage-v1.0.28-b29",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T22:00:28Z",
           "notes": "Sets the Card photo as the default collection thumbnail when adding a model, keeping the star option enabled even before a photo is uploaded. Defaults detail view to the card photo tab."
-        },
-        {
-          "versionName": "1.0.27",
-          "versionCode": 28,
-          "tag": "com.pandacollection.pandagarage-v1.0.27-b28",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.27-b28/PandaGarage-v1.0.27-b28-2026-10-19.apk",
-          "size": 177174237,
-          "sha256": "da185a8e4e6ca8cfe90a5a3a94dbc619d2eaeda62d5b8d1ea084dee0334f1831",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T21:47:13Z",
-          "notes": "Adds a 'Buy Again' option in your collection and car details to put favorite castings back on your hunt list. Adds direct 'Add to List' actions and shows a Buy Again badge on the hunt screen and store scanner."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=29",
-      "updatedAt": "2026-10-18T22:00:28Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=30",
+      "updatedAt": "2026-10-18T22:11:01Z",
       "history": [
+        {
+          "versionName": "1.0.29",
+          "versionCode": 30,
+          "releasedAt": "2026-10-18T22:11:01Z",
+          "notes": "Sets the Model photo as the default collection thumbnail across the app, keeping it pre-selected when adding a car even before a photo is uploaded. Defaults detail view to the model photo tab."
+        },
         {
           "versionName": "1.0.28",
           "versionCode": 29,
@@ -417,5 +423,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T22:00:28Z"
+  "updatedAt": "2026-10-18T22:11:01Z"
 }
