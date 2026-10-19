@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.33",
+          "versionCode": 34,
+          "tag": "com.pandacollection.pandagarage-v1.0.33-b34",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.33-b34/PandaGarage-v1.0.33-b34-2026-10-19.apk",
+          "size": 177208977,
+          "sha256": "b3202a1e7f81c64fd976fe254e2b2db2fb9ad3505897feabf96165a9b9921b81",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T15:34:53Z",
+          "notes": "The collection thumbnail star now turns on automatically for the photo you add (e.g. a card photo when there is no model photo), so you no longer have to enable it each time."
+        },
+        {
           "versionName": "1.0.32",
           "versionCode": 33,
           "tag": "com.pandacollection.pandagarage-v1.0.32-b33",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-19T12:36:07Z",
           "notes": "Fixed the app crashing when opening a car, and fixed saves failing when phone storage for app data filled up. The optional Diagnostic log in Profile is still there if you need it."
-        },
-        {
-          "versionName": "1.0.31",
-          "versionCode": 32,
-          "tag": "com.pandacollection.pandagarage-v1.0.31-b32",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.31-b32/PandaGarage-v1.0.31-b32-2026-10-19.apk",
-          "size": 177208817,
-          "sha256": "b18a88890f0fa50fe38b06dae2feea6aa858eb7b51bde6273c7dce90b39e69b1",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T12:19:59Z",
-          "notes": "Added an optional Diagnostic log in Profile (off by default) with Copy and Share buttons, and made saving cars safer so edits are no longer lost or stalled."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=33",
-      "updatedAt": "2026-10-19T12:36:07Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=34",
+      "updatedAt": "2026-10-19T15:34:53Z",
       "history": [
+        {
+          "versionName": "1.0.33",
+          "versionCode": 34,
+          "releasedAt": "2026-10-19T15:34:53Z",
+          "notes": "The collection thumbnail star now turns on automatically for the photo you add (e.g. a card photo when there is no model photo), so you no longer have to enable it each time."
+        },
         {
           "versionName": "1.0.32",
           "versionCode": 33,
@@ -441,5 +447,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-19T12:36:07Z"
+  "updatedAt": "2026-10-19T15:34:53Z"
 }
