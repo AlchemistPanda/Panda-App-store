@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.32",
+          "versionCode": 33,
+          "tag": "com.pandacollection.pandagarage-v1.0.32-b33",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.32-b33/PandaGarage-v1.0.32-b33-2026-10-19.apk",
+          "size": 177208833,
+          "sha256": "e8c87dd0c610376983c5e7016a60e2b3a7060722d66e97320afc66a901b5be66",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T12:36:07Z",
+          "notes": "Fixed the app crashing when opening a car, and fixed saves failing when phone storage for app data filled up. The optional Diagnostic log in Profile is still there if you need it."
+        },
+        {
           "versionName": "1.0.31",
           "versionCode": 32,
           "tag": "com.pandacollection.pandagarage-v1.0.31-b32",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-19T12:19:59Z",
           "notes": "Added an optional Diagnostic log in Profile (off by default) with Copy and Share buttons, and made saving cars safer so edits are no longer lost or stalled."
-        },
-        {
-          "versionName": "1.0.30",
-          "versionCode": 31,
-          "tag": "com.pandacollection.pandagarage-v1.0.30-b31",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.30-b31/PandaGarage-v1.0.30-b31-2026-10-19.apk",
-          "size": 177193797,
-          "sha256": "255cb6b2ffab0655ef03227ebd830d4b07126f7b243401e06298783a71a39298",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T11:45:35Z",
-          "notes": "Upgrades Settings and filter sheets to Cyber Glass with fluid tactile controls. Fixes multi-column metric text wrapping and header title truncation across mobile viewports. Improves collection storage reliability with atomic serialized native backups."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=32",
-      "updatedAt": "2026-10-19T12:19:59Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=33",
+      "updatedAt": "2026-10-19T12:36:07Z",
       "history": [
+        {
+          "versionName": "1.0.32",
+          "versionCode": 33,
+          "releasedAt": "2026-10-19T12:36:07Z",
+          "notes": "Fixed the app crashing when opening a car, and fixed saves failing when phone storage for app data filled up. The optional Diagnostic log in Profile is still there if you need it."
+        },
         {
           "versionName": "1.0.31",
           "versionCode": 32,
@@ -435,5 +441,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-19T12:19:59Z"
+  "updatedAt": "2026-10-19T12:36:07Z"
 }
