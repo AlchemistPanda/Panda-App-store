@@ -232,6 +232,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.34",
+          "versionCode": 35,
+          "tag": "com.pandacollection.pandagarage-v1.0.34-b35",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.34-b35/PandaGarage-v1.0.34-b35-2026-10-19.apk",
+          "size": 177214657,
+          "sha256": "9160eb810dbe272937efebf6699fd7e148c9f8e8a37f3d53a0dae3b5d3b28482",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T16:03:21Z",
+          "notes": "Stock now refreshes automatically once a day \u2014 the first time you open the app, or the first time you get a connection that day. Respects Wi-Fi only."
+        },
+        {
           "versionName": "1.0.33",
           "versionCode": 34,
           "tag": "com.pandacollection.pandagarage-v1.0.33-b34",
@@ -243,25 +256,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-19T15:34:53Z",
           "notes": "The collection thumbnail star now turns on automatically for the photo you add (e.g. a card photo when there is no model photo), so you no longer have to enable it each time."
-        },
-        {
-          "versionName": "1.0.32",
-          "versionCode": 33,
-          "tag": "com.pandacollection.pandagarage-v1.0.32-b33",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.32-b33/PandaGarage-v1.0.32-b33-2026-10-19.apk",
-          "size": 177208833,
-          "sha256": "e8c87dd0c610376983c5e7016a60e2b3a7060722d66e97320afc66a901b5be66",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T12:36:07Z",
-          "notes": "Fixed the app crashing when opening a car, and fixed saves failing when phone storage for app data filled up. The optional Diagnostic log in Profile is still there if you need it."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=34",
-      "updatedAt": "2026-10-19T15:34:53Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=35",
+      "updatedAt": "2026-10-19T16:03:21Z",
       "history": [
+        {
+          "versionName": "1.0.34",
+          "versionCode": 35,
+          "releasedAt": "2026-10-19T16:03:21Z",
+          "notes": "Stock now refreshes automatically once a day \u2014 the first time you open the app, or the first time you get a connection that day. Respects Wi-Fi only."
+        },
         {
           "versionName": "1.0.33",
           "versionCode": 34,
@@ -453,5 +459,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-19T15:53:25Z"
+  "updatedAt": "2026-10-19T16:03:21Z"
 }
