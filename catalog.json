@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.31",
+          "versionCode": 32,
+          "tag": "com.pandacollection.pandagarage-v1.0.31-b32",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.31-b32/PandaGarage-v1.0.31-b32-2026-10-19.apk",
+          "size": 177208817,
+          "sha256": "b18a88890f0fa50fe38b06dae2feea6aa858eb7b51bde6273c7dce90b39e69b1",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T12:19:59Z",
+          "notes": "Added an optional Diagnostic log in Profile (off by default) with Copy and Share buttons, and made saving cars safer so edits are no longer lost or stalled."
+        },
+        {
           "versionName": "1.0.30",
           "versionCode": 31,
           "tag": "com.pandacollection.pandagarage-v1.0.30-b31",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-19T11:45:35Z",
           "notes": "Upgrades Settings and filter sheets to Cyber Glass with fluid tactile controls. Fixes multi-column metric text wrapping and header title truncation across mobile viewports. Improves collection storage reliability with atomic serialized native backups."
-        },
-        {
-          "versionName": "1.0.29",
-          "versionCode": 30,
-          "tag": "com.pandacollection.pandagarage-v1.0.29-b30",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.29-b30/PandaGarage-v1.0.29-b30-2026-10-19.apk",
-          "size": 177173953,
-          "sha256": "62d0d14f83826ff6995d369da78f8963c443868011e1ad1209604ab50b3a87df",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T22:11:01Z",
-          "notes": "Sets the Model photo as the default collection thumbnail across the app, keeping it pre-selected when adding a car even before a photo is uploaded. Defaults detail view to the model photo tab."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=31",
-      "updatedAt": "2026-10-19T11:45:35Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=32",
+      "updatedAt": "2026-10-19T12:19:59Z",
       "history": [
+        {
+          "versionName": "1.0.31",
+          "versionCode": 32,
+          "releasedAt": "2026-10-19T12:19:59Z",
+          "notes": "Added an optional Diagnostic log in Profile (off by default) with Copy and Share buttons, and made saving cars safer so edits are no longer lost or stalled."
+        },
         {
           "versionName": "1.0.30",
           "versionCode": 31,
@@ -429,5 +435,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-19T11:45:35Z"
+  "updatedAt": "2026-10-19T12:19:59Z"
 }
