@@ -457,7 +457,36 @@
       "name": "PandaGrab",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagrab.app.png?v=2",
       "updatedAt": "2026-10-07T17:06:04Z"
+    },
+    {
+      "packageName": "com.pandacollection.toycollectorsindia",
+      "releases": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "tag": "com.pandacollection.toycollectorsindia-v1.0.0-b1",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.toycollectorsindia-v1.0.0-b1/ToyCollectorsIndia-v1.0.0-b1-2026-10-20.apk",
+          "size": 6258790,
+          "sha256": "5c4863a10988e968531dfdde9e54784e5fc0479d939f2a944c88c602fb829b6f",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T21:37:21Z",
+          "notes": "Initial release: Toy Collectors India store with built-in ISP security bypass, live catalog, cart and checkout"
+        }
+      ],
+      "name": "Toy Collectors India",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.toycollectorsindia.png?v=1",
+      "updatedAt": "2026-10-19T21:37:21Z",
+      "history": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "releasedAt": "2026-10-19T21:37:21Z",
+          "notes": "Initial release: Toy Collectors India store with built-in ISP security bypass, live catalog, cart and checkout"
+        }
+      ]
     }
   ],
-  "updatedAt": "2026-10-19T16:03:21Z"
+  "updatedAt": "2026-10-19T21:37:21Z"
 }
