@@ -226,6 +226,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.30",
+          "versionCode": 31,
+          "tag": "com.pandacollection.pandagarage-v1.0.30-b31",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.30-b31/PandaGarage-v1.0.30-b31-2026-10-19.apk",
+          "size": 177193797,
+          "sha256": "255cb6b2ffab0655ef03227ebd830d4b07126f7b243401e06298783a71a39298",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-19T11:45:35Z",
+          "notes": "Upgrades Settings and filter sheets to Cyber Glass with fluid tactile controls. Fixes multi-column metric text wrapping and header title truncation across mobile viewports. Improves collection storage reliability with atomic serialized native backups."
+        },
+        {
           "versionName": "1.0.29",
           "versionCode": 30,
           "tag": "com.pandacollection.pandagarage-v1.0.29-b30",
@@ -237,25 +250,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-18T22:11:01Z",
           "notes": "Sets the Model photo as the default collection thumbnail across the app, keeping it pre-selected when adding a car even before a photo is uploaded. Defaults detail view to the model photo tab."
-        },
-        {
-          "versionName": "1.0.28",
-          "versionCode": 29,
-          "tag": "com.pandacollection.pandagarage-v1.0.28-b29",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.28-b29/PandaGarage-v1.0.28-b29-2026-10-19.apk",
-          "size": 177173961,
-          "sha256": "90dac7ecedb038a8ea9d66901ec026628b2c68360ee334841fca6430223c3bc2",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-18T22:00:28Z",
-          "notes": "Sets the Card photo as the default collection thumbnail when adding a model, keeping the star option enabled even before a photo is uploaded. Defaults detail view to the card photo tab."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=30",
-      "updatedAt": "2026-10-18T22:11:01Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=31",
+      "updatedAt": "2026-10-19T11:45:35Z",
       "history": [
+        {
+          "versionName": "1.0.30",
+          "versionCode": 31,
+          "releasedAt": "2026-10-19T11:45:35Z",
+          "notes": "Upgrades Settings and filter sheets to Cyber Glass with fluid tactile controls. Fixes multi-column metric text wrapping and header title truncation across mobile viewports. Improves collection storage reliability with atomic serialized native backups."
+        },
         {
           "versionName": "1.0.29",
           "versionCode": 30,
@@ -423,5 +429,5 @@
       "updatedAt": "2026-10-07T17:06:04Z"
     }
   ],
-  "updatedAt": "2026-10-18T22:11:01Z"
+  "updatedAt": "2026-10-19T11:45:35Z"
 }
