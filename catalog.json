@@ -232,6 +232,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.37",
+          "versionCode": 38,
+          "tag": "com.pandacollection.pandagarage-v1.0.37-b38",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.37-b38/PandaGarage-v1.0.37-b38-2026-10-20.apk",
+          "size": 177215561,
+          "sha256": "5a323e1fa8e2ad01ec72c3cdb2ac9a5753c43f2d897b9c42d3f027c93abcc4bc",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-20T10:13:46Z",
+          "notes": "Adding a car now always starts with the Card photo as the collection thumbnail (star on by default), even when photos are fetched or added."
+        },
+        {
           "versionName": "1.0.36",
           "versionCode": 37,
           "tag": "com.pandacollection.pandagarage-v1.0.36-b37",
@@ -243,25 +256,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T07:56:04Z",
           "notes": "Sharing a photo to Panda Garage now asks what to do: search in the store (stores and prices) or search my garage to see if I already have it. Nothing is added automatically."
-        },
-        {
-          "versionName": "1.0.35",
-          "versionCode": 36,
-          "tag": "com.pandacollection.pandagarage-v1.0.35-b36",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.35-b36/PandaGarage-v1.0.35-b36-2026-10-20.apk",
-          "size": 177215437,
-          "sha256": "d4c679fbed07c84fa08bf4aec2eec7dc2221903cb5b4efaa45c6b7ac23f693f2",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T07:48:20Z",
-          "notes": "Sharing a photo to Panda Garage from WhatsApp or your gallery now identifies the car and searches the shops for it, with stores and prices, instead of opening the add flow. Adding cars is still done inside the app."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=37",
-      "updatedAt": "2026-10-20T07:56:04Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=38",
+      "updatedAt": "2026-10-20T10:13:46Z",
       "history": [
+        {
+          "versionName": "1.0.37",
+          "versionCode": 38,
+          "releasedAt": "2026-10-20T10:13:46Z",
+          "notes": "Adding a car now always starts with the Card photo as the collection thumbnail (star on by default), even when photos are fetched or added."
+        },
         {
           "versionName": "1.0.36",
           "versionCode": 37,
@@ -500,5 +506,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T07:56:04Z"
+  "updatedAt": "2026-10-20T10:13:46Z"
 }
