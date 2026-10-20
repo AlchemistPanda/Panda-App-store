@@ -238,6 +238,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.38",
+          "versionCode": 39,
+          "tag": "com.pandacollection.pandagarage-v1.0.38-b39",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.38-b39/PandaGarage-v1.0.38-b39-2026-10-20.apk",
+          "size": 177216569,
+          "sha256": "7027352d1f85789022ee71a271008a0909960670d197b2c7ee2d6b24a70344f9",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-20T11:52:01Z",
+          "notes": "Fixed the shutter spinning after you close the scanner and reopen it. Card scanning and matching are unchanged."
+        },
+        {
           "versionName": "1.0.37",
           "versionCode": 38,
           "tag": "com.pandacollection.pandagarage-v1.0.37-b38",
@@ -249,25 +262,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T10:13:46Z",
           "notes": "Adding a car now always starts with the Card photo as the collection thumbnail (star on by default), even when photos are fetched or added."
-        },
-        {
-          "versionName": "1.0.36",
-          "versionCode": 37,
-          "tag": "com.pandacollection.pandagarage-v1.0.36-b37",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.36-b37/PandaGarage-v1.0.36-b37-2026-10-20.apk",
-          "size": 177215749,
-          "sha256": "40c29b89b83de1040af12f5ac9ee4dac3f4c60851820b477ce4c4b1fec7f4672",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T07:56:04Z",
-          "notes": "Sharing a photo to Panda Garage now asks what to do: search in the store (stores and prices) or search my garage to see if I already have it. Nothing is added automatically."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=38",
-      "updatedAt": "2026-10-20T10:13:46Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=39",
+      "updatedAt": "2026-10-20T11:52:01Z",
       "history": [
+        {
+          "versionName": "1.0.38",
+          "versionCode": 39,
+          "releasedAt": "2026-10-20T11:52:01Z",
+          "notes": "Fixed the shutter spinning after you close the scanner and reopen it. Card scanning and matching are unchanged."
+        },
         {
           "versionName": "1.0.37",
           "versionCode": 38,
@@ -531,5 +537,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T11:43:19Z"
+  "updatedAt": "2026-10-20T11:52:01Z"
 }
