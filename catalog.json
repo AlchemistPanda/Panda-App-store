@@ -232,6 +232,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.36",
+          "versionCode": 37,
+          "tag": "com.pandacollection.pandagarage-v1.0.36-b37",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.36-b37/PandaGarage-v1.0.36-b37-2026-10-20.apk",
+          "size": 177215749,
+          "sha256": "40c29b89b83de1040af12f5ac9ee4dac3f4c60851820b477ce4c4b1fec7f4672",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-20T07:56:04Z",
+          "notes": "Sharing a photo to Panda Garage now asks what to do: search in the store (stores and prices) or search my garage to see if I already have it. Nothing is added automatically."
+        },
+        {
           "versionName": "1.0.35",
           "versionCode": 36,
           "tag": "com.pandacollection.pandagarage-v1.0.35-b36",
@@ -243,25 +256,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T07:48:20Z",
           "notes": "Sharing a photo to Panda Garage from WhatsApp or your gallery now identifies the car and searches the shops for it, with stores and prices, instead of opening the add flow. Adding cars is still done inside the app."
-        },
-        {
-          "versionName": "1.0.34",
-          "versionCode": 35,
-          "tag": "com.pandacollection.pandagarage-v1.0.34-b35",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.34-b35/PandaGarage-v1.0.34-b35-2026-10-19.apk",
-          "size": 177214657,
-          "sha256": "9160eb810dbe272937efebf6699fd7e148c9f8e8a37f3d53a0dae3b5d3b28482",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T16:03:21Z",
-          "notes": "Stock now refreshes automatically once a day \u2014 the first time you open the app, or the first time you get a connection that day. Respects Wi-Fi only."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=36",
-      "updatedAt": "2026-10-20T07:48:20Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=37",
+      "updatedAt": "2026-10-20T07:56:04Z",
       "history": [
+        {
+          "versionName": "1.0.36",
+          "versionCode": 37,
+          "releasedAt": "2026-10-20T07:56:04Z",
+          "notes": "Sharing a photo to Panda Garage now asks what to do: search in the store (stores and prices) or search my garage to see if I already have it. Nothing is added automatically."
+        },
         {
           "versionName": "1.0.35",
           "versionCode": 36,
@@ -494,5 +500,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T07:48:20Z"
+  "updatedAt": "2026-10-20T07:56:04Z"
 }
