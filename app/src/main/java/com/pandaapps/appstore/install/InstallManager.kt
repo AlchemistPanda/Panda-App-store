@@ -61,7 +61,7 @@ class InstallManager(
 ) {
     private val appContext = context.applicationContext
 
-    private val downloader = ApkDownloader(okHttp, File(appContext.cacheDir, APK_DIR))
+    private val downloader = ApkDownloader(okHttp, File(appContext.cacheDir, APK_DIR)) { appLog.i(TAG, it) }
     private val verifier = ApkVerifier(installedApps, appLog)
     private val installer = PackageInstallerHelper(appContext)
 
