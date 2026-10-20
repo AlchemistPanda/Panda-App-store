@@ -89,6 +89,19 @@
       "packageName": "com.pandaapps.appstore",
       "releases": [
         {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "tag": "com.pandaapps.appstore-v1.0.5-b6",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.5-b6/PandaAppStore-v1.0.5-b6-2026-10-20.apk",
+          "size": 2149363,
+          "sha256": "d31102adef424a684d0a455953cfbd84d9c6efcb6dda0a945d7124717b15a0cf",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-20T10:35:07Z",
+          "notes": "Much faster, steadier downloads for large apps: the store now fetches in parallel pieces, drops slow connections and retries, and survives expired download links. Interrupted downloads resume."
+        },
+        {
           "versionName": "1.0.4",
           "versionCode": 5,
           "tag": "com.pandaapps.appstore-v1.0.4-b5",
@@ -100,25 +113,18 @@
           "targetSdk": 35,
           "releasedAt": "2026-10-08T13:26:21Z",
           "notes": "Installs apps signed with Panda Gallery's own key too. Everything else unchanged."
-        },
-        {
-          "versionName": "1.0.3",
-          "versionCode": 4,
-          "tag": "com.pandaapps.appstore-v1.0.3-b4",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.3-b4/PandaAppStore-v1.0.3-b4-2026-10-08.apk",
-          "size": 2149363,
-          "sha256": "8efab499a820619c38df9d743ed6cfe742eda3affc06f89ae0f8bedc961ce17e",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 35,
-          "releasedAt": "2026-10-07T20:54:54Z",
-          "notes": "Only installs apps signed with your own keys. Shows download speed and time left. Pause auto-update for any app, see older release notes, and the app is 6\u00d7 smaller."
         }
       ],
       "name": "Panda App Store",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png?v=5",
-      "updatedAt": "2026-10-08T13:26:21Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png?v=6",
+      "updatedAt": "2026-10-20T10:35:07Z",
       "history": [
+        {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "releasedAt": "2026-10-20T10:35:07Z",
+          "notes": "Much faster, steadier downloads for large apps: the store now fetches in parallel pieces, drops slow connections and retries, and survives expired download links. Interrupted downloads resume."
+        },
         {
           "versionName": "1.0.4",
           "versionCode": 5,
@@ -506,5 +512,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T10:13:46Z"
+  "updatedAt": "2026-10-20T10:35:07Z"
 }
