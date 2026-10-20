@@ -238,6 +238,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.39",
+          "versionCode": 40,
+          "tag": "com.pandacollection.pandagarage-v1.0.39-b40",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.39-b40/PandaGarage-v1.0.39-b40-2026-10-21.apk",
+          "size": 177218189,
+          "sha256": "43319cd3130826309f6ce8ac221b8649b439d9d723eedccf6939c956dbd15b98",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-20T20:26:12Z",
+          "notes": "Background stock checks now wake the app less often, so Android's battery manager no longer flags Panda Garage as misbehaving. Scheduled checks may run up to about 30 minutes after their set time."
+        },
+        {
           "versionName": "1.0.38",
           "versionCode": 39,
           "tag": "com.pandacollection.pandagarage-v1.0.38-b39",
@@ -249,25 +262,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T11:52:01Z",
           "notes": "Fixed the shutter spinning after you close the scanner and reopen it. Card scanning and matching are unchanged."
-        },
-        {
-          "versionName": "1.0.37",
-          "versionCode": 38,
-          "tag": "com.pandacollection.pandagarage-v1.0.37-b38",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.37-b38/PandaGarage-v1.0.37-b38-2026-10-20.apk",
-          "size": 177215561,
-          "sha256": "5a323e1fa8e2ad01ec72c3cdb2ac9a5753c43f2d897b9c42d3f027c93abcc4bc",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T10:13:46Z",
-          "notes": "Adding a car now always starts with the Card photo as the collection thumbnail (star on by default), even when photos are fetched or added."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=39",
-      "updatedAt": "2026-10-20T11:52:01Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=40",
+      "updatedAt": "2026-10-20T20:26:12Z",
       "history": [
+        {
+          "versionName": "1.0.39",
+          "versionCode": 40,
+          "releasedAt": "2026-10-20T20:26:12Z",
+          "notes": "Background stock checks now wake the app less often, so Android's battery manager no longer flags Panda Garage as misbehaving. Scheduled checks may run up to about 30 minutes after their set time."
+        },
         {
           "versionName": "1.0.38",
           "versionCode": 39,
@@ -537,5 +543,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T11:52:01Z"
+  "updatedAt": "2026-10-20T20:26:12Z"
 }
