@@ -196,6 +196,19 @@
       "packageName": "com.casiohunt",
       "releases": [
         {
+          "versionName": "1.0.7",
+          "versionCode": 8,
+          "tag": "com.casiohunt-v1.0.7-b8",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.7-b8/CasioHunt-v1.0.7-b8-2026-10-21.apk",
+          "size": 16815012,
+          "sha256": "b92f84e302682f9d0d252aef3825a59b9568c3f534bd78f1b29ede4919914261",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-21T16:03:40Z",
+          "notes": "Interactive price history chart: tap to inspect price, date, and store for every point. Eliminated random store-switching lines, added price direction badge (up/down delta), and full price history bottom sheet on wishlist."
+        },
+        {
           "versionName": "1.0.6",
           "versionCode": 7,
           "tag": "com.casiohunt-v1.0.6-b7",
@@ -207,25 +220,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-21T15:13:56Z",
           "notes": "Hunt screen now shows when each store was last checked, in-stock watches float to the top with a green outline, and price is always tracked since you added the watch to your hunt list."
-        },
-        {
-          "versionName": "1.0.5",
-          "versionCode": 6,
-          "tag": "com.casiohunt-v1.0.5-b6",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.5-b6/CasioHunt-v1.0.5-b6-2026-10-18.apk",
-          "size": 16798632,
-          "sha256": "c0f02e07e7c95c4599b6e1c289336e37e2242953bae62981e64f24a11e9fec20",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-17T20:39:36Z",
-          "notes": "Fixed price display on out-of-stock watches by ignoring EMI fees and preserving last recorded in-stock or Bhawar authorized reference prices. Added in-app startup update checks from Panda App Store."
         }
       ],
       "name": "Panda Casio Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png?v=7",
-      "updatedAt": "2026-10-21T15:13:56Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png?v=8",
+      "updatedAt": "2026-10-21T16:03:40Z",
       "history": [
+        {
+          "versionName": "1.0.7",
+          "versionCode": 8,
+          "releasedAt": "2026-10-21T16:03:40Z",
+          "notes": "Interactive price history chart: tap to inspect price, date, and store for every point. Eliminated random store-switching lines, added price direction badge (up/down delta), and full price history bottom sheet on wishlist."
+        },
         {
           "versionName": "1.0.6",
           "versionCode": 7,
@@ -590,5 +596,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-21T15:13:56Z"
+  "updatedAt": "2026-10-21T16:03:40Z"
 }
