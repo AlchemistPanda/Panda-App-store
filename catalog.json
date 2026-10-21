@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.13",
+          "versionCode": 14,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.13-b14",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.13-b14/FirstCryHotwheelsTracker-v1.0.13-b14-2026-10-21.apk",
+          "size": 15431157,
+          "sha256": "90bd6d32b40e4e650eda8defce44396e91b6863e834e46c5fb3fde405b795092",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-21T16:25:07Z",
+          "notes": "Custom Hot Wheels notification tone, in-app notification drop view with direct WhatsApp share and link copying"
+        },
+        {
           "versionName": "1.0.12",
           "versionCode": 13,
           "tag": "com.firstcry.hotwheelstracker-v1.0.12-b13",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-21T10:16:57Z",
           "notes": "Fixed false out-of-stock reporting on FirstCry product pages: authoritative live stock is now accurately read from FirstCry product data, restock notifications trigger reliably, and catalog background sweep speed is boosted."
-        },
-        {
-          "versionName": "1.0.11",
-          "versionCode": 12,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.11-b12",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.11-b12/FirstCryHotwheelsTracker-v1.0.11-b12-2026-10-21.apk",
-          "size": 15337777,
-          "sha256": "a3ef9f5cb5556066d0b77ec71d4693a563bdf664062ee0fa9784e924b4bce1c4",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T22:24:09Z",
-          "notes": "Fixed the app crashing in the background on Android 15 and 16. Stock is now checked every 15, 30 or 60 minutes using Android's battery-friendly scheduler instead of an always-on service; the same checks run, and the app also checks right away when you open it. No more duplicate restock alerts."
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=13",
-      "updatedAt": "2026-10-21T10:16:57Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=14",
+      "updatedAt": "2026-10-21T16:25:07Z",
       "history": [
+        {
+          "versionName": "1.0.13",
+          "versionCode": 14,
+          "releasedAt": "2026-10-21T16:25:07Z",
+          "notes": "Custom Hot Wheels notification tone, in-app notification drop view with direct WhatsApp share and link copying"
+        },
         {
           "versionName": "1.0.12",
           "versionCode": 13,
@@ -596,5 +602,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-21T16:03:40Z"
+  "updatedAt": "2026-10-21T16:25:07Z"
 }
