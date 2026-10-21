@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.12",
+          "versionCode": 13,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.12-b13",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.12-b13/FirstCryHotwheelsTracker-v1.0.12-b13-2026-10-21.apk",
+          "size": 15337773,
+          "sha256": "7f5a12ba6042b5ac3358646b5993ec8029f8f3dcbc55fc902911788e2eee3f67",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-21T10:16:57Z",
+          "notes": "Fixed false out-of-stock reporting on FirstCry product pages: authoritative live stock is now accurately read from FirstCry product data, restock notifications trigger reliably, and catalog background sweep speed is boosted."
+        },
+        {
           "versionName": "1.0.11",
           "versionCode": 12,
           "tag": "com.firstcry.hotwheelstracker-v1.0.11-b12",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T22:24:09Z",
           "notes": "Fixed the app crashing in the background on Android 15 and 16. Stock is now checked every 15, 30 or 60 minutes using Android's battery-friendly scheduler instead of an always-on service; the same checks run, and the app also checks right away when you open it. No more duplicate restock alerts."
-        },
-        {
-          "versionName": "1.0.10",
-          "versionCode": 11,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.10-b11",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.10-b11/FirstCryHotwheelsTracker-v1.0.10-b11-2026-10-19.apk",
-          "size": 15337865,
-          "sha256": "fbde95f4b1e0390d47a4e36256223e1cac7b484de38c405f204648083bcc34e8",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T15:53:25Z",
-          "notes": "Fixed the tracker notification: it now shows real 'scanned X min ago' time and 'N in stock \u00b7 M tracked'. Faster new-stock detection by scanning several catalog pages per cycle, and wishlist cars that become deliverable to your pincode now trigger an alert."
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=12",
-      "updatedAt": "2026-10-20T22:24:09Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=13",
+      "updatedAt": "2026-10-21T10:16:57Z",
       "history": [
+        {
+          "versionName": "1.0.12",
+          "versionCode": 13,
+          "releasedAt": "2026-10-21T10:16:57Z",
+          "notes": "Fixed false out-of-stock reporting on FirstCry product pages: authoritative live stock is now accurately read from FirstCry product data, restock notifications trigger reliably, and catalog background sweep speed is boosted."
+        },
         {
           "versionName": "1.0.11",
           "versionCode": 12,
@@ -549,5 +555,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-20T22:24:09Z"
+  "updatedAt": "2026-10-21T10:16:57Z"
 }
