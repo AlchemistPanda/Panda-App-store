@@ -5,6 +5,19 @@
       "packageName": "com.firstcry.hotwheelstracker",
       "releases": [
         {
+          "versionName": "1.0.15",
+          "versionCode": 16,
+          "tag": "com.firstcry.hotwheelstracker-v1.0.15-b16",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.15-b16/FirstCryHotwheelsTracker-v1.0.15-b16-2026-10-22.apk",
+          "size": 15431157,
+          "sha256": "78f01253c3f331038b3883184d6acb9aa11cd55f2405ee79ccfd977690b99221",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-22T16:07:48Z",
+          "notes": "Ultra-low latency stock detection engine: added 3m & 5m Drop Hunter intervals, Page 1 catalog-first verification (<200ms), and zero-latency instant notifications with async car photo rendering"
+        },
+        {
           "versionName": "1.0.14",
           "versionCode": 15,
           "tag": "com.firstcry.hotwheelstracker-v1.0.14-b15",
@@ -16,25 +29,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-22T15:22:20Z",
           "notes": "Fix car picture in restock and new car notifications: expanded BigPictureStyle now displays full car image with fallback CDN downloads, and collapsed notification shows thumbnail preview"
-        },
-        {
-          "versionName": "1.0.13",
-          "versionCode": 14,
-          "tag": "com.firstcry.hotwheelstracker-v1.0.13-b14",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.firstcry.hotwheelstracker-v1.0.13-b14/FirstCryHotwheelsTracker-v1.0.13-b14-2026-10-21.apk",
-          "size": 15431157,
-          "sha256": "90bd6d32b40e4e650eda8defce44396e91b6863e834e46c5fb3fde405b795092",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-21T16:25:07Z",
-          "notes": "Custom Hot Wheels notification tone, in-app notification drop view with direct WhatsApp share and link copying"
         }
       ],
       "name": "FirstCry Hotwheels Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=15",
-      "updatedAt": "2026-10-22T15:22:20Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.firstcry.hotwheelstracker.png?v=16",
+      "updatedAt": "2026-10-22T16:07:48Z",
       "history": [
+        {
+          "versionName": "1.0.15",
+          "versionCode": 16,
+          "releasedAt": "2026-10-22T16:07:48Z",
+          "notes": "Ultra-low latency stock detection engine: added 3m & 5m Drop Hunter intervals, Page 1 catalog-first verification (<200ms), and zero-latency instant notifications with async car photo rendering"
+        },
         {
           "versionName": "1.0.14",
           "versionCode": 15,
@@ -608,5 +614,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-22T15:22:20Z"
+  "updatedAt": "2026-10-22T16:07:48Z"
 }
