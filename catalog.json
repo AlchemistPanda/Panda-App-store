@@ -315,6 +315,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.40",
+          "versionCode": 41,
+          "tag": "com.pandacollection.pandagarage-v1.0.40-b41",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.40-b41/PandaGarage-v1.0.40-b41-2026-10-23.apk",
+          "size": 177218061,
+          "sha256": "d70dc457622752deaa4a452eccaa5f03e65a39797210913a0b6e0e02ab6c4750",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-22T20:19:38Z",
+          "notes": "Fixed collection header layout so the number of castings and total cars is always clearly visible and never covered or clipped by action buttons."
+        },
+        {
           "versionName": "1.0.39",
           "versionCode": 40,
           "tag": "com.pandacollection.pandagarage-v1.0.39-b40",
@@ -326,25 +339,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-20T20:26:12Z",
           "notes": "Background stock checks now wake the app less often, so Android's battery manager no longer flags Panda Garage as misbehaving. Scheduled checks may run up to about 30 minutes after their set time."
-        },
-        {
-          "versionName": "1.0.38",
-          "versionCode": 39,
-          "tag": "com.pandacollection.pandagarage-v1.0.38-b39",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.38-b39/PandaGarage-v1.0.38-b39-2026-10-20.apk",
-          "size": 177216569,
-          "sha256": "7027352d1f85789022ee71a271008a0909960670d197b2c7ee2d6b24a70344f9",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T11:52:01Z",
-          "notes": "Fixed the shutter spinning after you close the scanner and reopen it. Card scanning and matching are unchanged."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=40",
-      "updatedAt": "2026-10-20T20:26:12Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=41",
+      "updatedAt": "2026-10-22T20:19:38Z",
       "history": [
+        {
+          "versionName": "1.0.40",
+          "versionCode": 41,
+          "releasedAt": "2026-10-22T20:19:38Z",
+          "notes": "Fixed collection header layout so the number of castings and total cars is always clearly visible and never covered or clipped by action buttons."
+        },
         {
           "versionName": "1.0.39",
           "versionCode": 40,
@@ -458,12 +464,6 @@
           "versionCode": 22,
           "releasedAt": "2026-10-07T18:32:54Z",
           "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
-        },
-        {
-          "versionName": "1.0.20",
-          "versionCode": 21,
-          "releasedAt": "2026-10-07T16:23:09Z",
-          "notes": "The app now checks for updates when it opens and offers to install them through Panda App Store (switch it off in Profile). Added Hobby Estate to the shops."
         }
       ]
     },
@@ -620,5 +620,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-22T19:20:59Z"
+  "updatedAt": "2026-10-22T20:19:38Z"
 }
