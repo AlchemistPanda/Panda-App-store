@@ -425,54 +425,6 @@
           "notes": "Improved Instagram and Facebook downloads, plus player, trimmer and settings updates."
         }
       ]
-    },
-    {
-      "packageName": "com.pandacollection.toycollectorsindia",
-      "releases": [
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "tag": "com.pandacollection.toycollectorsindia-v1.0.1-b2",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.toycollectorsindia-v1.0.1-b2/ToyCollectorsIndia-v1.0.1-b2-2026-10-20.apk",
-          "size": 6259518,
-          "sha256": "18dbe6e0916134aae6fa87e7982b93cb7d8d0ecc7adc7e3e7ab815d93585ca4e",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T11:43:19Z",
-          "notes": "Live in-app web browser backed by encrypted DoH proxy, full real product images and checkout"
-        },
-        {
-          "versionName": "1.0.0",
-          "versionCode": 1,
-          "tag": "com.pandacollection.toycollectorsindia-v1.0.0-b1",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.toycollectorsindia-v1.0.0-b1/ToyCollectorsIndia-v1.0.0-b1-2026-10-20.apk",
-          "size": 6258790,
-          "sha256": "5c4863a10988e968531dfdde9e54784e5fc0479d939f2a944c88c602fb829b6f",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-19T21:37:21Z",
-          "notes": "Initial release: Toy Collectors India store with built-in ISP security bypass, live catalog, cart and checkout"
-        }
-      ],
-      "name": "Toy Collectors India",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.toycollectorsindia.png?v=2",
-      "updatedAt": "2026-10-20T11:43:19Z",
-      "history": [
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "releasedAt": "2026-10-20T11:43:19Z",
-          "notes": "Live in-app web browser backed by encrypted DoH proxy, full real product images and checkout"
-        },
-        {
-          "versionName": "1.0.0",
-          "versionCode": 1,
-          "releasedAt": "2026-10-19T21:37:21Z",
-          "notes": "Initial release: Toy Collectors India store with built-in ISP security bypass, live catalog, cart and checkout"
-        }
-      ]
     }
   ],
   "updatedAt": "2026-10-23T19:44:07Z"
