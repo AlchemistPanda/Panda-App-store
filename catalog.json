@@ -125,6 +125,19 @@
       "packageName": "com.pandaapps.appstore",
       "releases": [
         {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "tag": "com.pandaapps.appstore-v1.0.6-b7",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.6-b7/PandaAppStore-v1.0.6-b7-2026-10-24.apk",
+          "size": 2182131,
+          "sha256": "d64d804320ea07bd5561dc14de97b168ed4f12034e11757696bc22595019a292",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-23T19:44:07Z",
+          "notes": "Behind-the-scenes improvements to catalog loading and downloads."
+        },
+        {
           "versionName": "1.0.5",
           "versionCode": 6,
           "tag": "com.pandaapps.appstore-v1.0.5-b6",
@@ -136,25 +149,18 @@
           "targetSdk": 35,
           "releasedAt": "2026-10-20T10:35:07Z",
           "notes": "Much faster, steadier downloads for large apps: the store now fetches in parallel pieces, drops slow connections and retries, and survives expired download links. Interrupted downloads resume."
-        },
-        {
-          "versionName": "1.0.4",
-          "versionCode": 5,
-          "tag": "com.pandaapps.appstore-v1.0.4-b5",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.appstore-v1.0.4-b5/PandaAppStore-v1.0.4-b5-2026-10-08.apk",
-          "size": 2149363,
-          "sha256": "a75faf90a44633cc733176f861cf136ebcc6cc99a7a0e3d2fb95ae55cb5f5f85",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 35,
-          "releasedAt": "2026-10-08T13:26:21Z",
-          "notes": "Installs apps signed with Panda Gallery's own key too. Everything else unchanged."
         }
       ],
       "name": "Panda App Store",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png?v=6",
-      "updatedAt": "2026-10-20T10:35:07Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.appstore.png?v=7",
+      "updatedAt": "2026-10-23T19:44:07Z",
       "history": [
+        {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "releasedAt": "2026-10-23T19:44:07Z",
+          "notes": "Behind-the-scenes improvements to catalog loading and downloads."
+        },
         {
           "versionName": "1.0.5",
           "versionCode": 6,
@@ -647,5 +653,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-23T17:30:44Z"
+  "updatedAt": "2026-10-23T19:44:07Z"
 }
