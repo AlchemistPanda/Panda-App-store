@@ -554,6 +554,19 @@
       "packageName": "com.pandagrab.app",
       "releases": [
         {
+          "versionName": "5.10.2",
+          "versionCode": 3,
+          "tag": "com.pandagrab.app-v5.10.2-b3",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandagrab.app-v5.10.2-b3/PandaGrab-v5.10.2-b3-2026-10-23.apk",
+          "size": 124029497,
+          "sha256": "fea86175d7055a0a2155382ad56d624dcbb9d0295ebc1e449963c3b48dc81dd4",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 35,
+          "releasedAt": "2026-10-23T17:30:44Z",
+          "notes": "Fixes the app crashing on launch. Added in-app update check (Settings > App Updates)."
+        },
+        {
           "versionName": "5.10.1",
           "versionCode": 2,
           "tag": "com.pandagrab.app-v5.10.1-b2",
@@ -569,7 +582,21 @@
       ],
       "name": "PandaGrab",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandagrab.app.png?v=2",
-      "updatedAt": "2026-10-07T17:06:04Z"
+      "updatedAt": "2026-10-23T17:30:44Z",
+      "history": [
+        {
+          "versionName": "5.10.2",
+          "versionCode": 3,
+          "releasedAt": "2026-10-23T17:30:44Z",
+          "notes": "Fixes the app crashing on launch. Added in-app update check (Settings > App Updates)."
+        },
+        {
+          "versionName": "5.10.1",
+          "versionCode": 2,
+          "releasedAt": "2026-10-07T17:06:04Z",
+          "notes": "Improved Instagram and Facebook downloads, plus player, trimmer and settings updates."
+        }
+      ]
     },
     {
       "packageName": "com.pandacollection.toycollectorsindia",
@@ -620,5 +647,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-23T17:10:27Z"
+  "updatedAt": "2026-10-23T17:30:44Z"
 }
