@@ -379,35 +379,6 @@
       ]
     },
     {
-      "packageName": "com.pandacollection.pandaordertracker",
-      "releases": [
-        {
-          "versionName": "1.0.0",
-          "versionCode": 1,
-          "tag": "com.pandacollection.pandaordertracker-v1.0.0-b1",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandaordertracker-v1.0.0-b1/PandaOrderTracker-v1.0.0-b1-2026-10-12.apk",
-          "size": 129365566,
-          "sha256": "ddfb7bca2795e83450dba4ef660a23485fdc009043096ea254fb432932733c90",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-12T20:42:41Z",
-          "notes": "First release. Share an order screenshot or message to the app and it reads and tracks it. Edit anything, move expected dates, and get a morning reminder on delivery days."
-        }
-      ],
-      "name": "Panda Order Tracker",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandaordertracker.webp?v=1",
-      "updatedAt": "2026-10-12T20:42:41Z",
-      "history": [
-        {
-          "versionName": "1.0.0",
-          "versionCode": 1,
-          "releasedAt": "2026-10-12T20:42:41Z",
-          "notes": "First release. Share an order screenshot or message to the app and it reads and tracks it. Edit anything, move expected dates, and get a morning reminder on delivery days."
-        }
-      ]
-    },
-    {
       "packageName": "com.pandagrab.app",
       "releases": [
         {
