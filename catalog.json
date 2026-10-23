@@ -315,6 +315,19 @@
       "packageName": "com.pandacollection.pandagarage",
       "releases": [
         {
+          "versionName": "1.0.41",
+          "versionCode": 42,
+          "tag": "com.pandacollection.pandagarage-v1.0.41-b42",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.41-b42/PandaGarage-v1.0.41-b42-2026-10-23.apk",
+          "size": 177227449,
+          "sha256": "afbfb25be043a2a109572bfc541bfaf959b52469e311e3c182c1bf1d85f8539d",
+          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
+          "minSdk": 24,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-23T17:10:27Z",
+          "notes": "Stock is matched against your collection in the background once a day, after the shops are read, so the Stock tab opens faster.\nCars on your hunt list no longer appear on the Collection screen; they stay on the Hunt tab.\nThe Rare & Exclusives Vault banner moved to the bottom of Find a car.\nProgress bars now show while cases, shops, photos and card lookups are working."
+        },
+        {
           "versionName": "1.0.40",
           "versionCode": 41,
           "tag": "com.pandacollection.pandagarage-v1.0.40-b41",
@@ -326,25 +339,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-22T20:19:38Z",
           "notes": "Fixed collection header layout so the number of castings and total cars is always clearly visible and never covered or clipped by action buttons."
-        },
-        {
-          "versionName": "1.0.39",
-          "versionCode": 40,
-          "tag": "com.pandacollection.pandagarage-v1.0.39-b40",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandacollection.pandagarage-v1.0.39-b40/PandaGarage-v1.0.39-b40-2026-10-21.apk",
-          "size": 177218189,
-          "sha256": "43319cd3130826309f6ce8ac221b8649b439d9d723eedccf6939c956dbd15b98",
-          "signerSha256": "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c",
-          "minSdk": 24,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-20T20:26:12Z",
-          "notes": "Background stock checks now wake the app less often, so Android's battery manager no longer flags Panda Garage as misbehaving. Scheduled checks may run up to about 30 minutes after their set time."
         }
       ],
       "name": "Panda Garage",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=41",
-      "updatedAt": "2026-10-22T20:19:38Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandacollection.pandagarage.webp?v=42",
+      "updatedAt": "2026-10-23T17:10:27Z",
       "history": [
+        {
+          "versionName": "1.0.41",
+          "versionCode": 42,
+          "releasedAt": "2026-10-23T17:10:27Z",
+          "notes": "Stock is matched against your collection in the background once a day, after the shops are read, so the Stock tab opens faster.\nCars on your hunt list no longer appear on the Collection screen; they stay on the Hunt tab.\nThe Rare & Exclusives Vault banner moved to the bottom of Find a car.\nProgress bars now show while cases, shops, photos and card lookups are working."
+        },
         {
           "versionName": "1.0.40",
           "versionCode": 41,
@@ -458,12 +464,6 @@
           "versionCode": 23,
           "releasedAt": "2026-10-13T12:09:20Z",
           "notes": "FirstCry is now in the Stock tab, read for your pincode. Hunt also looks up every car on your list on FirstCry by name, so one that is in stock there shows up."
-        },
-        {
-          "versionName": "1.0.21",
-          "versionCode": 22,
-          "releasedAt": "2026-10-07T18:32:54Z",
-          "notes": "Fixes the app icon, which had turned into a plain placeholder in the last update. Also includes the new update check and the Hobby Estate shop."
         }
       ]
     },
@@ -620,5 +620,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-22T20:19:38Z"
+  "updatedAt": "2026-10-23T17:10:27Z"
 }
