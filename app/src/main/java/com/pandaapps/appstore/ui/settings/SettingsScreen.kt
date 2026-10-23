@@ -4,12 +4,15 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.SystemClock
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -25,6 +28,8 @@ import androidx.compose.material.icons.filled.Autorenew
 import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.InstallMobile
+import androidx.compose.material.icons.filled.Key
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Terminal
@@ -44,6 +49,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -100,6 +106,31 @@ fun SettingsScreen(viewModel: StoreViewModel, onBack: () -> Unit, onOpenDebug: (
     var clearing by remember { mutableStateOf(false) }
     LaunchedEffect(cacheGeneration, state.anyBusy) {
         cacheBytes = viewModel.downloadsCacheSize()
+    }
+
+    // Owner mode: hidden behind 7 quick taps on the version row (see OwnerUnlockDialog).
+    val ownerAccess = remember(context) { context.appContainer.ownerAccess }
+    val ownerEnabled by ownerAccess.enabled.collectAsStateWithLifecycle()
+    val savedToken by ownerAccess.token.collectAsStateWithLifecycle()
+    var unlockDialog by remember { mutableStateOf<UnlockStep?>(null) }
+    var versionTaps by remember { mutableIntStateOf(0) }
+    var lastVersionTap by remember { mutableLongStateOf(0L) }
+    val onVersionTap = {
+        val now = SystemClock.elapsedRealtime()
+        versionTaps = if (now - lastVersionTap < SECRET_TAP_WINDOW_MS) versionTaps + 1 else 1
+        lastVersionTap = now
+        if (versionTaps >= SECRET_TAPS) {
+            versionTaps = 0
+            if (!ownerEnabled) unlockDialog = UnlockStep.Passcode
+        }
+    }
+    unlockDialog?.let { step ->
+        OwnerUnlockDialog(
+            savedToken = savedToken,
+            askTokenFirst = step == UnlockStep.Token,
+            onEnable = viewModel::enablePrivateApps,
+            onDismiss = { unlockDialog = null },
+        )
     }
 
     Scaffold(
@@ -176,8 +207,17 @@ fun SettingsScreen(viewModel: StoreViewModel, onBack: () -> Unit, onOpenDebug: (
                     },
                 )
             }
+            if (ownerEnabled) {
+                item(key = "owner") {
+                    OwnerSection(
+                        privateCount = state.apps.count { it.app.isPrivate },
+                        onReplaceToken = { unlockDialog = UnlockStep.Token },
+                        onTurnOff = viewModel::disablePrivateApps,
+                    )
+                }
+            }
             item(key = "about") {
-                AboutSection(silentEligibleCount = state.silentUpdatable.size)
+                AboutSection(silentEligibleCount = state.silentUpdatable.size, onVersionTap = onVersionTap)
             }
             item(key = "debug") {
                 Spacer(Modifier.height(4.dp))
@@ -341,11 +381,40 @@ private fun StorageSection(cacheBytes: Long?, busy: Boolean, onClear: () -> Unit
 }
 
 @Composable
-private fun AboutSection(silentEligibleCount: Int) {
+private fun OwnerSection(privateCount: Int, onReplaceToken: () -> Unit, onTurnOff: () -> Unit) {
+    SettingsSection("Owner") {
+        SettingsRow(
+            icon = Icons.Filled.Lock,
+            title = "Private apps",
+            subtitle = when (privateCount) {
+                0 -> "On. No private apps published yet."
+                1 -> "On. Showing 1 private app."
+                else -> "On. Showing $privateCount private apps."
+            },
+            trailing = { PandaButton("Turn off", onTurnOff, style = PandaButtonStyle.Outlined, compact = true) },
+        )
+        RowDivider()
+        SettingsRow(
+            icon = Icons.Filled.Key,
+            title = "GitHub token",
+            subtitle = "Replace it if it expired or was revoked.",
+            trailing = { PandaButton("Replace", onReplaceToken, style = PandaButtonStyle.Outlined, compact = true) },
+        )
+    }
+}
+
+@Composable
+private fun AboutSection(silentEligibleCount: Int, onVersionTap: () -> Unit) {
     val sdk = Build.VERSION.SDK_INT
     val minTarget = InstallManager.silentUpdateMinTargetSdk(sdk)
     SettingsSection("About") {
         SettingsRow(
+            // No ripple: nothing should hint that this row does anything.
+            modifier = Modifier.clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onVersionTap,
+            ),
             icon = Icons.Filled.Info,
             title = "Panda App Store",
             subtitle = buildString {
@@ -419,6 +488,11 @@ private fun canPromptForNotifications(context: Context): Boolean {
 private fun markNotificationsAsked(context: Context) {
     context.getSharedPreferences(UI_PREFS, Context.MODE_PRIVATE).edit { putBoolean(KEY_ASKED_NOTIFICATIONS, true) }
 }
+
+private enum class UnlockStep { Passcode, Token }
+
+private const val SECRET_TAPS = 7
+private const val SECRET_TAP_WINDOW_MS = 600L
 
 // Shared with MainActivity, which asks for POST_NOTIFICATIONS once on first launch.
 private const val UI_PREFS = "ui_state"

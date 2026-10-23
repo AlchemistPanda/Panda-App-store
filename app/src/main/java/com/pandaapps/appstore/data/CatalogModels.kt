@@ -1,5 +1,6 @@
 package com.pandaapps.appstore.data
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -28,6 +29,8 @@ data class CatalogApp(
      * caps the list). May overlap [releases]. Absent in catalogs written before it existed.
      */
     val history: List<CatalogNote> = emptyList(),
+    /** Comes from the owner-only private catalog (see [OwnerAccess]). */
+    @SerialName("private") val isPrivate: Boolean = false,
 ) {
     /** Highest versionCode, independent of list order. */
     val latest: CatalogRelease? get() = releases.maxByOrNull { it.versionCode }
@@ -65,6 +68,22 @@ data class CatalogNote(
     val releasedAt: String? = null,
     val notes: String? = null,
 )
+
+/**
+ * The public catalog plus the owner's [privateApps] (all marked [CatalogApp.isPrivate]). If an app
+ * is briefly in both (mid-move between stores), the entry with the newer build wins, private on a tie.
+ */
+fun mergeCatalogs(public: Catalog, privateApps: List<CatalogApp>): Catalog {
+    if (privateApps.isEmpty()) return public
+    val marked = privateApps.map { it.copy(isPrivate = true) }
+    val byPackage = LinkedHashMap<String, CatalogApp>()
+    for (app in public.apps + marked) {
+        val other = byPackage[app.packageName]
+        val newer = (app.latest?.versionCode ?: -1) >= (other?.latest?.versionCode ?: -1)
+        if (other == null || newer) byPackage[app.packageName] = app
+    }
+    return public.copy(apps = byPackage.values.sortedBy { it.name.lowercase() })
+}
 
 /** The JSON configuration used for the catalog everywhere (tolerant of unknown keys and nulls). */
 val CatalogJson: Json = Json {

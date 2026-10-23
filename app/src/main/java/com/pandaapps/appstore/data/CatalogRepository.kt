@@ -39,12 +39,16 @@ data class CatalogState(
  * Fetches `catalog.json`: GitHub contents API first (fresh, rate-limited 60/h/IP), then the
  * raw.githubusercontent.com CDN (may be ~5 min stale). The last good catalog JSON is cached in
  * `filesDir/catalog.json` and loaded at construction so the UI has something offline.
+ *
+ * In owner mode ([OwnerAccess]) the private catalog is fetched too and merged in; if only that
+ * fetch fails, the private apps already known are kept so they don't flicker away.
  */
 class CatalogRepository(
     context: Context,
     private val okHttp: OkHttpClient,
     private val json: Json,
     private val appLog: AppLog,
+    private val ownerAccess: OwnerAccess,
     scope: CoroutineScope,
 ) {
     private val cacheFile = File(context.filesDir, CACHE_FILE_NAME)
@@ -100,7 +104,54 @@ class CatalogRepository(
     fun findApp(packageName: String): CatalogApp? =
         _state.value.catalog?.apps?.firstOrNull { it.packageName == packageName }
 
+    /**
+     * Checks [token] against the private catalog and, if it works, turns owner mode on and refreshes.
+     * Returns the number of private apps, or a human error.
+     */
+    suspend fun enablePrivate(token: String): Result<Int> {
+        val check = withContext(Dispatchers.IO) {
+            runCatching { download(privateRequest().newBuilder().header("Authorization", "Bearer $token").build()) }
+        }
+        return check.fold(
+            onSuccess = { (catalog, _) ->
+                ownerAccess.enable(token)
+                appLog.i(TAG, "Owner mode on: ${catalog.apps.size} private apps")
+                refresh()
+                Result.success(catalog.apps.size)
+            },
+            onFailure = { error ->
+                appLog.w(TAG, "Private catalog check failed", error)
+                Result.failure(IOException(privateMessage(error)))
+            },
+        )
+    }
+
+    /** Turns owner mode off and drops the private apps from the shown and cached catalog. */
+    suspend fun disablePrivate() {
+        ownerAccess.disable()
+        refreshMutex.withLock {
+            val current = _state.value.catalog ?: return
+            val publicOnly = current.copy(apps = current.apps.filterNot { it.isPrivate })
+            _state.update { it.copy(catalog = publicOnly) }
+            withContext(Dispatchers.IO) {
+                writeCache(json.encodeToString(Catalog.serializer(), publicOnly), cacheFile.lastModified())
+            }
+        }
+        appLog.i(TAG, "Owner mode off")
+    }
+
     private fun fetch(): Result<Pair<Catalog, String>> {
+        val public = fetchPublic().getOrElse { return Result.failure(it) }
+        if (ownerAccess.activeToken == null) return Result.success(public)
+        val privateApps = runCatching { download(privateRequest()).first.apps }.getOrElse { error ->
+            appLog.w(TAG, "Private catalog failed (${privateMessage(error)}); keeping the private apps already known")
+            _state.value.catalog?.apps?.filter { it.isPrivate }.orEmpty()
+        }
+        val merged = mergeCatalogs(public.first, privateApps)
+        return Result.success(merged to json.encodeToString(Catalog.serializer(), merged))
+    }
+
+    private fun fetchPublic(): Result<Pair<Catalog, String>> {
         val fresh = runCatching { download(freshRequest()) }
         fresh.onSuccess { return Result.success(it) }
         appLog.w(TAG, "Fresh catalog URL failed (${fresh.exceptionOrNull()?.message}); trying CDN")
@@ -155,6 +206,13 @@ class CatalogRepository(
         .header("Cache-Control", "no-cache")
         .build()
 
+    /** The token is added by [OwnerAccess.interceptor] (or explicitly, when checking a new one). */
+    private fun privateRequest() = Request.Builder()
+        .url(OwnerAccess.PRIVATE_CATALOG_URL)
+        .header("User-Agent", USER_AGENT)
+        .header("Cache-Control", "no-cache")
+        .build()
+
     private fun fallbackRequest() = Request.Builder()
         .url(FALLBACK_URL)
         .header("User-Agent", USER_AGENT)
@@ -171,6 +229,12 @@ class CatalogRepository(
         is SerializationException, is IllegalArgumentException -> "The catalog is malformed."
         is IOException -> "No internet connection."
         else -> error.message ?: "Could not load the catalog."
+    }
+
+    private fun privateMessage(error: Throwable): String = when ((error as? HttpStatusException)?.code) {
+        401 -> "GitHub didn't accept that token. Check it was copied in full and hasn't expired."
+        403, 404 -> "That token can't read the private repo. Give it read access to ${OwnerAccess.PRIVATE_REPO}."
+        else -> humanMessage(error)
     }
 
     private class HttpStatusException(val code: Int) : IOException("HTTP $code")

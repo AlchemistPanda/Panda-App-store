@@ -383,6 +383,20 @@ class StoreViewModel(
     }
 
     /** Bytes used by downloaded APKs (walks the cache on IO). */
+    /** Checks [token] and shows the private apps; returns null on success or a message to show. */
+    suspend fun enablePrivateApps(token: String): String? =
+        catalogRepository.enablePrivate(token).fold(
+            onSuccess = { count ->
+                message(if (count == 1) "1 private app unlocked" else "$count private apps unlocked")
+                null
+            },
+            onFailure = { it.message ?: "Could not unlock" },
+        )
+
+    fun disablePrivateApps() {
+        viewModelScope.launch { catalogRepository.disablePrivate() }
+    }
+
     suspend fun downloadsCacheSize(): Long = withContext(Dispatchers.IO) { installManager.downloadsCacheSize() }
 
     /** Deletes downloaded APKs and reports how much was freed. Returns the bytes freed. */

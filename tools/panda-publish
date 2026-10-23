@@ -4,10 +4,25 @@
 Usage: panda-publish <app.apk> [--notes "what changed"] [--dry-run]
                                 [--allow-new-signer] [--no-notify]
                                 [--icon FILE.png] [--icon-only]
+                                [--public | --private]
+       panda-publish --move <packageName> --to public|private
 
 --icon      use this image as the store icon instead of reading one from the APK
 --icon-only refresh just the store icon (and catalog entry) for the app already
             published from this APK's package; no release, no push
+--public / --private
+            publish to the public store (everyone) or the private one (owner
+            only). Needed only to change where an app lives: each app stays
+            where it was last published, and a brand-new app goes to the
+            private store unless --public is passed.
+--move      move an already-published app (its releases, icon and notes) to the
+            other store without a new build. Moving it out of the public store
+            deletes its public releases.
+
+Two stores: the public repo (`repo` in the config) and an owner-only private
+repo (`privateRepo`). Private apps are listed in the private repo's catalog,
+which the Panda App Store app reads only after the owner unlocks it with a
+read-only GitHub token.
 
 Reads package/version/build number/label/icon/signer straight from the APK,
 uploads it as a GitHub release, updates catalog.json on the catalog branch
@@ -16,7 +31,8 @@ deletes that app's releases beyond the newest `keepReleases`, and sends an
 ntfy push so the phone knows there is an update.
 
 Config: ~/.config/panda-store/config.json (kept out of the public repo because
-it holds the ntfy topic).
+it holds the ntfy topic). `ntfyPrivateTopic`, if set, gets the pushes for
+private apps instead of `ntfyTopic`.
 """
 
 import argparse
@@ -412,6 +428,17 @@ def put_file(repo, branch, path, data, message, sha=None):
     res = gh("api", "-X", "PUT", f"repos/{repo}/contents/{path}", "--input", "-", input_data=json.dumps(body))
     if res.returncode != 0:
         die(f"could not write {path} to {repo}@{branch}\n{res.stderr.strip()}")
+    return json.loads(res.stdout)["content"]["sha"]
+
+
+def delete_file(repo, branch, path, message):
+    _, sha = get_file(repo, branch, path)
+    if not sha:
+        return
+    body = {"message": message, "sha": sha, "branch": branch}
+    res = gh("api", "-X", "DELETE", f"repos/{repo}/contents/{path}", "--input", "-", input_data=json.dumps(body))
+    if res.returncode != 0:
+        print(f"warning: could not delete {path} from {repo}\n{res.stderr.strip()}", file=sys.stderr)
 
 
 def git_blob_sha(data):
@@ -438,11 +465,150 @@ def merged_history(app, release):
     return out[:HISTORY_LIMIT]
 
 
+# ---------- stores ----------
+
+class Store:
+    """One catalog and its releases: the public repo, or the owner-only private one.
+
+    Private APKs and icons are only reachable with a token, so their catalog
+    URLs point at the GitHub API (the store app adds the token for that repo).
+    """
+
+    def __init__(self, repo, branch, private):
+        self.repo, self.branch, self.private = repo, branch, private
+        raw, self.sha = get_file(repo, branch, "catalog.json")
+        self.catalog = json.loads(raw) if raw else {"schema": 1, "apps": []}
+
+    @property
+    def label(self):
+        return "private" if self.private else "public"
+
+    def find(self, pkg):
+        return next((a for a in self.catalog["apps"] if a["packageName"] == pkg), None)
+
+    def save(self, message):
+        self.catalog["apps"].sort(key=lambda a: a["name"].lower())
+        self.sha = put_file(self.repo, self.branch, "catalog.json",
+                            (json.dumps(self.catalog, indent=2) + "\n").encode(), message, self.sha)
+
+    def put_icon(self, pkg, data, ext, title, code):
+        """Uploads the icon if it changed; returns its catalog URL."""
+        icon_path = f"icons/{pkg}.{ext}"
+        _, existing_sha = get_file(self.repo, self.branch, icon_path)
+        if existing_sha != git_blob_sha(data):
+            put_file(self.repo, self.branch, icon_path, data, f"Icon for {title}", existing_sha)
+        if self.private:
+            return f"https://api.github.com/repos/{self.repo}/contents/{icon_path}?ref={self.branch}&v={code}"
+        return f"https://raw.githubusercontent.com/{self.repo}/{self.branch}/{icon_path}?v={code}"
+
+    def create_release(self, tag, apk, title, notes):
+        """Uploads `apk` as release `tag`; returns the URL the phone downloads it from."""
+        with tempfile.TemporaryDirectory(prefix="panda-publish-") as tmp:
+            notes_file = Path(tmp) / "notes.md"
+            notes_file.write_text(notes)
+            res = gh("release", "create", tag, str(apk), "--repo", self.repo,
+                     "--title", title, "--notes-file", str(notes_file))
+        if res.returncode != 0:
+            die(f"release upload to {self.repo} failed\n{res.stderr.strip()}")
+        res = gh("release", "view", tag, "--repo", self.repo, "--json", "assets")
+        if res.returncode != 0:
+            die(f"could not read back release {tag}\n{res.stderr.strip()}")
+        asset = next(a for a in json.loads(res.stdout)["assets"] if a["name"].endswith(".apk"))
+        return asset["apiUrl"] if self.private else asset["url"]
+
+    def release_tags(self, pkg):
+        """This app's release tags in this repo, newest first."""
+        res = gh("release", "list", "--repo", self.repo, "--limit", "1000", "--json", "tagName,createdAt")
+        if res.returncode != 0:
+            print(f"warning: could not list releases in {self.repo}", file=sys.stderr)
+            return []
+        mine = [r for r in json.loads(res.stdout) if r["tagName"].startswith(f"{pkg}-v")]
+        return [r["tagName"] for r in sorted(mine, key=lambda r: r["createdAt"], reverse=True)]
+
+    def delete_release(self, tag):
+        if gh("release", "delete", tag, "--repo", self.repo, "--yes", "--cleanup-tag").returncode == 0:
+            print(f"deleted {self.label} release {tag}")
+
+    def remove_app(self, pkg, title):
+        """Drops the app from this store: catalog entry, every release and the icon."""
+        app = self.find(pkg)
+        if app:
+            self.catalog["apps"].remove(app)
+            self.save(f"Move {title} out of the {self.label} store")
+            icon = re.search(r"icons/[^?]+", app.get("iconUrl") or "")
+            if icon:
+                delete_file(self.repo, self.branch, icon.group(0), f"Move {title} out of the {self.label} store")
+        for tag in self.release_tags(pkg):
+            self.delete_release(tag)
+
+
+def tag_entry(app, store):
+    """Marks private catalog entries so the store app can badge them."""
+    if store.private:
+        app["private"] = True
+    else:
+        app.pop("private", None)
+
+
+def load_stores(cfg):
+    branch = cfg.get("catalogBranch", "store")
+    public = Store(cfg["repo"], branch, private=False)
+    private = Store(cfg["privateRepo"], branch, private=True) if cfg.get("privateRepo") else None
+    return public, private
+
+
+def move_app(pkg, to_private, public, private, keep):
+    """Moves a published app's releases, icon and notes to the other store, without a new build."""
+    if not private:
+        die("no privateRepo in the config")
+    src, dst = (public, private) if to_private else (private, public)
+    app = src.find(pkg)
+    if not app:
+        if dst.find(pkg):
+            print(f"{pkg} is already in the {dst.label} store")
+            return
+        die(f"{pkg} is in neither store")
+    if dst.find(pkg):
+        die(f"{pkg} is in both stores; remove one entry by hand first")
+    title = app["name"]
+    print(f"moving {title} from the {src.label} to the {dst.label} store …")
+
+    moved = []
+    with tempfile.TemporaryDirectory(prefix="panda-publish-") as tmp:
+        for release in app.get("releases", [])[:keep]:
+            tag = release["tag"]
+            res = gh("release", "download", tag, "--repo", src.repo, "--pattern", "*.apk", "--dir", tmp, "--clobber")
+            if res.returncode != 0:
+                die(f"could not download release {tag} from {src.repo}\n{res.stderr.strip()}")
+            apk = next(Path(tmp).glob("*.apk"))
+            url = dst.create_release(tag, apk, f"{title} {release['versionName']} (build {release['versionCode']})",
+                                     release.get("notes") or "")
+            apk.unlink()
+            moved.append({**release, "apkUrl": url})
+            print(f"copied release {tag}")
+
+        icon_url = None
+        icon = re.search(r"icons/([^?]+)", app.get("iconUrl") or "")
+        if icon:
+            data, _ = get_file(src.repo, src.branch, icon.group(0))
+            if data:
+                code = moved[0]["versionCode"] if moved else 0
+                icon_url = dst.put_icon(pkg, data, icon.group(1).rsplit(".", 1)[-1], title, code)
+
+    entry = {**app, "releases": moved, "iconUrl": icon_url}
+    tag_entry(entry, dst)
+    dst.catalog["apps"].append(entry)
+    dst.save(f"Move {title} into the {dst.label} store")
+    # Only now that the new home is live, so the phone never sees the app vanish.
+    src.remove_app(pkg, title)
+    print(f"moved {title} to the {dst.label} store")
+
+
 # ---------- main ----------
 
 def main():
     ap = argparse.ArgumentParser(description="Publish an APK to Panda App Store")
-    ap.add_argument("apk", type=Path)
+    ap.add_argument("apk", type=Path, nargs="?")
     ap.add_argument("--notes", default=None, help="what changed in this build")
     ap.add_argument("--dry-run", action="store_true", help="inspect and validate only")
     ap.add_argument("--allow-new-signer", action="store_true",
@@ -451,52 +617,77 @@ def main():
     ap.add_argument("--icon", type=Path, default=None, help="image to use as the store icon")
     ap.add_argument("--icon-only", action="store_true",
                     help="update only the store icon for the already-published app")
+    where = ap.add_mutually_exclusive_group()
+    where.add_argument("--public", action="store_true", help="publish to the public store (everyone)")
+    where.add_argument("--private", action="store_true", help="publish to the private store (owner only)")
+    ap.add_argument("--move", metavar="PACKAGE", help="move a published app to the other store")
+    ap.add_argument("--to", choices=["public", "private"], help="with --move: where to move it")
     args = ap.parse_args()
 
     if not CONFIG_PATH.exists():
         die(f"missing config {CONFIG_PATH}")
     cfg = json.loads(CONFIG_PATH.read_text())
-    repo, branch = cfg["repo"], cfg.get("catalogBranch", "store")
     keep = int(cfg.get("keepReleases", 2))
 
-    apk = args.apk.expanduser().resolve()
-    if not apk.is_file() or apk.suffix != ".apk":
-        die(f"not an APK: {apk}")
     if not shutil.which("gh"):
         die("GitHub CLI (gh) not installed")
     if gh("auth", "status").returncode != 0:
         die("gh is not logged in — run: gh auth login")
 
+    if args.move:
+        if not args.to:
+            die("--move needs --to public|private")
+        public, private = load_stores(cfg)
+        move_app(args.move, args.to == "private", public, private, keep)
+        return
+    if not args.apk:
+        ap.error("the APK path is required")
+
+    apk = args.apk.expanduser().resolve()
+    if not apk.is_file() or apk.suffix != ".apk":
+        die(f"not an APK: {apk}")
+
     info = read_apk(apk)
     pkg, code, name = info["packageName"], info["versionCode"], info["versionName"]
     print(f"{info['name']}  {pkg}  v{name}  build {code}  {info['size'] / 1e6:.1f} MB")
 
-    # Validate against the catalog.
-    raw, catalog_sha = get_file(repo, branch, "catalog.json")
-    catalog = json.loads(raw) if raw else {"schema": 1, "apps": []}
-    app = next((a for a in catalog["apps"] if a["packageName"] == pkg), None)
+    # Which store: the one the app already lives in, unless told otherwise; new apps go private.
+    public, private = load_stores(cfg)
+    current = next((s for s in (private, public) if s and s.find(pkg)), None)
+    if args.public:
+        store = public
+    elif args.private:
+        if not private:
+            die("--private needs privateRepo in the config")
+        store = private
+    elif current:
+        store = current
+    else:
+        store = private or public
+        if store.private:
+            print("new app: publishing to the PRIVATE store (owner only). Pass --public to share it.")
+    leaving = current if current and current is not store else None
+    print(f"store: {store.label}" + (f" (moving from {leaving.label})" if leaving else ""))
+
+    app = store.find(pkg)
+    existing = app or (leaving.find(pkg) if leaving else None)
 
     if args.icon_only:
         if not app:
-            die(f"{pkg} is not in the catalog yet; publish it first")
+            die(f"{pkg} is not in the {store.label} store; publish it first")
         icon = resolve_icon(apk, info, args.icon)
         if not icon:
             die("no icon could be read from the APK; pass --icon FILE.png")
         data, ext = icon
-        icon_path = f"icons/{pkg}.{ext}"
-        _, existing_sha = get_file(repo, branch, icon_path)
-        if existing_sha != git_blob_sha(data):
-            put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
         version_suffix = app.get("releases", [{}])[0].get("versionCode", int(datetime.now(timezone.utc).timestamp()))
-        new_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}?v={version_suffix}"
+        new_url = store.put_icon(pkg, data, ext, info["name"], version_suffix)
         if app.get("iconUrl") != new_url:
             app["iconUrl"] = new_url
-            put_file(repo, branch, "catalog.json", (json.dumps(catalog, indent=2) + "\n").encode(),
-                     f"Icon for {info['name']}", catalog_sha)
+            store.save(f"Icon for {info['name']}")
         print(f"icon updated for {info['name']}: {new_url}")
         return
-    if app and app.get("releases"):
-        latest = app["releases"][0]
+    if existing and existing.get("releases"):
+        latest = existing["releases"][0]
         if code <= latest["versionCode"]:
             die(f"build number {code} is not higher than the published build "
                 f"{latest['versionCode']} (v{latest['versionName']}). Bump versionCode and rebuild.", 2)
@@ -523,30 +714,19 @@ def main():
     notes = args.notes or f"Version {name} (build {code})"
     released_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
-    with tempfile.TemporaryDirectory(prefix="panda-publish-") as tmp:
-        # Upload the APK as a release.
-        notes_file = Path(tmp) / "notes.md"
-        notes_file.write_text(notes)
-        print(f"uploading release {tag} …")
-        res = gh("release", "create", tag, str(apk), "--repo", repo,
-                 "--title", f"{info['name']} {name} (build {code})", "--notes-file", str(notes_file))
-        if res.returncode != 0:
-            die(f"release upload failed\n{res.stderr.strip()}")
-        apk_url = f"https://github.com/{repo}/releases/download/{tag}/{apk.name.replace(' ', '.')}"
+    # Upload the APK as a release.
+    print(f"uploading {store.label} release {tag} …")
+    apk_url = store.create_release(tag, apk, f"{info['name']} {name} (build {code})", notes)
 
-        # Icon (only rewritten when it changed).
-        icon_url = app.get("iconUrl") if app else None
-        icon = resolve_icon(apk, info, args.icon)
-        if not icon:
-            print("WARNING: no store icon could be read from this APK, so the store will show "
-                  "none. Re-run with --icon FILE.png (or --icon-only) to set one.", file=sys.stderr)
-        if icon:
-            data, ext = icon
-            icon_path = f"icons/{pkg}.{ext}"
-            _, existing_sha = get_file(repo, branch, icon_path)
-            if existing_sha != git_blob_sha(data):
-                put_file(repo, branch, icon_path, data, f"Icon for {info['name']}", existing_sha)
-            icon_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{icon_path}?v={code}"
+    # Icon (only rewritten when it changed).
+    icon_url = app.get("iconUrl") if app else None
+    icon = resolve_icon(apk, info, args.icon)
+    if not icon:
+        print("WARNING: no store icon could be read from this APK, so the store will show "
+              "none. Re-run with --icon FILE.png (or --icon-only) to set one.", file=sys.stderr)
+    if icon:
+        data, ext = icon
+        icon_url = store.put_icon(pkg, data, ext, info["name"], code)
 
     # Update the catalog: newest release first, keep only `keep`.
     release = {
@@ -556,38 +736,30 @@ def main():
         "targetSdk": info["targetSdk"], "releasedAt": released_at, "notes": notes,
     }
     if not app:
-        app = {"packageName": pkg, "releases": []}
-        catalog["apps"].append(app)
+        # A moving app brings its notes along; its old APKs stay behind and are deleted below.
+        app = {"packageName": pkg, "releases": [],
+               "history": (existing.get("history", []) + existing.get("releases", [])) if existing else []}
+        store.catalog["apps"].append(app)
     app["name"] = info["name"]
     app["iconUrl"] = icon_url
     app["updatedAt"] = released_at
+    tag_entry(app, store)
     app["history"] = merged_history(app, release)
-    app["releases"] = [release] + app["releases"]
-    dropped = app["releases"][keep:]
-    app["releases"] = app["releases"][:keep]
-    catalog["apps"].sort(key=lambda a: a["name"].lower())
-    catalog["updatedAt"] = released_at
-    put_file(repo, branch, "catalog.json",
-             (json.dumps(catalog, indent=2) + "\n").encode(),
-             f"{info['name']} {name} (build {code})", catalog_sha)
-    print("catalog updated")
+    app["releases"] = ([release] + app["releases"])[:keep]
+    store.catalog["updatedAt"] = released_at
+    store.save(f"{info['name']} {name} (build {code})")
+    print(f"{store.label} catalog updated")
 
     # Delete this app's releases beyond the newest `keep`.
-    res = gh("release", "list", "--repo", repo, "--limit", "1000", "--json", "tagName,createdAt")
-    if res.returncode == 0:
-        mine = [r for r in json.loads(res.stdout) if r["tagName"].startswith(f"{pkg}-v")]
-        mine.sort(key=lambda r: r["createdAt"], reverse=True)
-        kept_tags = {r["tag"] for r in app["releases"]}
-        for r in mine[keep:]:
-            if r["tagName"] in kept_tags:
-                continue
-            if gh("release", "delete", r["tagName"], "--repo", repo, "--yes", "--cleanup-tag").returncode == 0:
-                print(f"deleted old release {r['tagName']}")
-    elif dropped:
-        print("warning: could not list releases to clean up", file=sys.stderr)
+    kept_tags = {r["tag"] for r in app["releases"]}
+    for old_tag in store.release_tags(pkg)[keep:]:
+        if old_tag not in kept_tags:
+            store.delete_release(old_tag)
+    if leaving:
+        leaving.remove_app(pkg, info["name"])
 
     # Push notification.
-    topic = cfg.get("ntfyTopic")
+    topic = (store.private and cfg.get("ntfyPrivateTopic")) or cfg.get("ntfyTopic")
     if topic and not args.no_notify:
         server = cfg.get("ntfyServer", "https://ntfy.sh").rstrip("/")
         body = f"{info['name']} {name} (build {code}) is ready to install.\n{notes}"
@@ -600,7 +772,7 @@ def main():
             capture_output=True, text=True)
         print("phone notified" if res.returncode == 0 else f"warning: ntfy push failed: {res.stderr.strip()}")
 
-    print(f"published {info['name']} v{name} (build {code})")
+    print(f"published {info['name']} v{name} (build {code}) to the {store.label} store")
 
 
 if __name__ == "__main__":

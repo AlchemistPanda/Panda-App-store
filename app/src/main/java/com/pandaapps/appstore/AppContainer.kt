@@ -4,6 +4,7 @@ import android.content.Context
 import com.pandaapps.appstore.data.CatalogJson
 import com.pandaapps.appstore.data.CatalogRepository
 import com.pandaapps.appstore.data.InstalledAppsRepository
+import com.pandaapps.appstore.data.OwnerAccess
 import com.pandaapps.appstore.data.SettingsRepository
 import com.pandaapps.appstore.install.InstallManager
 import com.pandaapps.appstore.util.AppLog
@@ -33,7 +34,10 @@ class AppContainer(context: Context) {
 
     val json: Json = CatalogJson
 
+    val ownerAccess: OwnerAccess = OwnerAccess(appContext)
+
     val okHttp: OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(ownerAccess.interceptor)
         .connectTimeout(15, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .retryOnConnectionFailure(true)
@@ -43,7 +47,7 @@ class AppContainer(context: Context) {
 
     val installedAppsRepository: InstalledAppsRepository = InstalledAppsRepository(appContext)
 
-    val catalogRepository: CatalogRepository = CatalogRepository(appContext, okHttp, json, appLog, appScope)
+    val catalogRepository: CatalogRepository = CatalogRepository(appContext, okHttp, json, appLog, ownerAccess, appScope)
 
     val installManager: InstallManager = InstallManager(appContext, okHttp, installedAppsRepository, appLog, appScope)
 
