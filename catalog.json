@@ -223,6 +223,35 @@
       ]
     },
     {
+      "packageName": "com.pandaapps.pandavideocreator",
+      "releases": [
+        {
+          "versionName": "1.0.1",
+          "versionCode": 2,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.1-b2",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.1-b2/PandaVideoCreator-v1.0.1-b2-2026-10-26.apk",
+          "size": 60826284,
+          "sha256": "6bd7234f44744037cdbef3600816906c0d641668b4152b19dff0edc11b7066ec",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-26T15:12:47Z",
+          "notes": "Make videos with a song: pick photos and videos, add music, trim and move clips, add transitions and a fade to black or white at the start or end, and see the WhatsApp or Instagram length limit on the timeline. Save for WhatsApp, Instagram, Facebook or YouTube."
+        }
+      ],
+      "history": [
+        {
+          "versionName": "1.0.1",
+          "versionCode": 2,
+          "releasedAt": "2026-10-26T15:12:47Z",
+          "notes": "Make videos with a song: pick photos and videos, add music, trim and move clips, add transitions and a fade to black or white at the start or end, and see the WhatsApp or Instagram length limit on the timeline. Save for WhatsApp, Instagram, Facebook or YouTube."
+        }
+      ],
+      "name": "Panda Video Creator",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=2",
+      "updatedAt": "2026-10-26T15:12:47Z"
+    },
+    {
       "packageName": "com.pandagrab.app",
       "releases": [
         {
@@ -271,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-23T19:44:07Z"
+  "updatedAt": "2026-10-26T15:12:47Z"
 }
