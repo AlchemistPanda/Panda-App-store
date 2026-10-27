@@ -226,6 +226,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.5-b6",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.5-b6/PandaVideoCreator-v1.0.5-b6-2026-10-27.apk",
+          "size": 60879784,
+          "sha256": "40f0315307aeb443adf527b388ce7e1f91362925d6833db8a209bc873e32f90d",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-27T16:51:17Z",
+          "notes": "Full song waveform navigation with smooth front/left marker repositioning; in-screen autoplay preview toggle in audio trimmer and timeline."
+        },
+        {
           "versionName": "1.0.4",
           "versionCode": 5,
           "tag": "com.pandaapps.pandavideocreator-v1.0.4-b5",
@@ -237,22 +250,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-27T16:33:33Z",
           "notes": "Audio preview with seek playhead in YouTube song search; direct transition to song start marker trim screen upon selection."
-        },
-        {
-          "versionName": "1.0.3",
-          "versionCode": 4,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.3-b4",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.3-b4/PandaVideoCreator-v1.0.3-b4-2026-10-26.apk",
-          "size": 60849992,
-          "sha256": "62c1f018c0f782ab84f5559091c40f717306e26a0c223e7f0a5a6af71750a267",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-26T17:08:44Z",
-          "notes": "New: Turn and fit. Turn a video filmed sideways so it stands upright and fills the screen, choose Fill the screen or Show whole picture, or flip it like a mirror. Find it under More on any photo or video."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.5",
+          "versionCode": 6,
+          "releasedAt": "2026-10-27T16:51:17Z",
+          "notes": "Full song waveform navigation with smooth front/left marker repositioning; in-screen autoplay preview toggle in audio trimmer and timeline."
+        },
         {
           "versionName": "1.0.4",
           "versionCode": 5,
@@ -279,8 +285,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=5",
-      "updatedAt": "2026-10-27T16:33:33Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=6",
+      "updatedAt": "2026-10-27T16:51:17Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -331,5 +337,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-27T16:33:33Z"
+  "updatedAt": "2026-10-27T16:51:17Z"
 }
