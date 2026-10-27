@@ -226,6 +226,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.4-b5/PandaVideoCreator-v1.0.4-b5-2026-10-27.apk",
+          "size": 60872428,
+          "sha256": "76f5c74675c7bb8acc39c7691f40d36b0214ea24e71f3cde6b0760e30c18de86",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-27T16:33:33Z",
+          "notes": "Audio preview with seek playhead in YouTube song search; direct transition to song start marker trim screen upon selection."
+        },
+        {
           "versionName": "1.0.3",
           "versionCode": 4,
           "tag": "com.pandaapps.pandavideocreator-v1.0.3-b4",
@@ -237,22 +250,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-26T17:08:44Z",
           "notes": "New: Turn and fit. Turn a video filmed sideways so it stands upright and fills the screen, choose Fill the screen or Show whole picture, or flip it like a mirror. Find it under More on any photo or video."
-        },
-        {
-          "versionName": "1.0.2",
-          "versionCode": 3,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.2-b3",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.2-b3/PandaVideoCreator-v1.0.2-b3-2026-10-26.apk",
-          "size": 60841588,
-          "sha256": "f5d97e8e46fc37633e038225e012ee1e7964a222243ea13ba6fa5db1795de94c",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-26T16:37:16Z",
-          "notes": "Songs and videos in My songs and My videos now play inside the app. Changing the volume plays the sound straight away, smoothly and without flicker, with a Play button in the volume sheet. Stopping a save no longer blocks the next one, and Done after saving goes back to your videos."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-10-27T16:33:33Z",
+          "notes": "Audio preview with seek playhead in YouTube song search; direct transition to song start marker trim screen upon selection."
+        },
         {
           "versionName": "1.0.3",
           "versionCode": 4,
@@ -273,8 +279,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=4",
-      "updatedAt": "2026-10-26T17:08:44Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=5",
+      "updatedAt": "2026-10-27T16:33:33Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -325,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-26T17:08:44Z"
+  "updatedAt": "2026-10-27T16:33:33Z"
 }
