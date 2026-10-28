@@ -2,6 +2,66 @@
   "schema": 1,
   "apps": [
     {
+      "packageName": "com.pandaapps.printerautolevel",
+      "releases": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.pandaapps.printerautolevel-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.4-b5/Panda3DPrinterAutoLevel-v1.0.4-b5-2026-10-28.apk",
+          "size": 13183039,
+          "sha256": "2ab2496ccbeb257ff6d42102d5213a3ce2cad635b0a030acf6e1e8029788182a",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-28T13:34:35Z",
+          "notes": "New Home checklist takes you step by step to a ready-to-print bed, showing what is green, amber and red. Clearer knob dials show exactly how far and which way to turn. New Print tab watches SD prints (time left, finish time, pause/stop) and can be shared with another phone over Wi-Fi or ntfy alerts, plus a quick first-layer test print."
+        },
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "tag": "com.pandaapps.printerautolevel-v1.0.3-b4",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.3-b4/Panda3DPrinterAutoLevel-v1.0.3-b4-2026-10-28.apk",
+          "size": 12838075,
+          "sha256": "ad97c7c76c1e477aa3902832799cdc4b6beac85d968e05f51d9dd9c5266fdaed",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-28T10:08:06Z",
+          "notes": "Fixed the bed tramming error (\"out of the probe's reach\"). New Quick check: measure the four knobs cold in seconds, with how much each knob moved since the last check. The probing animation now follows where the probe really is."
+        }
+      ],
+      "history": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-10-28T13:34:35Z",
+          "notes": "New Home checklist takes you step by step to a ready-to-print bed, showing what is green, amber and red. Clearer knob dials show exactly how far and which way to turn. New Print tab watches SD prints (time left, finish time, pause/stop) and can be shared with another phone over Wi-Fi or ntfy alerts, plus a quick first-layer test print."
+        },
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "releasedAt": "2026-10-28T10:08:06Z",
+          "notes": "Fixed the bed tramming error (\"out of the probe's reach\"). New Quick check: measure the four knobs cold in seconds, with how much each knob moved since the last check. The probing animation now follows where the probe really is."
+        },
+        {
+          "versionName": "1.0.2",
+          "versionCode": 3,
+          "releasedAt": "2026-10-28T09:08:05Z",
+          "notes": "New app icon: minimalist 3D printer printing a panda \u2014 dark navy background with glowing amber nozzle."
+        },
+        {
+          "versionName": "1.0.1",
+          "versionCode": 2,
+          "releasedAt": "2026-10-28T08:59:13Z",
+          "notes": "First release \u2014 automatic bed levelling for Bambu Lab Panda printers over USB. Connect, probe, and get a live mesh with one tap."
+        }
+      ],
+      "name": "Panda 3D Printer Auto Level",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=5",
+      "updatedAt": "2026-10-28T13:34:35Z"
+    },
+    {
       "packageName": "com.pandaapps.appstore",
       "releases": [
         {
