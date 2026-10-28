@@ -5,6 +5,19 @@
       "packageName": "com.pandaapps.printerautolevel",
       "releases": [
         {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "tag": "com.pandaapps.printerautolevel-v1.0.6-b7",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.6-b7/Panda3DPrinterAutoLevel-v1.0.6-b7-2026-10-28.apk",
+          "size": 13264991,
+          "sha256": "325d8e3864bf6eab63f9654907bd917270a1c9415f4ace4045fecaff863a1f44",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-28T15:00:11Z",
+          "notes": "Check a sliced G-code file before printing: it catches the settings that make small parts come loose (mesh off, first layer too fast or with the fan on, no brim, too hot, no Z hop). New small-part test print, filament profiles from your spool label (Hyper PLA added), and a first-layer alert during prints. The Wi-Fi status page now uses the right Wi-Fi address, stays on with the screen off, and has a Test button with fixes."
+        },
+        {
           "versionName": "1.0.5",
           "versionCode": 6,
           "tag": "com.pandaapps.printerautolevel-v1.0.5-b6",
@@ -16,22 +29,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-28T13:53:05Z",
           "notes": "Settings now has a Check for updates now button that shows right away whether a newer version is available."
-        },
-        {
-          "versionName": "1.0.4",
-          "versionCode": 5,
-          "tag": "com.pandaapps.printerautolevel-v1.0.4-b5",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.4-b5/Panda3DPrinterAutoLevel-v1.0.4-b5-2026-10-28.apk",
-          "size": 13183039,
-          "sha256": "2ab2496ccbeb257ff6d42102d5213a3ce2cad635b0a030acf6e1e8029788182a",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-28T13:34:35Z",
-          "notes": "New Home checklist takes you step by step to a ready-to-print bed, showing what is green, amber and red. Clearer knob dials show exactly how far and which way to turn. New Print tab watches SD prints (time left, finish time, pause/stop) and can be shared with another phone over Wi-Fi or ntfy alerts, plus a quick first-layer test print."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "releasedAt": "2026-10-28T15:00:11Z",
+          "notes": "Check a sliced G-code file before printing: it catches the settings that make small parts come loose (mesh off, first layer too fast or with the fan on, no brim, too hot, no Z hop). New small-part test print, filament profiles from your spool label (Hyper PLA added), and a first-layer alert during prints. The Wi-Fi status page now uses the right Wi-Fi address, stays on with the screen off, and has a Test button with fixes."
+        },
         {
           "versionName": "1.0.5",
           "versionCode": 6,
@@ -64,8 +70,8 @@
         }
       ],
       "name": "Panda 3D Printer Auto Level",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=6",
-      "updatedAt": "2026-10-28T13:53:05Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=7",
+      "updatedAt": "2026-10-28T15:00:11Z"
     },
     {
       "packageName": "com.pandaapps.appstore",
@@ -403,5 +409,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28T13:53:05Z"
+  "updatedAt": "2026-10-28T15:00:11Z"
 }
