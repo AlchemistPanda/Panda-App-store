@@ -5,6 +5,19 @@
       "packageName": "com.pandaapps.printerautolevel",
       "releases": [
         {
+          "versionName": "1.0.8",
+          "versionCode": 9,
+          "tag": "com.pandaapps.printerautolevel-v1.0.8-b9",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.8-b9/Panda3DPrinterAutoLevel-v1.0.8-b9-2026-10-30.apk",
+          "size": 13281375,
+          "sha256": "a244fd775efd15f0cac04e55d50bda54bb879995f93d4255dd3a9e274c796062",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-29T19:27:17Z",
+          "notes": "Home now tells you exactly what to do when the bed isn't ready, step by step. A bent bed now offers Fine scan first instead of leveling again. New 'What the words mean' card explains mesh, tram, warp and the other terms."
+        },
+        {
           "versionName": "1.0.7",
           "versionCode": 8,
           "tag": "com.pandaapps.printerautolevel-v1.0.7-b8",
@@ -16,22 +29,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-28T19:58:06Z",
           "notes": "Clearer ready-to-print status: the main score now shows how level prints will be with the mesh on, so a warped bed the mesh corrects no longer shows red. Tramming goes green when every knob says Leave it. New 'In the printer now' card shows mesh on, saved and Z offset."
-        },
-        {
-          "versionName": "1.0.6",
-          "versionCode": 7,
-          "tag": "com.pandaapps.printerautolevel-v1.0.6-b7",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.6-b7/Panda3DPrinterAutoLevel-v1.0.6-b7-2026-10-28.apk",
-          "size": 13264991,
-          "sha256": "325d8e3864bf6eab63f9654907bd917270a1c9415f4ace4045fecaff863a1f44",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-28T15:00:11Z",
-          "notes": "Check a sliced G-code file before printing: it catches the settings that make small parts come loose (mesh off, first layer too fast or with the fan on, no brim, too hot, no Z hop). New small-part test print, filament profiles from your spool label (Hyper PLA added), and a first-layer alert during prints. The Wi-Fi status page now uses the right Wi-Fi address, stays on with the screen off, and has a Test button with fixes."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.8",
+          "versionCode": 9,
+          "releasedAt": "2026-10-29T19:27:17Z",
+          "notes": "Home now tells you exactly what to do when the bed isn't ready, step by step. A bent bed now offers Fine scan first instead of leveling again. New 'What the words mean' card explains mesh, tram, warp and the other terms."
+        },
         {
           "versionName": "1.0.7",
           "versionCode": 8,
@@ -76,8 +82,8 @@
         }
       ],
       "name": "Panda 3D Printer Auto Level",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=8",
-      "updatedAt": "2026-10-28T19:58:06Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=9",
+      "updatedAt": "2026-10-29T19:27:17Z"
     },
     {
       "packageName": "com.pandaapps.appstore",
@@ -415,5 +421,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28T19:58:06Z"
+  "updatedAt": "2026-10-29T19:27:17Z"
 }
