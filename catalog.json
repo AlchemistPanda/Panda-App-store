@@ -167,6 +167,19 @@
       "packageName": "com.casiohunt",
       "releases": [
         {
+          "versionName": "1.0.8",
+          "versionCode": 9,
+          "tag": "com.casiohunt-v1.0.8-b9",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.8-b9/CasioHunt-v1.0.8-b9-2026-10-31.apk",
+          "size": 15221120,
+          "sha256": "a962cb9e7f6088a43487a8f9acd034381be83bff0fe8b31f8f1c977e318bc189",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-10-30T19:28:39Z",
+          "notes": "More watches in the catalog: models sold by Kamal, Krishna, Zimson, Helios and Swiss Time House that the main catalog doesn't list are now included, even when out of stock."
+        },
+        {
           "versionName": "1.0.7",
           "versionCode": 8,
           "tag": "com.casiohunt-v1.0.7-b8",
@@ -178,25 +191,18 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-21T16:03:40Z",
           "notes": "Interactive price history chart: tap to inspect price, date, and store for every point. Eliminated random store-switching lines, added price direction badge (up/down delta), and full price history bottom sheet on wishlist."
-        },
-        {
-          "versionName": "1.0.6",
-          "versionCode": 7,
-          "tag": "com.casiohunt-v1.0.6-b7",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.casiohunt-v1.0.6-b7/CasioHunt-v1.0.6-b7-2026-10-21.apk",
-          "size": 16798628,
-          "sha256": "a3404f439a981a1893b0159272c8ace58ecf73f7649bd5d3365bf350a87b4b73",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-21T15:13:56Z",
-          "notes": "Hunt screen now shows when each store was last checked, in-stock watches float to the top with a green outline, and price is always tracked since you added the watch to your hunt list."
         }
       ],
       "name": "Panda Casio Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png?v=8",
-      "updatedAt": "2026-10-21T16:03:40Z",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.casiohunt.png?v=9",
+      "updatedAt": "2026-10-30T19:28:39Z",
       "history": [
+        {
+          "versionName": "1.0.8",
+          "versionCode": 9,
+          "releasedAt": "2026-10-30T19:28:39Z",
+          "notes": "More watches in the catalog: models sold by Kamal, Krishna, Zimson, Helios and Swiss Time House that the main catalog doesn't list are now included, even when out of stock."
+        },
         {
           "versionName": "1.0.7",
           "versionCode": 8,
@@ -427,5 +433,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30T09:37:56Z"
+  "updatedAt": "2026-10-30T19:28:39Z"
 }
