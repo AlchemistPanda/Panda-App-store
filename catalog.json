@@ -5,6 +5,19 @@
       "packageName": "com.pandaapps.printerautolevel",
       "releases": [
         {
+          "versionName": "1.0.10",
+          "versionCode": 11,
+          "tag": "com.pandaapps.printerautolevel-v1.0.10-b11",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.10-b11/Panda3DPrinterAutoLevel-v1.0.10-b11-2026-11-01.apk",
+          "size": 13346911,
+          "sha256": "d8741b32c8639b89fb698f56b89eb3bfcf9e33226223f5e02199d345f66d2b12",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-01T16:33:46Z",
+          "notes": "New Bed shape analysis finds bulges, dips and twist, with fixes that need no new plate: tape map, hot leveling, and fitting the mesh to a fine scan. Animated turn coach shows exactly how far to turn each knob; tramming now removes twist too. Set your own nozzle and bed temperatures for SD prints, get alerts when a heater drifts, and smart passes re-probe when readings disagree."
+        },
+        {
           "versionName": "1.0.9",
           "versionCode": 10,
           "tag": "com.pandaapps.printerautolevel-v1.0.9-b10",
@@ -16,22 +29,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-30T09:37:56Z",
           "notes": "Fixed Fine scan stopping with \"The probe did not report a height\". It now scans only where the printer's probe can reach (the same area Auto level uses), and a point the printer refuses is measured as close to it as possible instead of failing the whole scan."
-        },
-        {
-          "versionName": "1.0.8",
-          "versionCode": 9,
-          "tag": "com.pandaapps.printerautolevel-v1.0.8-b9",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.8-b9/Panda3DPrinterAutoLevel-v1.0.8-b9-2026-10-30.apk",
-          "size": 13281375,
-          "sha256": "a244fd775efd15f0cac04e55d50bda54bb879995f93d4255dd3a9e274c796062",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-29T19:27:17Z",
-          "notes": "Home now tells you exactly what to do when the bed isn't ready, step by step. A bent bed now offers Fine scan first instead of leveling again. New 'What the words mean' card explains mesh, tram, warp and the other terms."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.10",
+          "versionCode": 11,
+          "releasedAt": "2026-11-01T16:33:46Z",
+          "notes": "New Bed shape analysis finds bulges, dips and twist, with fixes that need no new plate: tape map, hot leveling, and fitting the mesh to a fine scan. Animated turn coach shows exactly how far to turn each knob; tramming now removes twist too. Set your own nozzle and bed temperatures for SD prints, get alerts when a heater drifts, and smart passes re-probe when readings disagree."
+        },
         {
           "versionName": "1.0.9",
           "versionCode": 10,
@@ -88,8 +94,8 @@
         }
       ],
       "name": "Panda 3D Printer Auto Level",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=10",
-      "updatedAt": "2026-10-30T09:37:56Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=11",
+      "updatedAt": "2026-11-01T16:33:46Z"
     },
     {
       "packageName": "com.pandaapps.appstore",
@@ -433,5 +439,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30T19:28:39Z"
+  "updatedAt": "2026-11-01T16:33:46Z"
 }
