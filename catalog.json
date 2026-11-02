@@ -5,6 +5,19 @@
       "packageName": "com.pandaapps.printerautolevel",
       "releases": [
         {
+          "versionName": "1.0.11",
+          "versionCode": 12,
+          "tag": "com.pandaapps.printerautolevel-v1.0.11-b12",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.11-b12/Panda3DPrinterAutoLevel-v1.0.11-b12-2026-11-02.apk",
+          "size": 13363295,
+          "sha256": "96bb607bc71caf1e07480d6368d2dfc363e50067c4a515c1957cd03d174e01e7",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-02T11:58:13Z",
+          "notes": "New corner paper check on the Tram tab: paper test at the centre and each knob, gives knob turns and checks the mesh at each corner."
+        },
+        {
           "versionName": "1.0.10",
           "versionCode": 11,
           "tag": "com.pandaapps.printerautolevel-v1.0.10-b11",
@@ -16,22 +29,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-01T16:33:46Z",
           "notes": "New Bed shape analysis finds bulges, dips and twist, with fixes that need no new plate: tape map, hot leveling, and fitting the mesh to a fine scan. Animated turn coach shows exactly how far to turn each knob; tramming now removes twist too. Set your own nozzle and bed temperatures for SD prints, get alerts when a heater drifts, and smart passes re-probe when readings disagree."
-        },
-        {
-          "versionName": "1.0.9",
-          "versionCode": 10,
-          "tag": "com.pandaapps.printerautolevel-v1.0.9-b10",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.printerautolevel-v1.0.9-b10/Panda3DPrinterAutoLevel-v1.0.9-b10-2026-10-30.apk",
-          "size": 13264991,
-          "sha256": "f6775be4cf296e1ef79cfd1abf0bf87caec22cc57085d0afe961abc460112430",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-30T09:37:56Z",
-          "notes": "Fixed Fine scan stopping with \"The probe did not report a height\". It now scans only where the printer's probe can reach (the same area Auto level uses), and a point the printer refuses is measured as close to it as possible instead of failing the whole scan."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.11",
+          "versionCode": 12,
+          "releasedAt": "2026-11-02T11:58:13Z",
+          "notes": "New corner paper check on the Tram tab: paper test at the centre and each knob, gives knob turns and checks the mesh at each corner."
+        },
         {
           "versionName": "1.0.10",
           "versionCode": 11,
@@ -94,8 +100,8 @@
         }
       ],
       "name": "Panda 3D Printer Auto Level",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=11",
-      "updatedAt": "2026-11-01T16:33:46Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.printerautolevel.png?v=12",
+      "updatedAt": "2026-11-02T11:58:13Z"
     },
     {
       "packageName": "com.pandaapps.appstore",
@@ -439,5 +445,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01T16:33:46Z"
+  "updatedAt": "2026-11-02T11:58:13Z"
 }
