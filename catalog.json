@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.6-b7",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.6-b7/PandaVideoCreator-v1.0.6-b7-2026-11-05.apk",
+          "size": 60884428,
+          "sha256": "511484cc199bd6257d16b09ea15c7dbbc060e0b4549e86fcf1062d0014192836",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-05T15:32:51Z",
+          "notes": "Redesigned song trimming screen with smooth marker dragging, clean Cyber Glass handles, tenths-of-a-second clock readouts, and high-precision nudge controls."
+        },
+        {
           "versionName": "1.0.5",
           "versionCode": 6,
           "tag": "com.pandaapps.pandavideocreator-v1.0.5-b6",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-10-27T16:51:17Z",
           "notes": "Full song waveform navigation with smooth front/left marker repositioning; in-screen autoplay preview toggle in audio trimmer and timeline."
-        },
-        {
-          "versionName": "1.0.4",
-          "versionCode": 5,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.4-b5",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.4-b5/PandaVideoCreator-v1.0.4-b5-2026-10-27.apk",
-          "size": 60872428,
-          "sha256": "76f5c74675c7bb8acc39c7691f40d36b0214ea24e71f3cde6b0760e30c18de86",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-10-27T16:33:33Z",
-          "notes": "Audio preview with seek playhead in YouTube song search; direct transition to song start marker trim screen upon selection."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.6",
+          "versionCode": 7,
+          "releasedAt": "2026-11-05T15:32:51Z",
+          "notes": "Redesigned song trimming screen with smooth marker dragging, clean Cyber Glass handles, tenths-of-a-second clock readouts, and high-precision nudge controls."
+        },
         {
           "versionName": "1.0.5",
           "versionCode": 6,
@@ -393,8 +399,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=6",
-      "updatedAt": "2026-10-27T16:51:17Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=7",
+      "updatedAt": "2026-11-05T15:32:51Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -445,5 +451,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02T11:58:13Z"
+  "updatedAt": "2026-11-05T15:32:51Z"
 }
