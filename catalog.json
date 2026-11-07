@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.12",
+          "versionCode": 13,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.12-b13",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.12-b13/PandaVideoCreator-v1.0.12-b13-2026-11-07.apk",
+          "size": 61390060,
+          "sha256": "cd22ba134486bd2d10fec35736c1bab6afa4f7df01a024eb4bc22fb49b1d48c2",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-07T18:06:52Z",
+          "notes": "New Slow motion: in a video's More menu, pick Slow or Very slow. Videos filmed in Slow-mo or at 60 fps slow down perfectly smoothly; normal videos get soft in-between frames so they glide instead of stepping."
+        },
+        {
           "versionName": "1.0.11",
           "versionCode": 12,
           "tag": "com.pandaapps.pandavideocreator-v1.0.11-b12",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-07T17:22:29Z",
           "notes": "New Filters: give any photo or video a richer look with Vivid, or let Auto fix brightness, contrast and colour in one tap. Use them on one clip or every clip. A video's Volume is now in its More menu."
-        },
-        {
-          "versionName": "1.0.10",
-          "versionCode": 11,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.10-b11",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.10-b11/PandaVideoCreator-v1.0.10-b11-2026-11-07.apk",
-          "size": 61357104,
-          "sha256": "471bc6a1d9a9d81ad3acb86422e6b958d749c74b23419cc1c5cbc6fa1d28d533",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-07T16:57:51Z",
-          "notes": "Brand new app icon featuring a 3D panda editing videos on a curved holographic timeline with clean round icon styling."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.12",
+          "versionCode": 13,
+          "releasedAt": "2026-11-07T18:06:52Z",
+          "notes": "New Slow motion: in a video's More menu, pick Slow or Very slow. Videos filmed in Slow-mo or at 60 fps slow down perfectly smoothly; normal videos get soft in-between frames so they glide instead of stepping."
+        },
         {
           "versionName": "1.0.11",
           "versionCode": 12,
@@ -429,8 +435,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=12",
-      "updatedAt": "2026-11-07T17:22:29Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=13",
+      "updatedAt": "2026-11-07T18:06:52Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -510,5 +516,5 @@
       "updatedAt": "2026-11-06T09:56:52Z"
     }
   ],
-  "updatedAt": "2026-11-07T17:22:29Z"
+  "updatedAt": "2026-11-07T18:06:52Z"
 }
