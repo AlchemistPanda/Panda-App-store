@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.9",
+          "versionCode": 10,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.9-b10",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.9-b10/PandaVideoCreator-v1.0.9-b10-2026-11-07.apk",
+          "size": 60890180,
+          "sha256": "8ddfc151945877f043d9f2f00763abf01b1443392568cd53005344ea5dcc8651",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-07T16:10:40Z",
+          "notes": "Fixes the crash when opening a video or adding photos and videos (on Samsung, Vivo and other phones). Scrubbing the timeline is safe again."
+        },
+        {
           "versionName": "1.0.8",
           "versionCode": 9,
           "tag": "com.pandaapps.pandavideocreator-v1.0.8-b9",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-06T11:11:22Z",
           "notes": "Refined timeline UI with high-contrast transition buttons, frosted glass lane controls, and clean monospace timecode; relocated auto-preview toggle to the preview window for an uncluttered layout; optimized playback to 60 FPS and coalesced seeking for buttery-smooth timeline scrubbing."
-        },
-        {
-          "versionName": "1.0.7",
-          "versionCode": 8,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.7-b8",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.7-b8/PandaVideoCreator-v1.0.7-b8-2026-11-06.apk",
-          "size": 60885324,
-          "sha256": "fc338c3812c0d512c49b93c794a691cc2d127037b661da5c4af943a2051ad463",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-06T10:46:54Z",
-          "notes": "Fixed playback pausing after 2\u20133 seconds on the timeline; fixed audio desynchronization and decoder stalls on video transitions and volume adjustments; improved playback stability across all video qualities."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.9",
+          "versionCode": 10,
+          "releasedAt": "2026-11-07T16:10:40Z",
+          "notes": "Fixes the crash when opening a video or adding photos and videos (on Samsung, Vivo and other phones). Scrubbing the timeline is safe again."
+        },
         {
           "versionName": "1.0.8",
           "versionCode": 9,
@@ -411,8 +417,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=9",
-      "updatedAt": "2026-11-06T11:11:22Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=10",
+      "updatedAt": "2026-11-07T16:10:40Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -492,5 +498,5 @@
       "updatedAt": "2026-11-06T09:56:52Z"
     }
   ],
-  "updatedAt": "2026-11-06T11:11:22Z"
+  "updatedAt": "2026-11-07T16:10:40Z"
 }
