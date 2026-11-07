@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.11",
+          "versionCode": 12,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.11-b12",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.11-b12/PandaVideoCreator-v1.0.11-b12-2026-11-07.apk",
+          "size": 61378056,
+          "sha256": "83b31f29c9173a2c2aa493bb4b09ebcb792383409e309f69a6db9a1c87dabe10",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-07T17:22:29Z",
+          "notes": "New Filters: give any photo or video a richer look with Vivid, or let Auto fix brightness, contrast and colour in one tap. Use them on one clip or every clip. A video's Volume is now in its More menu."
+        },
+        {
           "versionName": "1.0.10",
           "versionCode": 11,
           "tag": "com.pandaapps.pandavideocreator-v1.0.10-b11",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-07T16:57:51Z",
           "notes": "Brand new app icon featuring a 3D panda editing videos on a curved holographic timeline with clean round icon styling."
-        },
-        {
-          "versionName": "1.0.9",
-          "versionCode": 10,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.9-b10",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.9-b10/PandaVideoCreator-v1.0.9-b10-2026-11-07.apk",
-          "size": 60890180,
-          "sha256": "8ddfc151945877f043d9f2f00763abf01b1443392568cd53005344ea5dcc8651",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-07T16:10:40Z",
-          "notes": "Fixes the crash when opening a video or adding photos and videos (on Samsung, Vivo and other phones). Scrubbing the timeline is safe again."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.11",
+          "versionCode": 12,
+          "releasedAt": "2026-11-07T17:22:29Z",
+          "notes": "New Filters: give any photo or video a richer look with Vivid, or let Auto fix brightness, contrast and colour in one tap. Use them on one clip or every clip. A video's Volume is now in its More menu."
+        },
         {
           "versionName": "1.0.10",
           "versionCode": 11,
@@ -423,8 +429,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=11",
-      "updatedAt": "2026-11-07T16:57:51Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=12",
+      "updatedAt": "2026-11-07T17:22:29Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -504,5 +510,5 @@
       "updatedAt": "2026-11-06T09:56:52Z"
     }
   ],
-  "updatedAt": "2026-11-07T16:57:51Z"
+  "updatedAt": "2026-11-07T17:22:29Z"
 }
