@@ -514,6 +514,35 @@
       "name": "PandaPlay",
       "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaplay.app.png?v=2",
       "updatedAt": "2026-11-06T09:56:52Z"
+    },
+    {
+      "packageName": "com.pincodehunt",
+      "releases": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "tag": "com.pincodehunt-v1.0.0-b1",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.0-b1/PinCodeHunt-v1.0.0-b1-2026-11-08.apk",
+          "size": 13561349,
+          "sha256": "3dec3af64b306b2718137b43bc4e19e2e7c2c28fbecf8edc05832b18498c6d06",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-08T11:25:06Z",
+          "notes": "Initial release: Multi-store Hot Wheels & Matchbox stock hunter across Blinkit, Zepto, Swiggy Instamart, BigBasket, and Flipkart Minutes with Cyber Glass UI, PIN code explorer, and circuit breaker IP defense."
+        }
+      ],
+      "history": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "releasedAt": "2026-11-08T11:25:06Z",
+          "notes": "Initial release: Multi-store Hot Wheels & Matchbox stock hunter across Blinkit, Zepto, Swiggy Instamart, BigBasket, and Flipkart Minutes with Cyber Glass UI, PIN code explorer, and circuit breaker IP defense."
+        }
+      ],
+      "name": "PIN Code Hunt",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=1",
+      "updatedAt": "2026-11-08T11:25:06Z"
     }
   ],
   "updatedAt": "2026-11-07T18:06:52Z"
