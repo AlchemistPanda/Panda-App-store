@@ -519,6 +519,19 @@
       "packageName": "com.pincodehunt",
       "releases": [
         {
+          "versionName": "1.0.2",
+          "versionCode": 3,
+          "tag": "com.pincodehunt-v1.0.2-b3",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.2-b3/PinCodeHunt-v1.0.2-b3-2026-11-08.apk",
+          "size": 13598681,
+          "sha256": "d7923d9dc6748ec2d6256827f5c99041cf67829a5d0103c1fb71aaec4ec72035",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-08T12:22:23Z",
+          "notes": "Added live diecast product photos via verified CDN, smart car model parsing for 15+ distinct castings, and interactive 'What Does PIN Code Hunt Do' mission guide."
+        },
+        {
           "versionName": "1.0.1",
           "versionCode": 2,
           "tag": "com.pincodehunt-v1.0.1-b2",
@@ -530,22 +543,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-08T11:34:08Z",
           "notes": "New Panda PIN code hunter icon, cyber-glass theme refinements, and version 1.0.1 update."
-        },
-        {
-          "versionName": "1.0.0",
-          "versionCode": 1,
-          "tag": "com.pincodehunt-v1.0.0-b1",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.0-b1/PinCodeHunt-v1.0.0-b1-2026-11-08.apk",
-          "size": 13561349,
-          "sha256": "3dec3af64b306b2718137b43bc4e19e2e7c2c28fbecf8edc05832b18498c6d06",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-08T11:25:06Z",
-          "notes": "Initial release: Multi-store Hot Wheels & Matchbox stock hunter across Blinkit, Zepto, Swiggy Instamart, BigBasket, and Flipkart Minutes with Cyber Glass UI, PIN code explorer, and circuit breaker IP defense."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.2",
+          "versionCode": 3,
+          "releasedAt": "2026-11-08T12:22:23Z",
+          "notes": "Added live diecast product photos via verified CDN, smart car model parsing for 15+ distinct castings, and interactive 'What Does PIN Code Hunt Do' mission guide."
+        },
         {
           "versionName": "1.0.1",
           "versionCode": 2,
@@ -560,9 +566,9 @@
         }
       ],
       "name": "PIN Code Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=2",
-      "updatedAt": "2026-11-08T11:34:08Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=3",
+      "updatedAt": "2026-11-08T12:22:23Z"
     }
   ],
-  "updatedAt": "2026-11-08T11:34:08Z"
+  "updatedAt": "2026-11-08T12:22:23Z"
 }
