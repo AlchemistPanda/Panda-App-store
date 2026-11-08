@@ -519,6 +519,19 @@
       "packageName": "com.pincodehunt",
       "releases": [
         {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "tag": "com.pincodehunt-v1.0.3-b4",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.3-b4/PinCodeHunt-v1.0.3-b4-2026-11-08.apk",
+          "size": 13631449,
+          "sha256": "ddd8b76623bd6ebd21b13f7bccbb82b8c0fd79f09704242a631b4a056ee5bfdf",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-08T13:09:30Z",
+          "notes": "Added Custom Target Watchlist to hunt specific cars with store aliases & direct links, added Skyline/Supra/Civic/Porsche models and themed 5-packs."
+        },
+        {
           "versionName": "1.0.2",
           "versionCode": 3,
           "tag": "com.pincodehunt-v1.0.2-b3",
@@ -530,22 +543,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-08T12:22:23Z",
           "notes": "Added live diecast product photos via verified CDN, smart car model parsing for 15+ distinct castings, and interactive 'What Does PIN Code Hunt Do' mission guide."
-        },
-        {
-          "versionName": "1.0.1",
-          "versionCode": 2,
-          "tag": "com.pincodehunt-v1.0.1-b2",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.1-b2/PinCodeHunt-v1.0.1-b2-2026-11-08.apk",
-          "size": 13582277,
-          "sha256": "967cb450b80552e26527aa1124e36bebb3823747df019810f19ab6df9e4af374",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-08T11:34:08Z",
-          "notes": "New Panda PIN code hunter icon, cyber-glass theme refinements, and version 1.0.1 update."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.3",
+          "versionCode": 4,
+          "releasedAt": "2026-11-08T13:09:30Z",
+          "notes": "Added Custom Target Watchlist to hunt specific cars with store aliases & direct links, added Skyline/Supra/Civic/Porsche models and themed 5-packs."
+        },
         {
           "versionName": "1.0.2",
           "versionCode": 3,
@@ -566,9 +572,9 @@
         }
       ],
       "name": "PIN Code Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=3",
-      "updatedAt": "2026-11-08T12:22:23Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=4",
+      "updatedAt": "2026-11-08T13:09:30Z"
     }
   ],
-  "updatedAt": "2026-11-08T12:22:23Z"
+  "updatedAt": "2026-11-08T13:09:30Z"
 }
