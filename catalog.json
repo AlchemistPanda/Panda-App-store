@@ -525,6 +525,19 @@
       "packageName": "com.pincodehunt",
       "releases": [
         {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "tag": "com.pincodehunt-v1.0.4-b5",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.4-b5/PinCodeHunt-v1.0.4-b5-2026-11-09.apk",
+          "size": 13631449,
+          "sha256": "774934e0e25cf8d227c09719d117ff88a885305c434801ff4cd9d2b759b1f1eb",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-09T15:05:51Z",
+          "notes": "Showcases live 560036 Blinkit cars (Nissan Skyline 2000 GT-R, '70 Ford Escort RS1600, Duck N' Roll, etc.), adds auto-copy of delivery PIN code to clipboard, and fixes direct store links with valid search paths."
+        },
+        {
           "versionName": "1.0.3",
           "versionCode": 4,
           "tag": "com.pincodehunt-v1.0.3-b4",
@@ -536,22 +549,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-08T13:09:30Z",
           "notes": "Added Custom Target Watchlist to hunt specific cars with store aliases & direct links, added Skyline/Supra/Civic/Porsche models and themed 5-packs."
-        },
-        {
-          "versionName": "1.0.2",
-          "versionCode": 3,
-          "tag": "com.pincodehunt-v1.0.2-b3",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pincodehunt-v1.0.2-b3/PinCodeHunt-v1.0.2-b3-2026-11-08.apk",
-          "size": 13598681,
-          "sha256": "d7923d9dc6748ec2d6256827f5c99041cf67829a5d0103c1fb71aaec4ec72035",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 26,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-08T12:22:23Z",
-          "notes": "Added live diecast product photos via verified CDN, smart car model parsing for 15+ distinct castings, and interactive 'What Does PIN Code Hunt Do' mission guide."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.4",
+          "versionCode": 5,
+          "releasedAt": "2026-11-09T15:05:51Z",
+          "notes": "Showcases live 560036 Blinkit cars (Nissan Skyline 2000 GT-R, '70 Ford Escort RS1600, Duck N' Roll, etc.), adds auto-copy of delivery PIN code to clipboard, and fixes direct store links with valid search paths."
+        },
         {
           "versionName": "1.0.3",
           "versionCode": 4,
@@ -578,9 +584,9 @@
         }
       ],
       "name": "PIN Code Hunt",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=4",
-      "updatedAt": "2026-11-08T13:09:30Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pincodehunt.png?v=5",
+      "updatedAt": "2026-11-09T15:05:51Z"
     }
   ],
-  "updatedAt": "2026-11-09T09:37:09Z"
+  "updatedAt": "2026-11-09T15:05:51Z"
 }
