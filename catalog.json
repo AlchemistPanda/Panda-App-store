@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.15",
+          "versionCode": 16,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.15-b16",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.15-b16/PandaVideoCreator-v1.0.15-b16-2026-11-10.apk",
+          "size": 61419288,
+          "sha256": "96327633814bdf0f93e3722171fa3c56447efb47231e703ce70efd52964eec4d",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-10T18:22:16Z",
+          "notes": "Default 1-second dip to black for the ending of videos and photos, dynamically maintained across cut, replace, and reorder operations; default 1-second audio fade-out on the final audio track; added audio splitting with seamless cut seams."
+        },
+        {
           "versionName": "1.0.14",
           "versionCode": 15,
           "tag": "com.pandaapps.pandavideocreator-v1.0.14-b15",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-10T17:00:16Z",
           "notes": "Fixed project video flashing on the home screen when navigating back from the editor; refreshed home screen with real video preview thumbnails and relative timestamps; added double-tap play/pause gestures and ambient cinema glow to the player; enhanced timeline with rounded glowing audio waveforms and haptic feedback."
-        },
-        {
-          "versionName": "1.0.13",
-          "versionCode": 14,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.13-b14",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.13-b14/PandaVideoCreator-v1.0.13-b14-2026-11-09.apk",
-          "size": 61397204,
-          "sha256": "d50bae9ca0fff128f80df16fe70cbea85e92a4489752131de414717c9fec6888",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-09T09:37:09Z",
-          "notes": "Added 8 new transition effects: Warm glow, Zoom out, Slide right, Slide up, Slide down, Spin, Card flip, and Glitch shake, bringing the total to 12 effects."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.15",
+          "versionCode": 16,
+          "releasedAt": "2026-11-10T18:22:16Z",
+          "notes": "Default 1-second dip to black for the ending of videos and photos, dynamically maintained across cut, replace, and reorder operations; default 1-second audio fade-out on the final audio track; added audio splitting with seamless cut seams."
+        },
         {
           "versionName": "1.0.14",
           "versionCode": 15,
@@ -447,8 +453,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=15",
-      "updatedAt": "2026-11-10T17:00:16Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=16",
+      "updatedAt": "2026-11-10T18:22:16Z"
     },
     {
       "packageName": "com.pandagrab.app",
@@ -594,5 +600,5 @@
       "updatedAt": "2026-11-09T15:05:51Z"
     }
   ],
-  "updatedAt": "2026-11-10T17:00:16Z"
+  "updatedAt": "2026-11-10T18:22:16Z"
 }
