@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.17",
+          "versionCode": 18,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.17-b18",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.17-b18/PandaVideoCreator-v1.0.17-b18-2026-11-15.apk",
+          "size": 61417880,
+          "sha256": "d3283090ceccefcf1e9bb1049471448742af91c27043e5459a90635b26695873",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-15T16:14:00Z",
+          "notes": "Fixed the app closing when you open a project. The preview picture shows again in the editor."
+        },
+        {
           "versionName": "1.0.16",
           "versionCode": 17,
           "tag": "com.pandaapps.pandavideocreator-v1.0.16-b17",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-11T10:40:03Z",
           "notes": "Removed the blocking undo prompt when removing or cutting clips and audio, keeping controls instantly accessible; added a close button to informational alerts."
-        },
-        {
-          "versionName": "1.0.15",
-          "versionCode": 16,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.15-b16",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.15-b16/PandaVideoCreator-v1.0.15-b16-2026-11-10.apk",
-          "size": 61419288,
-          "sha256": "96327633814bdf0f93e3722171fa3c56447efb47231e703ce70efd52964eec4d",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-10T18:22:16Z",
-          "notes": "Default 1-second dip to black for the ending of videos and photos, dynamically maintained across cut, replace, and reorder operations; default 1-second audio fade-out on the final audio track; added audio splitting with seamless cut seams."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.17",
+          "versionCode": 18,
+          "releasedAt": "2026-11-15T16:14:00Z",
+          "notes": "Fixed the app closing when you open a project. The preview picture shows again in the editor."
+        },
         {
           "versionName": "1.0.16",
           "versionCode": 17,
@@ -459,8 +465,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=17",
-      "updatedAt": "2026-11-11T10:40:03Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=18",
+      "updatedAt": "2026-11-15T16:14:00Z"
     },
     {
       "packageName": "com.panda.wishlist",
@@ -635,5 +641,5 @@
       "updatedAt": "2026-11-09T15:05:51Z"
     }
   ],
-  "updatedAt": "2026-11-11T10:40:03Z"
+  "updatedAt": "2026-11-15T16:14:00Z"
 }
