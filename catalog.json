@@ -463,6 +463,35 @@
       "updatedAt": "2026-11-11T10:40:03Z"
     },
     {
+      "packageName": "com.panda.wishlist",
+      "releases": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "tag": "com.panda.wishlist-v1.0.0-b1",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.panda.wishlist-v1.0.0-b1/PandaWishlist-v1.0.0-b1-2026-11-15.apk",
+          "size": 13811375,
+          "sha256": "ba70980a64232e66f0b4b0d27a76a6bdbcac7d44331c97287f139a220ec59274",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 26,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-15T09:50:21Z",
+          "notes": "Initial release of Panda Wishlist: share links, images, and text from WhatsApp, Instagram, Facebook, Amazon, Flipkart, or Gallery into wishlists, publish to a free GitHub Pages web viewer, and let friends pick wishes!"
+        }
+      ],
+      "history": [
+        {
+          "versionName": "1.0.0",
+          "versionCode": 1,
+          "releasedAt": "2026-11-15T09:50:21Z",
+          "notes": "Initial release of Panda Wishlist: share links, images, and text from WhatsApp, Instagram, Facebook, Amazon, Flipkart, or Gallery into wishlists, publish to a free GitHub Pages web viewer, and let friends pick wishes!"
+        }
+      ],
+      "name": "Panda Wishlist",
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.panda.wishlist.png?v=1",
+      "updatedAt": "2026-11-15T09:50:21Z"
+    },
+    {
       "packageName": "com.pandagrab.app",
       "releases": [
         {
