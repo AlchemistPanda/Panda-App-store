@@ -334,6 +334,19 @@
       "packageName": "com.pandaapps.pandavideocreator",
       "releases": [
         {
+          "versionName": "1.0.18",
+          "versionCode": 19,
+          "tag": "com.pandaapps.pandavideocreator-v1.0.18-b19",
+          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.18-b19/PandaVideoCreator-v1.0.18-b19-2026-11-17.apk",
+          "size": 61477312,
+          "sha256": "3fa0c297959828a9aff36ba9971864e8b2922fa3d4b98183953457d9f224c421",
+          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
+          "minSdk": 29,
+          "targetSdk": 36,
+          "releasedAt": "2026-11-17T15:31:32Z",
+          "notes": "Added video and photo cropping with aspect-ratio lock and free cropping, plus a Background option to choose between blurred or any solid colour."
+        },
+        {
           "versionName": "1.0.17",
           "versionCode": 18,
           "tag": "com.pandaapps.pandavideocreator-v1.0.17-b18",
@@ -345,22 +358,15 @@
           "targetSdk": 36,
           "releasedAt": "2026-11-15T16:14:00Z",
           "notes": "Fixed the app closing when you open a project. The preview picture shows again in the editor."
-        },
-        {
-          "versionName": "1.0.16",
-          "versionCode": 17,
-          "tag": "com.pandaapps.pandavideocreator-v1.0.16-b17",
-          "apkUrl": "https://github.com/AlchemistPanda/Panda-App-store/releases/download/com.pandaapps.pandavideocreator-v1.0.16-b17/PandaVideoCreator-v1.0.16-b17-2026-11-11.apk",
-          "size": 61416428,
-          "sha256": "a98abde1d042f5d80534bfabfed909480d06e6f9646237722eae3798a16cbc44",
-          "signerSha256": "ae234c8a18366995e0f656128c383dc7f6464f42332c913552d12bb9b3abd509",
-          "minSdk": 29,
-          "targetSdk": 36,
-          "releasedAt": "2026-11-11T10:40:03Z",
-          "notes": "Removed the blocking undo prompt when removing or cutting clips and audio, keeping controls instantly accessible; added a close button to informational alerts."
         }
       ],
       "history": [
+        {
+          "versionName": "1.0.18",
+          "versionCode": 19,
+          "releasedAt": "2026-11-17T15:31:32Z",
+          "notes": "Added video and photo cropping with aspect-ratio lock and free cropping, plus a Background option to choose between blurred or any solid colour."
+        },
         {
           "versionName": "1.0.17",
           "versionCode": 18,
@@ -465,8 +471,8 @@
         }
       ],
       "name": "Panda Video Creator",
-      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=18",
-      "updatedAt": "2026-11-15T16:14:00Z"
+      "iconUrl": "https://raw.githubusercontent.com/AlchemistPanda/Panda-App-store/store/icons/com.pandaapps.pandavideocreator.png?v=19",
+      "updatedAt": "2026-11-17T15:31:32Z"
     },
     {
       "packageName": "com.panda.wishlist",
@@ -672,5 +678,5 @@
       "updatedAt": "2026-11-09T15:05:51Z"
     }
   ],
-  "updatedAt": "2026-11-17T14:33:38Z"
+  "updatedAt": "2026-11-17T15:31:32Z"
 }
